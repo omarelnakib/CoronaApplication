@@ -1,0 +1,20 @@
+export default {
+    primary : '#70b1c9',
+    secondary: '#11b3cc',
+    light: '#ffffff',
+    dark: '#3d3d3d',
+    lightgray: '#f7f7f7',
+    darkgray: '#3c3c3c',
+    error: '#fa4040',
+    placeholder: '#bfbfbf',
+    // shadow:'rgba(0, 0, 0, 0.08)',
+    // primaryCheck:'#423482',
+    // secondCheck:'#fa9f1d',
+    // oddItem: '#403183',
+    // evenItem: '#FAA017',
+    // backgray: '#f0f0f0',
+    // brightPrimary:'#423482',
+    // fontLightGray:'#b8b8b8',
+    // fontMidiumLightGray: 'rgba(61, 61, 61, 0.8)',
+    // cardLight: '#ececec'
+}
