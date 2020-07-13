@@ -15,12 +15,12 @@ const VisitedPlacesScreen = props => {
     const [visitedPlaces, setVisitedPlaces] = React.useState([]);
     const [place, setPlace] = React.useState('')
     const items = [
-        { id: '1', name: 'كلية حاسبات' },
+        { id: '1', name: 'كلية الحاسبات والمعلومات' },
         { id: '2', name: 'كلية هندسة' },
         { id: '3', name: 'كلية علوم' },
-        { id: '4', name: 'ادارة الجامعة' },
-        { id: '5', name: 'شئون الطلبة' },
-        { id: '6', name: 'شئون هيئة التدريس' },
+        { id: '4', name: 'إدارة الجامعة' },
+        { id: '5', name: 'مكتب شئون الطلبة, كلية الحاسبات والمعلومات' },
+        { id: '6', name: 'شئون هيئة التدريس, كلية الحاسبات والمعلومات' },
         { id: '7', name: 'المكتبة العامة' },
 
     ];
@@ -63,7 +63,6 @@ const VisitedPlacesScreen = props => {
                     hideTags
                     items={items}
                     uniqueKey="id"
-                   
                     onSelectedItemsChange={onSelectedItemsChange}
                     selectedItems={visitedPlaces}
                     selectText="اختر اماكن"
@@ -82,7 +81,7 @@ const VisitedPlacesScreen = props => {
                 />
                 {/* button part */}
                 {/*Save In Button  */}
-                <RoundButton style={{ marginTop: 10 }} value="تسجيل الاماكن"></RoundButton>
+                <RoundButton style={{ marginTop: 20 }} handleClick={() => { props.navigation.navigate('HomeScreen') }} value="تسجيل الاماكن"></RoundButton>
 
             </ScrollView>
         </View>

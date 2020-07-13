@@ -43,7 +43,7 @@ const QuestionsForm = (props) => {
         }
 
         {/* footer button */}
-        <RoundButton style={{marginTop:20,marginBottom:20}} value="تابع" ></RoundButton>
+        <RoundButton handleClick={()=>props.submit()} style={{marginTop:20,marginBottom:20}}  value="تابع" ></RoundButton>
 
 </ScrollView>
       </View>

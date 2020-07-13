@@ -17,6 +17,7 @@ import LocationScreen from '../screens/LocationScreen';
 import VisitedPlacesScreen from '../screens/VisitedPlacesScreen';
 import PicturesScreen from '../screens/PicturesScreen';
 import DonationScreen from '../screens/DonationScreen';
+import ResultScreen from '../screens/ResultScreen';
 
 
 const Stack = createStackNavigator();
@@ -111,7 +112,7 @@ const MainStackNavigator = () => {
             <Stack.Screen name="NotificationScreen" component={NotificationsScreen} />
             <Stack.Screen name="LocationScreen" component={LocationScreen} />
             <Stack.Screen name="VisitedPlacesScreen" component={VisitedPlacesScreen} />
-            
+            <Stack.Screen name='ResultScreen' component={ResultScreen}/>
             <Stack.Screen name='PostScreen' component={PostScreen}></Stack.Screen>
 
         </Stack.Navigator>

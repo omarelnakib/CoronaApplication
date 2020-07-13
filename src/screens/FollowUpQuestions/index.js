@@ -17,29 +17,33 @@ const FollowUpQuestions = props => {
   const [DataList, setDataList] = useState([
     {
       id: '1',
-      question: "هل تعاني من الكحة الشديدة؟",
+      question: "هل تعاني من فقدان حاسة الشم؟",
       answers: [{value:'نعم',selected:false},{value:'لا',selected:false}]
 
     },
     {
       id: '2',
-      question: "هل تعاني من السعال",
+      question: "هل تعاني من ارتفاع في درجة الحرارة؟",
       answers: [{value:'نعم',selected:false},{value:'لا',selected:false}]
 
     },
     {
       id: '3',
-      question: "معلومات عن الفايروس المستجد كورونا فيروس والاعراض المصاحبة ",
+      question: "هل تعاني من الصداع؟",
       answers: [{value:'نعم',selected:false},{value:'لا',selected:false}]
     },
     {
       id: '4',
-      question: "معلومات عن الفايروس المستجد كورونا فيروس والاعراض المصاحبة ",
+      question: "هل تعاني من ضيق في التنفس؟",
+      answers: [{value:'نعم',selected:false},{value:'لا',selected:false}]
+    },
+    {
+      id: '5',
+      question: "هل تعاني من تكسير في الجسد",
       answers: [{value:'نعم',selected:false},{value:'لا',selected:false}]
     },
 
   ]);
-
   const chooseAnswer=(itemIndex,Answerindex)=>{
     let tempArr = [...DataList];
     console.log(itemIndex)
@@ -59,7 +63,7 @@ const FollowUpQuestions = props => {
         HandleBack={() => props.navigation.pop()}
         
       ></Header>
-      <QuestionsForm data={DataList} handleClick={(item,index) => chooseAnswer(item,index)}  ></QuestionsForm>
+      <QuestionsForm data={DataList} submit={()=>{props.navigation.navigate('HomeScreen')}} handleClick={(item,index) => chooseAnswer(item,index)}  ></QuestionsForm>
     
       </View>
      

@@ -5,6 +5,7 @@ import Header from '../../components/Header'
 import InputText from '../../components/InputText';
 import RoundButton from '../../components/RoundButton';
 import Colors from '../../assets/constants/Colors';
+import { IconButton } from 'react-native-paper';
 const { height, width } = Dimensions.get('window');
 
 const LocationScreen = props => {
@@ -13,31 +14,32 @@ const LocationScreen = props => {
     const [region, setRegion] = useState('');
     const [city, setCity] = useState('');
     const [street, setStreet] = useState('');
+    const [description,setDescription] = useState('')
     let locations = [
         {
-            city: 'قاهرة',
-            region:'مصر الجديدة',
-            street:'شارع المرغني'
+            city: 'القاهرة',
+            region:'العباسية',
+            street:'ميدان العباسية'
         },
         {
-            city: 'قاهرة',
+            city: 'القاهرة',
             region:'المعادي',
             street:'شارع 9'
         },
         {
-            city: 'قاهرة',
+            city: 'القاهرة',
             region:'مصر الجديدة',
             street:'نبيل الوقاد'
         },
         {
-            city: 'الشرقية',
-            region:'بلبيس',
-            street:'شاارع الشهداء'
+            city: 'الجيزة',
+            region:'الهرم',
+            street:'شارع فيصل'
         },
         {
-            city: 'الشرقية',
-            region:'بلبيس',
-            street:'انشاص'
+            city: 'الجيزة',
+            region:'الهرم',
+            street:'نزلة السمان'
         },
 
     ];
@@ -101,10 +103,18 @@ const LocationScreen = props => {
                         }
                     </Picker>
                 </View>
-
+                {/* Description */}
+                <Text style={[Style.title,{marginTop:20}]}>تفاصيل العنوان</Text>
+                <InputText inputType='TextInput' placeholder='اكتب تفاصيل العنوان'
+                value={description} HandleChange={(val)=>{setDescription(val)}}
+                style={{ width: '100%',borderBottomColor:Colors.primary }}  
+                secureTextEntry={false} autoCapitalize="none" autoCorrect={false}
+            ></InputText>
+                <Text style={{alignSelf:'center',marginTop:25}} >اختر من الخريطة</Text>
+                <IconButton  style={{alignSelf:'center'}}  size={35} icon={'map-marker-circle'} color={Colors.primary}/>
                 {/* button part */}
                 {/*Save In Button  */}
-                <RoundButton handleClick={() => { props.navigation.navigate('VisitedPlacesScreen') }} value="تسجيل العنوان"></RoundButton>
+                <RoundButton handleClick={() => { props.navigation.navigate('VisitedPlacesScreen') }} style={{marginTop:30}} value="تسجيل العنوان"></RoundButton>
 
             </ScrollView>
         </View>
