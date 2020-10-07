@@ -1,5 +1,5 @@
 {
-  "name": "AsuHealth",
+  "name": "asuhealth",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -10,6 +10,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@react-native-community/async-storage": "github:react-native-community/async-storage",
     "@react-native-community/masked-view": "^0.1.10",
     "@react-navigation/drawer": "^5.8.4",
     "@react-navigation/native": "^5.0.3",
@@ -27,12 +28,15 @@
     "react-native-reanimated": "^1.9.0",
     "react-native-safe-area-context": "^3.0.3",
     "react-native-screens": "^2.8.0",
+    "react-native-tiny-toast": "^1.0.7",
     "react-native-vector-icons": "^6.6.0",
     "react-native-video": "^4.4.5",
     "react-navigation": "^4.1.1",
     "react-navigation-stack": "^2.1.1",
-    "react-redux": "^7.2.0",
-    "redux": "^4.0.5"
+    "react-redux": "^7.2.1",
+    "redux": "^4.0.5",
+    "redux-persist": "^6.0.0",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",

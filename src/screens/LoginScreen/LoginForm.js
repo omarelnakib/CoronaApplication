@@ -5,16 +5,26 @@ import ImagesPaths from '../../assets/constants/ImagesPaths'
 import Colors from '../../assets/constants/Colors';
 import FontSizes from '../../assets/constants/FontSizes'
 import { validateForm, validate } from '../../Validation/Validation';
+import LoadingModel from '../../components/LoadingModel';
+
+import { useDispatch } from 'react-redux';
+import *as Action from '../../store/Actions/Auth';
+import { toast } from '../../assets/constants/Toaster';
 
 import InputText from '../../components/InputText';
 import RoundButton from '../../components/RoundButton';
+import User from '../../Models/User';
 const { height, width } = Dimensions.get('window');
 
 const LoginForm = props => {
+    const dispatch = useDispatch();
+
     const [ScreenHeight, setScreenHeight] = useState(height);
     const [ScreenWidth, setScreenWidth] = useState(width);
-    const [Mobile, setMobile] = React.useState({ value: '', IsValid: '' });
+    const [UserName, setUserName] = React.useState({ value: '', IsValid: '' });
     const [Passowrd, setPassword] = React.useState({ value: '', IsValid: '' });
+    const [isLoading,setIsLoading] = useState(false);
+
     // ---------------------------------------------------
     const changePasswod = event => {
 
@@ -22,18 +32,37 @@ const LoginForm = props => {
         setPassword({ value: event, IsValid: result.IsValid });
     };
 
-    const changeMobile = event => {
+    const changeUserName = event => {
         console.log(event)
         let result = validate('phone', event);
-        setMobile({ value: event, IsValid: result.IsValid });
+        setUserName({ value: event, IsValid: result.IsValid });
     };
+
+    const SignIn = event =>{
+         setIsLoading(true);
+        dispatch(Action.login({email:UserName.value,password:Passowrd.value},(event)=>{
+            console.log("Login",event);
+            if(event.ok)
+            {
+                setIsLoading(false);
+
+                props.nav.navigate('DrawerNavigator')
+            }
+            else{
+              setIsLoading(false);
+              toast(event.data)
+            }
+           }))
+        
+    }
     return (
         <View style={styles.formContainer}>
+                  <LoadingModel LoadingModalVisiblty={isLoading} />
             {/* Mobile Number */}
-            <Text style={styles.title}>رقم الموبيل</Text>
-            <InputText inputType='TextInput' placeholder='رقم الموبيل'
-                value={Mobile.value} HandleChange={changeMobile}
-                style={{ width: '100%' }} Isvalid={Mobile.IsValid}
+            <Text style={styles.title}>اسم الحساب</Text>
+            <InputText inputType='TextInput' placeholder='اسم الحساب'
+                value={UserName.value} HandleChange={changeUserName}
+                style={{ width: '100%' }} Isvalid={UserName.IsValid}
                 secureTextEntry={false} autoCapitalize="none" autoCorrect={false}
             ></InputText>
 
@@ -53,7 +82,7 @@ const LoginForm = props => {
             </TouchableOpacity> */} 
 
             {/*Sign In Button  */}
-            <RoundButton value="تسجيل دخول" handleClick={()=>{props.nav.navigate('DrawerNavigator')}}></RoundButton>
+            <RoundButton value="تسجيل دخول" handleClick={SignIn}></RoundButton>
 
             {/* Sign Up button */}
             <TouchableOpacity onPress={() => { props.nav.navigate('RegisterScreen') }}>

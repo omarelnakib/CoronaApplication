@@ -15,20 +15,27 @@ import MainStackNavigator from './src/navigations/index';
 import { NavigationContainer } from '@react-navigation/native';
 import { navigationRef } from './src/navigations/NavigationService';
 import Colors from './src/assets/constants/Colors';
+
+
+import configureStore from './src/store/StoreConfiguration';
+import initialState from './src/store/initialState';
 import { Provider } from 'react-redux';
-
-
 // import configureStore from './src/store/StoreConfiguration';
 // import initialState from './src/store/initialState';
 
 // const store = configureStore(initialState);
+const store = configureStore(initialState);
 
 export default function App() {
   console.disableYellowBox=true;
+
   return (
     // {/* <StatusBar backgroundColor={Colors.primary} barStyle={'light-content'}/> */}
+    <Provider store={store}>
       <NavigationContainer ref={navigationRef}>
         <MainStackNavigator />
       </NavigationContainer>
+      </Provider>
+
   );
 }
