@@ -56,7 +56,7 @@ const RegisterForm = props => {
                 break;
             }
             case 'Id': {
-                let result = validate('password', event);
+                let result = validate('id', event);
                 setId({ value: event, IsValid: result.IsValid });
                 break;
             }
@@ -92,12 +92,12 @@ const RegisterForm = props => {
                 secureTextEntry={true} autoCapitalize="none" autoCorrect={false}
             ></InputText>
             {/* Computer Number */}
-            <Text style={styles.title}>رقم الكمبيوتر</Text>
+            {/* <Text style={styles.title}>رقم الكمبيوتر</Text>
             <InputText inputType='TextInput' placeholder='رقم الكمبيوتر'
                 value={ComputerNumber.value} HandleChange={(event) => changeData(event, 'ComputerNumber')}
                 style={{ width: '100%' }} Isvalid={ComputerNumber.IsValid}
                 secureTextEntry={false} autoCapitalize="none" autoCorrect={false}
-            ></InputText>
+            ></InputText> */}
             {/* National ID */}
             <Text style={styles.title}>الرقم القومي</Text>
             <InputText inputType='TextInput' placeholder='الرقم القومي'

@@ -16,7 +16,7 @@ const DonationScreen = props => {
     return (
         <View style={Style.container}>
             {/* Header */}
-            <Header style={{ height: 70 }} bodyStyle={{ width: '80%' }} title='التبرعات' leftIcon='menu' HandleBack={() => props.navigation.openDrawer()}></Header>
+            <Header style={{ height: 70 }} bodyStyle={{ width: '80%' }} title='التبرعات' leftIcon='menu'  HandleBack={() => props.navigation.navigate('DrawerNavigator')}        HandleBack={() => props.navigation.navigate('MenuScreen')}></Header>
             <View style={{ padding: 20 }}>
                 {/* top note */}
                 <Text style={Style.title}>-اذا كنت تريد التبرع رجاءا اختيار نوعية التبرع وسيتم التواصل معك في اسرع وقت</Text>

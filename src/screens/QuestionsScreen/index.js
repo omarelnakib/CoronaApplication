@@ -73,7 +73,7 @@ const QuestionsScreen = props => {
   return (
     <>
       <View style={Style.container}>
-      <Header style={{ height: 70 }} bodyStyle={{ width: '80%' }} title='ابلاغ عن حالة' leftIcon='menu' HandleBack={() => props.navigation.openDrawer()}></Header>
+      <Header style={{ height: 70 }} bodyStyle={{ width: '80%' }} title='ابلاغ عن حالة' leftIcon='menu' HandleBack={() => props.navigation.navigate('MenuScreen')}></Header>
 
       <QuestionsForm submit={()=>submit()}  data={DataList} handleClick={(item,index) => chooseAnswer(item,index)}  ></QuestionsForm>
     

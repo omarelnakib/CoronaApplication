@@ -18,6 +18,8 @@ import VisitedPlacesScreen from '../screens/VisitedPlacesScreen';
 import PicturesScreen from '../screens/PicturesScreen';
 import DonationScreen from '../screens/DonationScreen';
 import ResultScreen from '../screens/ResultScreen';
+import MenuScreen from '../screens/MenuScreen';
+import MedicalVacationScreen from '../screens/MedicalVacationScreen';
 
 
 const Stack = createStackNavigator();
@@ -25,7 +27,16 @@ const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 function DrawerNavigator() {
     return (
-      <Drawer.Navigator
+      <Stack.Navigator headerMode="none" >
+      <Stack.Screen name="Home" component={HomeStackNavigator} />
+      <Stack.Screen name='MenuScreen' component={MenuScreen}/>
+
+      <Stack.Screen name="QuestionsScreen" component={QuestionsScreen} />
+      <Stack.Screen name="FollowUpStackNavigator" component={FollowUpStackNavigator} />
+      <Stack.Screen name="DoctorsNumbersScreen" component={DoctorsNumbersScreen} />
+      <Stack.Screen name="DonationScreen" component={DonationScreen} />
+      <Stack.Screen name="MedicalVacationScreen" component={MedicalVacationScreen}/>
+       {/* <Drawer.Navigator
         drawerContent={(props) => <SideBar {...props} />}
         drawerStyle={{width:'80%'}}
       >
@@ -65,7 +76,9 @@ function DrawerNavigator() {
             drawerLabel: "DonationScreen",
           }}
         />
-      </Drawer.Navigator>
+      </Drawer.Navigator> */}
+      </Stack.Navigator>
+
     );
   }
 

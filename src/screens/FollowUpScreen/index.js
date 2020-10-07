@@ -9,7 +9,7 @@ const FollowUpScreen = props => {
 
     return (
         <>
-            <Header style={{ height: 70 }} bodyStyle={{ width: '80%' }} title='المتابعة اليومية' leftIcon='menu' HandleBack={() => props.navigation.openDrawer()}></Header>
+            <Header style={{ height: 70 }} bodyStyle={{ width: '80%' }} title='المتابعة اليومية' leftIcon='menu'  HandleBack={() => props.navigation.navigate('MenuScreen')}></Header>
             <View style={styles.container}>
 
                 {/* Daily FollowUp */}

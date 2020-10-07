@@ -47,6 +47,12 @@ const MainHeader = props => {
               <IconButton icon="menu" size={25} color={Colors.light} onPress={props.HandleBack} style={[ Styles.iconInverse ]} >
               </IconButton>
   
+            ) :
+             // menu button
+             props.leftIcon == 'home' ? (
+              <IconButton icon="home" size={25} color={Colors.light} onPress={props.HandleBack} style={[ Styles.iconInverse ]} >
+              </IconButton>
+  
             )
             // account button
             :props.leftIcon == 'account' ? (

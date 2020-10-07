@@ -31,7 +31,7 @@ const DoctorsNumbersScreen = props => {
     <View style={Style.container}>
 
       <Header style={{ height: 70 }} title='ارقام اطباء المتابعة' leftIcon='menu'
-        HandleBack={() => props.navigation.openDrawer()}
+        HandleBack={() => props.navigation.navigate('MenuScreen')}
       ></Header>
       {/* List of all doctors numbers */}
       <FlatList
