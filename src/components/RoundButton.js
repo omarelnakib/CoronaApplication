@@ -27,7 +27,7 @@ const RoundButton = props => {
     return (
         <View style={{...Styles.Container,...props.style}}>
      
-            <TouchableOpacity  onPress={props.handleClick}>
+            <TouchableOpacity disabled={props.disabled} style={props.buttonStyle} onPress={props.handleClick}>
                 <Text style={Styles.title}>{props.value}</Text>
             </TouchableOpacity>
         </View>

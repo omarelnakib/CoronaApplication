@@ -4,7 +4,7 @@ import AsyncStorage from "@react-native-community/async-storage";
 import { navigate, replace, reset } from "../../navigations/NavigationService";
 import { Platform } from 'react-native';
 
-const BaseUrl = "https://webapis06102020.azurewebsites.net/api";
+const BaseUrl = "http://192.168.1.4:8080/api";
 // const Globals = require('../../constants/Globals');
 
 export const getHeaders = async (isToken) => {
@@ -96,7 +96,7 @@ export const getHeaders = async (isToken) => {
 export const Get = async(url,isTokenRequired) => {
         try {
             // getLang().then(async (lang) => {
-
+            console.log(`${BaseUrl}${url}`)
             const response = await fetch(`${BaseUrl}${url}`, {
                 method: "GET",
                 // headers: getHeaders(isTokenRequired)

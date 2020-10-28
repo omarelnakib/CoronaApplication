@@ -22,8 +22,8 @@ const MenuScreen = (props) => {
                 // },
                 {
                     active: false,
-                    TitleBtn: "إبلاغ عن حالة",
-                    ScreenName: "QuestionsScreen",
+                    TitleBtn: "البلاغات",
+                    ScreenName: "CasesScreen",
                 },
                 {
                     active: false,

@@ -29,7 +29,8 @@ const QuestionsForm = (props) => {
                   return (
                     <TouchableOpacity style={[styles.AnswerStyle,{borderColor:answer.selected?Colors.primary:Colors.placeholder}]} 
                     onPress={() => props.handleClick(itemIndex,index)}>
-                      <Text style={{ fontSize: FontSizes.subtitle }}> {index + 1}. {answer.value}</Text>
+                      <Text style={{ fontSize: FontSizes.subtitle,textAlign:'right' }}>.{index + 1}</Text>
+                      <Text style={{ fontSize: FontSizes.subtitle,textAlign:'right' }}>  {answer.answer}</Text>
                     </TouchableOpacity>
                   )
                 })
@@ -43,7 +44,7 @@ const QuestionsForm = (props) => {
         }
 
         {/* footer button */}
-        <RoundButton handleClick={()=>props.submit()} style={{marginTop:20,marginBottom:20}}  value="تابع" ></RoundButton>
+        <RoundButton handleClick={()=>props.submit()} disabled={props.disabled} buttonStyle={props.disabled?{opacity:0.5}:{opacity:1}} style={{marginTop:20,marginBottom:20}}  value="تابع" ></RoundButton>
 
 </ScrollView>
       </View>
@@ -85,7 +86,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingVertical: 15,
     paddingHorizontal: 10,
-    marginTop:10
+    marginTop:10,
+    flexDirection:'row-reverse',
+    justifyContent:'flex-start'
   }
 });
 

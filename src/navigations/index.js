@@ -20,7 +20,7 @@ import DonationScreen from '../screens/DonationScreen';
 import ResultScreen from '../screens/ResultScreen';
 import MenuScreen from '../screens/MenuScreen';
 import MedicalVacationScreen from '../screens/MedicalVacationScreen';
-
+import CasesScreen from '../screens/CasesScreen'
 
 const Stack = createStackNavigator();
 
@@ -32,6 +32,7 @@ function DrawerNavigator() {
       <Stack.Screen name='MenuScreen' component={MenuScreen}/>
 
       <Stack.Screen name="QuestionsScreen" component={QuestionsScreen} />
+      <Stack.Screen name="CasesScreen" component={CasesScreen} />
       <Stack.Screen name="FollowUpStackNavigator" component={FollowUpStackNavigator} />
       <Stack.Screen name="DoctorsNumbersScreen" component={DoctorsNumbersScreen} />
       <Stack.Screen name="DonationScreen" component={DonationScreen} />
