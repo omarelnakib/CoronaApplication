@@ -22,7 +22,7 @@ import initialState from './src/store/initialState';
 import { Provider } from 'react-redux';
 // import configureStore from './src/store/StoreConfiguration';
 // import initialState from './src/store/initialState';
-// import firebase from 'react-native-firebase';
+import firebase from 'react-native-firebase';
 
 // const store = configureStore(initialState);
 const store = configureStore(initialState);
@@ -30,56 +30,63 @@ const store = configureStore(initialState);
 export default function App() {
   console.disableYellowBox=true;
 
-  // getToken = async () => {
-  //   let fcmToken = await AsyncStorage.getItem('fcmToken');
-  //   if (!fcmToken) {
-  //     fcmToken = await firebase.messaging().getToken();
-  //     if (fcmToken) {
-  //       await AsyncStorage.setItem('fcmToken', fcmToken);
-  //     }
-  //   }
-  // };
-  // checkPermission = async () => {
-  //   const enabled = await firebase.messaging().hasPermission();
-  //   if (enabled) {
-  //     this.getToken();
-  //   } else {
-  //     this.requestPermission();
-  //   }
-  // };
+  const getToken = async () => {
+    // let fcmToken = await AsyncStorage.getItem('fcmToken');
+    console.log("hey getToken")
+    // if (!fcmToken) {
+    let  fcmToken = await firebase.messaging().getToken();
+      if (fcmToken) {
+        // await AsyncStorage.setItem('fcmToken', fcmToken);
+        console.log("fcm token",fcmToken);
+      }
+    // }
+  };
+  const checkPermission = async () => {
+    const enabled = await firebase.messaging().hasPermission();
+    if (enabled) {
+      console.log("enabled")
 
-  // requestPermission = async () => {
-  //   try {
-  //     await firebase.messaging().requestPermission();
-  //     this.getToken();
-  //   } catch (error) {
-  //     console.log('permission rejected');
-  //   }
-  // };
+     getToken();
+    } else {
+      requestPermission();
+    }
+  };
 
-  // createNotificationListeners = () => {
-  //   this.onUnsubscribeNotificaitonListener = firebase
-  //     .notifications()
-  //     .onNotification(notification => {
-  //       firebase.notifications().displayNotification(notification);
-  //     });
-  // };
+  const requestPermission = async () => {
+    try {
+      await firebase.messaging().requestPermission();
+      getToken();
+    } catch (error) {
+      console.log('permission rejected');
+    }
+  };
 
-  // removeNotificationListeners = () => {
-  //   this.onUnsubscribeNotificaitonListener();
-  // };
+  const createNotificationListeners = () => {
+    this.onUnsubscribeNotificaitonListener = firebase
+      .notifications()
+      .onNotification(notification => {
+   console.log(notification.android)
+
+        // notification.android.setChannelId("notifications");
+        firebase.notifications().displayNotification(notification);
+      });
+  };
+
+  const removeNotificationListeners = () => {
+    onUnsubscribeNotificaitonListener();
+  };
   
 
-  //  useEffect(()=>{
-  //    // Build a channel
-  //  const channel = new firebase.notifications.Android.Channel('test-channel', 'Test Channel', firebase.notifications.Android.Importance.Max)
-  //  .setDescription('My apps test channel');
-
-  //  // Create the channel
-  //  firebase.notifications().android.createChannel(channel);
-  //  this.checkPermission();
-  //  this.createNotificationListeners();
-  //  },[])
+   useEffect(()=>{
+     // Build a channel
+   const channel = new firebase.notifications.Android.Channel('notifications', 'Test Channel', firebase.notifications.Android.Importance.Max)
+   .setDescription('My apps test channel');
+console.log("hey")
+   // Create the channel
+   firebase.notifications().android.createChannel(channel);
+   checkPermission();
+   createNotificationListeners();
+   },[])
   return (
     // {/* <StatusBar backgroundColor={Colors.primary} barStyle={'light-content'}/> */}
     <Provider store={store}>

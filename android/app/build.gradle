@@ -1,5 +1,5 @@
 apply plugin: "com.android.application"
-
+apply plugin: 'com.google.gms.google-services'
 import com.android.build.OutputFile
 
 /**
@@ -135,6 +135,8 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+         multiDexEnabled true
+
     }
     splits {
         abi {
@@ -189,9 +191,15 @@ android {
 }
 
 dependencies {
+    
+    implementation "com.google.android.gms:play-services-base:17.0.0"
+    implementation "com.google.firebase:firebase-core:17.0.1"
+    implementation "com.google.firebase:firebase-messaging:19.0.0"
+    implementation platform('com.google.firebase:firebase-bom:26.0.0')
     implementation fileTree(dir: "libs", include: ["*.jar"])
     //noinspection GradleDynamicVersion
     implementation "com.facebook.react:react-native:+"  // From node_modules
+ implementation 'com.android.support:multidex:1.0.3'
 
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
 
