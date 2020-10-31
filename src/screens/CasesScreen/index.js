@@ -7,9 +7,15 @@ import ImagesPaths from '../../assets/constants/ImagesPaths'
 import CaseItem from '../../components/CaseItem'
 import RoundButton from '../../components/RoundButton'
 import { IconButton } from 'react-native-paper'
+import LoadingModel from '../../components/LoadingModel';
 
+import { useDispatch } from 'react-redux';
+import *as Action from '../../store/Actions/Cases';
+import Globals from '../../assets/constants/Globals'
 const CasesScreen = (props) => {
-
+    const [isLoading, setIsLoading] = useState(true);
+    const dispatch = useDispatch();
+    const [cases, setCases] = useState([])
     const reports = [
         {
             id: 1,
@@ -54,7 +60,22 @@ const CasesScreen = (props) => {
             status:'ساري'
         }]
 
-    
+        useEffect(() => {
+            dispatch(Action.Get_Cases(Globals.UserId,'user', (event) => {
+              if (event.ok) {
+                setIsLoading(false);
+         
+                
+                setCases(event.data);
+                // props.nav.navigate('DrawerNavigator')
+              }
+              else {
+                setIsLoading(false);
+                toast(event.data)
+              }
+        
+            }))
+          }, [])
     return (
         <View style={{ flex: 1, backgroundColor: Colors.light }}>
             {/* Header */}
@@ -63,10 +84,10 @@ const CasesScreen = (props) => {
             <FlatList
                 showsVerticalScrollIndicator={false}
                 refreshing={true}
-                data={reports}
+                data={cases}
                 style={{marginVertical:10}}
                 renderItem={({ item, index }) => (
-                    <CaseItem caseType={item.caseType} handleClick={()=>{props.navigation.navigate('PatientProfileScreen')}} number={item.number} date={item.date} status={item.status}></CaseItem>
+                    <CaseItem caseType={item.Surveyname} handleClick={()=>{props.navigation.navigate('PatientProfileScreen')}} number={item.CaseID} date={item.OpenDate} status={item.Status}></CaseItem>
                 )}
                 keyExtractor={item => item._id}
             />

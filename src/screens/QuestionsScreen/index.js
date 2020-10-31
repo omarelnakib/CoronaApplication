@@ -17,13 +17,15 @@ import Answer from '../../Models/Answer';
 import { List } from 'native-base';
 import Question from '../../Models/Question';
 import Globals from '../../assets/constants/Globals';
+import Modal from 'react-native-modal'
 
 const { height, width } = Dimensions.get('window');
 
 const QuestionsScreen = props => {
   const [isLoading, setIsLoading] = useState(true);
   const dispatch = useDispatch();
-
+  const [reportModal, setReportModal] = useState(false);
+  const [caseId,setCaseId] = useState("");
   const [ScreenHeight, setScreenHeight] = useState(height);
   const [ScreenWidth, setScreenWidth] = useState(width);
   const [QuestionIndex, setQuestionsIndex] = useState(1);
@@ -110,15 +112,12 @@ const QuestionsScreen = props => {
 
   const submit = () => {
    var data = prepareAnswerSubmit();
-    // if (chosenAnswers[0].answer == 'لا' && chosenAnswers[2].answer == 'لا')
-    //   props.navigation.navigate('ResultScreen')
-
-    // else
-    //   props.navigation.navigate('LocationScreen')
+ 
     setIsLoading(true);
     dispatch(Action.Set_Case(data, (event) => {
       if (event.ok) {
         setIsLoading(false);
+        setCaseId(event.data.CaseID);
         // props.nav.navigate('DrawerNavigator')
       }
       else {
@@ -136,7 +135,11 @@ const QuestionsScreen = props => {
         <Header style={{ height: 70 }} bodyStyle={{ width: '80%' }} title='ابلاغ عن حالة' leftIcon='menu' HandleBack={() => props.navigation.navigate('MenuScreen')}></Header>
 
         <QuestionsForm disabled={chosenAnswers.length!=DataList.length?true:false} submit={() => submit()} data={DataList} handleClick={(item, index) => chooseAnswer(item, index)}  ></QuestionsForm>
-
+        <Modal isVisible={reportModal}>
+            <View style={{flex: 1}}>
+              <Text>تم بنجاح تسجيل البلاغ برقم {caseId} و سيتم متابعة البلاغ من احدى المختصين في اسرع وقت </Text>
+            </View>
+        </Modal>
       </View>
 
     </>

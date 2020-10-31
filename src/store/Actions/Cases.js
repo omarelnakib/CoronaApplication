@@ -39,7 +39,6 @@ export const Get_Survey = (surveyType,callback) => {
             })
 
         } catch (err) {
-            console.log(err.message);
             callback({ ok: false, data: "Something went wrong, please try again!" })
         }
     };
@@ -48,9 +47,37 @@ export const Get_Survey = (surveyType,callback) => {
 export const Set_Case = (survey,callback) => {
     return async (dispatch) => {
         try {
-            console.log("Enter set Survey",`/Case_Surveys?userid=${survey.UserId}&surveyid=${survey.SurveyId}&quest_answers=${survey.Answers}`)
 
              Post(`/Case_Surveys?userid=${survey.UserId}&surveyid=${survey.SurveyId}&quest_answers=${survey.Answers}`, true).then(async response => {
+                if (response != undefined) {
+                    let res = await response.json();
+                    if (response.ok) {
+                        // dispatch(setData(types.USER_TOKEN, res))
+                        // await AsyncStorage.setItem("User",JSON.stringify({user:  res}))
+                        callback({ ok: true, data: res })
+                    }
+                    else {
+                        callback({ ok: false, data: res.message })
+                    }
+                }
+                else {
+                    callback({ ok: false, data: "Something went wrong, please try again!" })
+                }
+            })
+
+        } catch (err) {
+            console.log(err.message);
+            callback({ ok: false, data: "Something went wrong, please try again!" })
+        }
+    };
+};
+
+//request type either case or user or doctor or unassigned
+export const Get_Cases = (userId,requestType,callback) => {
+    return async (dispatch) => {
+        try {
+
+             Get(`/PatientCas/${userId}?caseORuserORdoctorORunassigned=${requestType}`, true).then(async response => {
                 if (response != undefined) {
                     let res = await response.json();
                     console.log(res);

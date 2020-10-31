@@ -8,6 +8,7 @@ import DropdownMenu from '../../components/Dropdown'
 import RoundButton from '../../components/RoundButton'
 import { Button } from 'react-native-paper'
 import Modal from 'react-native-modal'
+
 const PatientProfileScreen = (props) => {
     const availableStatus = ['ساري', 'عزل', 'مغلق'];
     const [status, setStatus] = useState('ساري');
@@ -20,19 +21,16 @@ const PatientProfileScreen = (props) => {
             <Header style={{ height: 70 }} title={"أحمد محمد"} leftIcon="account"
             ></Header>
             <View style={{ padding: 20 }}>
-                {/* name & age */}
-                <View style={{ flexDirection: 'row-reverse' }}>
-                    <Text style={{ textAlign: 'right', flex: 0.5, fontSize: FontSizes.subtitle }}>أحمد محمد عبد الرحيم</Text>
-                    <Text style={{ textAlign: 'left', flex: 0.5, fontSize: FontSizes.subtitle }}>23 سنة</Text>
-                </View>
+
                 {/* case number & date */}
                 <View style={{ flexDirection: 'row-reverse', marginTop: 10 }}>
                     <Text style={{ textAlign: 'right', flex: 0.5, fontSize: FontSizes.subtitle }}>12324568789</Text>
                     <Text style={{ textAlign: 'left', flex: 0.5, fontSize: FontSizes.subtitle }}>23/3/2020</Text>
                 </View>
                 {/* Status */}
-                <Text style={{ textAlign: 'right', marginTop: 30, fontSize: FontSizes.title }}>الحالة</Text>
-                <DropdownMenu style={{}} selectedItem={status} setSelectedItem={(item, index) => setStatus(item)} data={availableStatus}>  </DropdownMenu>
+                <Text style={{ textAlign: 'right', marginTop: 30, fontSize: FontSizes.title }}>الحالة: ساري</Text>
+
+                {/* <DropdownMenu style={{}} selectedItem={status} setSelectedItem={(item, index) => setStatus(item)} data={availableStatus}>  </DropdownMenu> */}
                 {/* <Button style={{ alignSelf: 'flex-end' }} color={Colors.secondary}>{'تغيير الحالة'} </Button> */}
 
                 {/* Report details */}
@@ -45,9 +43,9 @@ const PatientProfileScreen = (props) => {
 
                 {/* التحاليل */}
                 <View>
-                    <Text style={{ textAlign: 'right', marginTop: 30, fontSize: FontSizes.title }}>التحاليل</Text>
+                    {/* <Text style={{ textAlign: 'right', marginTop: 30, fontSize: FontSizes.title }}>التحاليل</Text> */}
                     <View style={{ flexDirection: 'row-reverse', flexWrap: 'wrap' }}>
-                        {imgs.map((item, index) => {
+                        {/* {imgs.map((item, index) => {
                             // Image Picker
                             return (
                                 <ImageModal
@@ -64,8 +62,11 @@ const PatientProfileScreen = (props) => {
 
                             )
 
-                        })}
-                        <RoundButton style={{ width: '50%', marginTop: 10 }} value={"طلب تحليل"}></RoundButton>
+                        })} */}
+                          <TouchableOpacity onPress={() => { console.log('pressed'); props.navigation.navigate('PicturesScreen') }} style={{ marginTop: 30 }}>
+                    <Text style={{ fontSize: FontSizes.title, textDecorationLine: 'underline', color: Colors.primary }}>اضافة/اظهار تحليل</Text>
+                </TouchableOpacity>
+                        {/* <RoundButton style={{ width: '50%', marginTop: 10 }} value={}></RoundButton> */}
                     </View>
                 </View>
 

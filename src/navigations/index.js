@@ -21,6 +21,8 @@ import ResultScreen from '../screens/ResultScreen';
 import MenuScreen from '../screens/MenuScreen';
 import MedicalVacationScreen from '../screens/MedicalVacationScreen';
 import CasesScreen from '../screens/CasesScreen'
+import PatientProfileScreen from '../screens/PatientProfileScreen'
+import { useNotificationService } from '../Services/useNotificationService';
 
 const Stack = createStackNavigator();
 
@@ -33,6 +35,9 @@ function DrawerNavigator() {
 
       <Stack.Screen name="QuestionsScreen" component={QuestionsScreen} />
       <Stack.Screen name="CasesScreen" component={CasesScreen} />
+      <Stack.Screen name="PicturesScreen" component={PicturesScreen}/>
+
+      <Stack.Screen name="PatientProfileScreen" component={PatientProfileScreen} />
       <Stack.Screen name="FollowUpStackNavigator" component={FollowUpStackNavigator} />
       <Stack.Screen name="DoctorsNumbersScreen" component={DoctorsNumbersScreen} />
       <Stack.Screen name="DonationScreen" component={DonationScreen} />
@@ -110,12 +115,13 @@ const FollowUpStackNavigator = () => {
 
           <Stack.Screen name="FollowUpQuestions" component={FollowUpQuestions}></Stack.Screen>
           <Stack.Screen name="ChatScreen" component={ChatScreen}></Stack.Screen>
-          <Stack.Screen name="PicturesScreen" component={PicturesScreen}></Stack.Screen>
           
       </Stack.Navigator>
   );
 }
 const MainStackNavigator = () => {
+  useNotificationService();
+
     return (
         <Stack.Navigator headerMode="none" >
           

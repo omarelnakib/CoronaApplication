@@ -15,6 +15,11 @@ export default function (state = initialState.Auth , action){
                 ...state,
                 data: action.data,
             }
+            case types.GET_CASES:
+                return{
+                    ...state,
+                    data: action.data,
+                }
         default:
           return {...state};
     }
