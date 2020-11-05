@@ -18,6 +18,7 @@ import { List } from 'native-base';
 import Question from '../../Models/Question';
 import Globals from '../../assets/constants/Globals';
 import Modal from 'react-native-modal'
+import RoundButton from '../../components/RoundButton';
 
 const { height, width } = Dimensions.get('window');
 
@@ -116,7 +117,9 @@ const QuestionsScreen = props => {
     setIsLoading(true);
     dispatch(Action.Set_Case(data, (event) => {
       if (event.ok) {
+        setReportModal(true);
         setIsLoading(false);
+        console.log("Case",event.data)
         setCaseId(event.data.CaseID);
         // props.nav.navigate('DrawerNavigator')
       }
@@ -136,8 +139,9 @@ const QuestionsScreen = props => {
 
         <QuestionsForm disabled={chosenAnswers.length!=DataList.length?true:false} submit={() => submit()} data={DataList} handleClick={(item, index) => chooseAnswer(item, index)}  ></QuestionsForm>
         <Modal isVisible={reportModal}>
-            <View style={{flex: 1}}>
-              <Text>تم بنجاح تسجيل البلاغ برقم {caseId} و سيتم متابعة البلاغ من احدى المختصين في اسرع وقت </Text>
+            <View style={{flex: 0.2,backgroundColor:Colors.light,alignItems:'center',justifyContent:'center',padding:20}}>
+              <Text style={{color:Colors.primary,fontSize:FontSizes.subtitle,textAlign:'center'}}>تم بنجاح تسجيل البلاغ برقم {caseId} و سيتم متابعة البلاغ من احدى المختصين في اسرع وقت </Text>
+              <RoundButton handleClick={()=>{setReportModal(false);props.navigation.navigate("PatientProfileScreen")}} style={{marginTop:10,marginBottom:10}}  value="تابع" ></RoundButton>
             </View>
         </Modal>
       </View>

@@ -81,13 +81,15 @@ const CasesScreen = (props) => {
             {/* Header */}
             <Header style={{ height: 70 }} title={"الحالات"} leftIcon="account"
             ></Header>
+                    <LoadingModel LoadingModalVisiblty={isLoading} />
+
             <FlatList
                 showsVerticalScrollIndicator={false}
                 refreshing={true}
                 data={cases}
                 style={{marginVertical:10}}
                 renderItem={({ item, index }) => (
-                    <CaseItem caseType={item.Surveyname} handleClick={()=>{props.navigation.navigate('PatientProfileScreen')}} number={item.CaseID} date={item.OpenDate} status={item.Status}></CaseItem>
+                    <CaseItem caseType={item.Surveyname} handleClick={()=>{props.navigation.navigate('PatientProfileScreen',{CaseId:item.CaseID})}} number={item.CaseID} date={item.OpenDate} status={item.Status}></CaseItem>
                 )}
                 keyExtractor={item => item._id}
             />
