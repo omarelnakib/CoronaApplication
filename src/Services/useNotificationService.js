@@ -16,7 +16,6 @@ export const useNotificationService = () => {
     }
     callinitialize();
     
-    fcm.sendNotification();
 
     return function cleanup() {
       // clear listeners

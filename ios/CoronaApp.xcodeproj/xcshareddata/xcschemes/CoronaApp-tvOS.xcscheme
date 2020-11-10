@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-               BuildableName = "CoronaApp-tvOS.app"
-               BlueprintName = "CoronaApp-tvOS"
-               ReferencedContainer = "container:CoronaApp.xcodeproj">
+               BuildableName = "AsuCare-tvOS.app"
+               BlueprintName = "AsuCare-tvOS"
+               ReferencedContainer = "container:AsuCare.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "CoronaApp-tvOSTests.xctest"
-               BlueprintName = "CoronaApp-tvOSTests"
-               ReferencedContainer = "container:CoronaApp.xcodeproj">
+               BuildableName = "AsuCare-tvOSTests.xctest"
+               BlueprintName = "AsuCare-tvOSTests"
+               ReferencedContainer = "container:AsuCare.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "CoronaApp-tvOS.app"
-            BlueprintName = "CoronaApp-tvOS"
-            ReferencedContainer = "container:CoronaApp.xcodeproj">
+            BuildableName = "AsuCare-tvOS.app"
+            BlueprintName = "AsuCare-tvOS"
+            ReferencedContainer = "container:AsuCare.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "CoronaApp-tvOS.app"
-            BlueprintName = "CoronaApp-tvOS"
-            ReferencedContainer = "container:CoronaApp.xcodeproj">
+            BuildableName = "AsuCare-tvOS.app"
+            BlueprintName = "AsuCare-tvOS"
+            ReferencedContainer = "container:AsuCare.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -20,7 +20,7 @@ export const Get_Survey = (surveyType,callback) => {
     return async (dispatch) => {
         try {
             console.log("Enter Get Survey")
-             Get('/surveys/'+surveyType, true).then(async response => {
+             Get('/surveys/GetSurvey?surveyid='+surveyType, true).then(async response => {
                 if (response != undefined) {
                     let res = await response.json();
                     // console.log(res);
@@ -48,7 +48,7 @@ export const Set_Case = (survey,callback) => {
     return async (dispatch) => {
         try {
 
-             Post(`/Case_Surveys?userid=${survey.UserId}&surveyid=${survey.SurveyId}&quest_answers=${survey.Answers}`, true).then(async response => {
+             Post(`/Case_Surveys/PostCase_Surveys?userid=${survey.UserId}&surveyid=${survey.SurveyId}&quest_answers=${survey.Answers}`, true).then(async response => {
                 if (response != undefined) {
                     let res = await response.json();
                     if (response.ok) {
@@ -77,7 +77,7 @@ export const Get_Cases = (userId,requestType,callback) => {
     return async (dispatch) => {
         try {
 
-             Get(`/PatientCas/${userId}?caseORuserORdoctorORunassigned=${requestType}`, true).then(async response => {
+             Get(`/PatientCas/GetUserListOfCases?userid=${userId}`, true).then(async response => {
                 if (response != undefined) {
                     let res = await response.json();
                     console.log(res);
@@ -105,7 +105,7 @@ export const Get_Case_Details = (CaseId,requestType,callback) => {
     return async (dispatch) => {
         try {
 
-             Get(`/PatientCas/${CaseId}?caseORuserORdoctorORunassigned=${requestType}`, true).then(async response => {
+             Get(`/PatientCas/GetCaseDetails?caseid=${CaseId}`, true).then(async response => {
                 if (response != undefined) {
                     let res = await response.json();
                     console.log(res);

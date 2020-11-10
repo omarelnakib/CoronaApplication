@@ -1,3 +1,4 @@
 module.exports = {
-    UserId: 1,
+    User: {},
+    NotificationToken: ''
  };

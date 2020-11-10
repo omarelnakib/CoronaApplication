@@ -3,6 +3,7 @@ import { Post, setData,Put, Get } from "./API_Requests";
 import AsyncStorage from "@react-native-community/async-storage";
 import { navigate, replace, reset } from "../../navigations/NavigationService";
 import { Platform } from 'react-native'
+import Globals from '../../assets/constants/Globals';
 
 
 const storeData = async data => {
@@ -36,8 +37,8 @@ export const autoLogin = async () => {
 export const login = (userData, callback) => {
     return async (dispatch) => {
         try {
-            console.log("user data",'/users?_username='+userData.email+'&_password='+userData.password);
-             Get('/users?_username='+userData.email+'&_password='+userData.password).then(async response => {
+            console.log("user data",'/users?username='+userData.email+'&password='+userData.password);
+             Get('/Users/CheckUserCredentials?username='+userData.email+'&password='+userData.password+'&devicetoken='+Globals.NotificationToken).then(async response => {
                 if (response != undefined) {
                     console.log("res");
                     if (response.ok) {
@@ -45,6 +46,8 @@ export const login = (userData, callback) => {
 
                         // dispatch(setData(types.USER_TOKEN, res))
                         AsyncStorage.setItem("User",JSON.stringify({User:  res}))
+                        Globals.User = res; 
+                        console.log(res)
                         callback({ ok: true, data: res })
                     }
                     else {
@@ -64,34 +67,7 @@ export const login = (userData, callback) => {
 };
 
 
-export const GetUserData = (callback) => {
-    return async (dispatch) => {
-        try {
-            console.log("Enter Get User Data")
-             Get('/V1/customers/me', true).then(async response => {
-                if (response != undefined) {
-                    let res = await response.json();
-                    console.log(res);
-                    if (response.ok) {
-                        // dispatch(setData(types.USER_TOKEN, res))
-                        await AsyncStorage.setItem("User",JSON.stringify({user:  res}))
-                        callback({ ok: true, data: "" })
-                    }
-                    else {
-                        callback({ ok: false, data: res.message })
-                    }
-                }
-                else {
-                    callback({ ok: false, data: "Something went wrong, please try again!" })
-                }
-            })
 
-        } catch (err) {
-            console.log(err.message);
-            callback({ ok: false, data: "Something went wrong, please try again!" })
-        }
-    };
-};
 
 
 

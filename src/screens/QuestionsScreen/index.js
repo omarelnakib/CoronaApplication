@@ -89,7 +89,7 @@ const QuestionsScreen = props => {
 
     })
     var data = {
-      UserId: Globals.UserId,
+      UserId: Globals.User.UserID,
       SurveyId: SurveyId,
       Answers: strAnswers
     }

@@ -61,7 +61,7 @@ const CasesScreen = (props) => {
         }]
 
         useEffect(() => {
-            dispatch(Action.Get_Cases(Globals.UserId,'user', (event) => {
+            dispatch(Action.Get_Cases(Globals.User.UserID,'user', (event) => {
               if (event.ok) {
                 setIsLoading(false);
          

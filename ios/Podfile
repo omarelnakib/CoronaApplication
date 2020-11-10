@@ -44,8 +44,8 @@ def flipper_post_install(installer)
   end
 end
 
-target 'CoronaApp' do
-  # Pods for CoronaApp
+target 'AsuCare' do
+  # Pods for AsuCare
   pod 'FBLazyVector', :path => "../node_modules/react-native/Libraries/FBLazyVector"
   pod 'FBReactNativeSpec', :path => "../node_modules/react-native/Libraries/FBReactNativeSpec"
   pod 'RCTRequired', :path => "../node_modules/react-native/Libraries/RCTRequired"
@@ -84,7 +84,7 @@ target 'CoronaApp' do
 
   pod 'RNFirebase', :path => '../node_modules/react-native-firebase'
 
-  target 'CoronaAppTests' do
+  target 'AsuCareTests' do
     inherit! :complete
     # Pods for testing
   end
@@ -101,10 +101,10 @@ target 'CoronaApp' do
   end
 end
 
-target 'CoronaApp-tvOS' do
-  # Pods for CoronaApp-tvOS
+target 'AsuCare-tvOS' do
+  # Pods for AsuCare-tvOS
 
-  target 'CoronaApp-tvOSTests' do
+  target 'AsuCare-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end

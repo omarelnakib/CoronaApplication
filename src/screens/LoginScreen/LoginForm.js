@@ -40,19 +40,20 @@ const LoginForm = props => {
 
     const SignIn = event =>{
          setIsLoading(true);
-        // dispatch(Action.login({email:UserName.value,password:Passowrd.value},(event)=>{
-        //     console.log("Login",event);
-        //     if(event.ok)
-        //     {
+         
+        dispatch(Action.login({email:UserName.value,password:Passowrd.value},(event)=>{
+            console.log("Login",event);
+            if(event.ok)
+            {
                 setIsLoading(false);
 
                 props.nav.navigate('DrawerNavigator')
-        //     }
-        //     else{
-        //       setIsLoading(false);
-        //       toast(event.data)
-        //     }
-        //    }))
+            }
+            else{
+              setIsLoading(false);
+              toast(event.data)
+            }
+           }))
         
     }
     return (

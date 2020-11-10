@@ -1,6 +1,7 @@
 import { AsyncStorage } from 'react-native';
 import firebase, { RNFirebase } from 'react-native-firebase';
 import moment from 'moment';
+import Globals from '../assets/constants/Globals';
 
 const CHANNEL_NAME = 'notifications';
 
@@ -17,35 +18,11 @@ const getToken = async () => {
 
   return fcmToken;
 };
-const sendNotification = async ()=>{
-    const msg = new firebase.messaging.RemoteMessage();
-    msg.setMessageType("notifications")
-
-    msg.setData({
-           not:JSON.stringify({
-            body: 'This message was sent via FCM!',
-            android: {
-              channelId: 'notifications',
-              notificationId:'0.215685756468645',
-              actions: [
-                {
-                  title: 'Mark as Read',
-                  pressAction: {
-                    id: 'read',
-                  },
-                },],}})
-           }) 
-            
-    msg.setTo("fuCX2jlqRfyE2EO1VZylF3:APA91bEgVgHzB7eXrLP2xFeTYM_NiCRfcNGyn5_fMF8YPU16WGvS3SYh1gC1GW4aAQxxn1udt_TJft7I-QsfjET0dI2TSiAzHI1BIK8JHK0_fNLe1FLdwYJnzenwtukdE85-nz80GIRi")
-    console.log(msg)
-
-    await firebase.messaging().sendMessage(msg)
-}
 const requestPermission = async () =>
   await firebase.messaging().requestPermission();
 export const attemptToGetToken = async () =>
   requestPermission()
-    .then(() => getToken())
+    .then(() => getToken().then((fcmToken)=>Globals.NotificationToken =fcmToken ))
     .catch(() => {});
 
 function buildNotification(type, id) {
@@ -162,7 +139,6 @@ export const fcm = {
   scheduleLocalNotification,
 //   getDeliveredNotifications,
   getScheduledNotifications,
-  sendNotification,
   removeAllDeliveredNotifications,
   cancelAllNotifications,
 };
