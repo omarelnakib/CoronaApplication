@@ -23,7 +23,6 @@ import { Provider } from 'react-redux';
 // import configureStore from './src/store/StoreConfiguration';
 // import initialState from './src/store/initialState';
 import firebase from 'react-native-firebase';
-import { useNotificationService } from './src/Services/useNotificationService';
 
 // const store = configureStore(initialState);
 const store = configureStore(initialState);

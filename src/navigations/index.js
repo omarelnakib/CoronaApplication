@@ -36,6 +36,7 @@ function DrawerNavigator() {
       <Stack.Screen name="QuestionsScreen" component={QuestionsScreen} />
       <Stack.Screen name="CasesScreen" component={CasesScreen} />
       <Stack.Screen name="PicturesScreen" component={PicturesScreen}/>
+      <Stack.Screen name="ChatScreen" component={ChatScreen}></Stack.Screen>
 
       <Stack.Screen name="PatientProfileScreen" component={PatientProfileScreen} />
       <Stack.Screen name="FollowUpStackNavigator" component={FollowUpStackNavigator} />
@@ -114,7 +115,6 @@ const FollowUpStackNavigator = () => {
           <Stack.Screen name="FollowUpScreen" component={FollowUpScreen}></Stack.Screen>
 
           <Stack.Screen name="FollowUpQuestions" component={FollowUpQuestions}></Stack.Screen>
-          <Stack.Screen name="ChatScreen" component={ChatScreen}></Stack.Screen>
           
       </Stack.Navigator>
   );

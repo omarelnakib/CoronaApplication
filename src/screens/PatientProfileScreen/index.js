@@ -13,9 +13,10 @@ import LoadingModel from '../../components/LoadingModel';
 import { useDispatch } from 'react-redux';
 import *as Action from '../../store/Actions/Cases';
 import { FlatList } from 'react-native-gesture-handler'
+import Globals from '../../assets/constants/Globals'
 const PatientProfileScreen = (props) => {
     const [isLoading, setIsLoading] = useState(true);
-    const [caseData, setCaseData] = useState({Questions:[]});
+    const [caseData, setCaseData] = useState({Questions:[],CaseID:0});
     const [reportModal, setReportModal] = useState(false);
     const [imgs, setImgs] = useState([]);
     const dispatch = useDispatch();
@@ -30,26 +31,28 @@ const PatientProfileScreen = (props) => {
 
                 let tempData = event.data;
                 // setCaseData(event.data);
-                if (event.data.CaseText != null) {
-                    let Quest = event.data.SurveyAnswers.split(";");
-                    let Questions = []
-                    console.log("questions", Quest)
-                    Quest.forEach(element => {
-                        if(element!=""){
-                            var s = element.split(",");
-                            var q = s[0];
-                            var a = s[1];
-                            Questions.push({ Question: q, Answer: a });
-                        }
+                if (event.data.CaseText == null) {
+                    // let Quest = event.data.SurveyAnswers.split(";");
+                    // let Questions = []
+                    // console.log("questions", Quest)
+                    // Quest.forEach(element => {
+                    //     if(element!=""){
+                    //         var s = element.split(",");
+                    //         var q = s[0];
+                    //         var a = s[1];
+                    //         Questions.push({ Question: q, Answer: a });
+                    //     }
                        
-                    });
+                    // });
 
                    
-                            tempData.Questions = Questions;
+                    //         tempData.Questions = Questions;
                         console.log("tempData",tempData)
                     setCaseData({...tempData})
                 }
-
+                else{
+                    setCaseData(event.data)
+                }
                 // props.nav.navigate('DrawerNavigator')
             }
             else {
@@ -69,10 +72,13 @@ const PatientProfileScreen = (props) => {
         props.navigation.navigate("CasesScreen");
         return true;
     }
+    const openMessages =()=>{
+        props.navigation.navigate('ChatScreen',{CaseId:caseData.CaseID})
+    }
     return (
         <ScrollView style={{ flex: 1, backgroundColor: Colors.light }}>
             {/* Header */}
-            <Header style={{ height: 70 }} title={"أحمد محمد"} leftIcon="account"
+            <Header style={{ height: 70 }} title={Globals.User.Name} leftIcon="account"
             ></Header>
             <View style={{ padding: 20 }}>
                 <LoadingModel LoadingModalVisiblty={isLoading} />
@@ -167,8 +173,9 @@ const PatientProfileScreen = (props) => {
                         : null
                 }
 
+
             </View>
-            {/* <RoundButton style={{ marginTop:10 }} value={"تأكيد"}></RoundButton> */}
+            <RoundButton style={{ marginTop:10 }} handleClick={()=>{openMessages()}}  value={"الرسائل"}></RoundButton>
 
         </ScrollView>
     )

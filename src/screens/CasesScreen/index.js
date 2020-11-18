@@ -16,49 +16,7 @@ const CasesScreen = (props) => {
     const [isLoading, setIsLoading] = useState(true);
     const dispatch = useDispatch();
     const [cases, setCases] = useState([])
-    const reports = [
-        {
-            id: 1,
-            caseType: 'كورونا',
-            number: '123456789',
-            date:'12/09/2020',
-            status:'مغلق'
-        },
-        {
-            id: 2,
-            caseType: 'كورونا',
-            number: '123456789',
-            date:'12/09/2020',
-            status:'عزل'
-
-        },{
-            id: 3,
-            caseType: 'كورونا',
-            number: '123456789',
-            date:'12/09/2020',
-            status:'ساري'
-
-        },{
-            id: 5,
-            caseType: 'كورونا',
-            number: '123456789',
-            date:'12/09/2020',
-            status:'ساري'
-
-        },{
-            id: 4,
-            caseType: 'كورونا',
-            number: '123456789',
-            date:'12/09/2020',
-            status:'ساري'
-
-        },{
-            id: 6,
-            caseType: 'كورونا',
-            number: '123456789',
-            date:'12/09/2020',
-            status:'ساري'
-        }]
+   
 
         useEffect(() => {
             dispatch(Action.Get_Cases(Globals.User.UserID,'user', (event) => {

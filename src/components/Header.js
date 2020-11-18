@@ -74,7 +74,7 @@ const MainHeader = props => {
             </View>
           }
           {/* title of screen */}
-        {props.title && <View style={[{ width: '50%', justifyContent: 'center', alignSelf: 'center', alignItems:'flex-end'  }, props.bodyStyle]}>
+        {props.title && <View style={[{ width: '60%', justifyContent: 'center', alignSelf: 'center', alignItems:'flex-end'  }, props.bodyStyle]}>
           {props.title && <Text style={Styles.title}>{props.title}</Text>}
           {props.Subtitle ? <Subtitle>{props.Subtitle}</Subtitle> : null}
          

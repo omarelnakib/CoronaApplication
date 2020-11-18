@@ -37,7 +37,7 @@ export const autoLogin = async () => {
 export const login = (userData, callback) => {
     return async (dispatch) => {
         try {
-            console.log("user data",'/users?username='+userData.email+'&password='+userData.password);
+            console.log("user data",'/users?username='+userData.email+'&password='+userData.password+'&devicetoken='+Globals.NotificationToken);
              Get('/Users/CheckUserCredentials?username='+userData.email+'&password='+userData.password+'&devicetoken='+Globals.NotificationToken).then(async response => {
                 if (response != undefined) {
                     console.log("res");

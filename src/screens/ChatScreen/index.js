@@ -8,8 +8,12 @@ import Colors from '../../assets/constants/Colors'
 import Header from '../../components/Header'
 import ImagesPaths from '../../assets/constants/ImagesPaths'
 
+import { useDispatch } from 'react-redux';
+import *as Action from '../../store/Actions/Case';
+import Globals from '../../assets/constants/Globals'
 const ChatScreen = (props) => {
     const [messages, setMessages] = useState([]);
+    const dispatch = useDispatch();
 
 
     useEffect(() => {
@@ -30,7 +34,33 @@ const ChatScreen = (props) => {
     }, [])
     // on press send
     const onSend = useCallback((messages = []) => {
-        setMessages(previousMessages => GiftedChat.append(previousMessages, messages))
+        let CaseId = props.route.params.CaseId;
+        var date = new Date();
+
+        var message = {
+            caseid: CaseId,
+            text: `%0D%0A ${Globals.User.Name}%0D%0A${date} %0D%0A %0D%0A${messages[0].text}%0D%0A`,
+            title: ` ${Globals.User.Name} ارسل رسالة في البلاغ رقم ${CaseId}`,
+            body:  `%0D%0A ${Globals.User.Name}%0D%0A${date} %0D%0A %0D%0A${messages}%0D%0A`,
+
+        }
+        console.log("messages",messages[0].text)
+        dispatch(Action.Send_Message(message, (event) => {
+            if (event.ok) {
+                // setIsLoading(false);
+
+                        console.log("tempData",event.data)
+                    // setCaseData({...tempData})
+                    setMessages(previousMessages => GiftedChat.append(previousMessages, messages))
+ 
+                // props.nav.navigate('DrawerNavigator')
+            }
+            else {
+                // setIsLoading(false);
+                toast(event.data)
+            }
+
+        }))
     }, [])
 
     return (
