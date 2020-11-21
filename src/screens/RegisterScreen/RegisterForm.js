@@ -76,20 +76,21 @@ const RegisterForm = props => {
     }
     const Submit =()=>{
         var userData = {
-            UserName:UserName,
-            Name:Name,
-            NationalID:Id,
-            Mobile:Mobile,
+            UserName:UserName.value,
+            Password:Passowrd.value,
+            Name:Name.value,
+            NationalID:Id.value,
+            Mobile:Mobile.value,
             Birthdate:BirthDate,
 
         }
         setIsLoading(true);
-        console.log(userData)
+        console.log("userData",userData)
         dispatch(Action.sign_up(userData, (event) => {
             if (event.ok) {
                 setIsLoading(false);
 
-                // props.nav.navigate('DrawerNavigator')
+                props.nav.navigate('Login')
             }
             else {
                 setIsLoading(false);
