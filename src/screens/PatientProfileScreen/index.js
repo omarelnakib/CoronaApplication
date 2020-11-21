@@ -32,21 +32,21 @@ const PatientProfileScreen = (props) => {
                 let tempData = event.data;
                 // setCaseData(event.data);
                 if (event.data.CaseText == null) {
-                    // let Quest = event.data.SurveyAnswers.split(";");
-                    // let Questions = []
-                    // console.log("questions", Quest)
-                    // Quest.forEach(element => {
-                    //     if(element!=""){
-                    //         var s = element.split(",");
-                    //         var q = s[0];
-                    //         var a = s[1];
-                    //         Questions.push({ Question: q, Answer: a });
-                    //     }
+                    let Quest = event.data.SurveyAnswers.split(";");
+                    let Questions = []
+                    console.log("questions", Quest)
+                    Quest.forEach(element => {
+                        if(element!=""){
+                            var s = element.split(",");
+                            var q = s[0];
+                            var a = s[1];
+                            Questions.push({ Question: q, Answer: a });
+                        }
                        
-                    // });
+                    });
 
                    
-                    //         tempData.Questions = Questions;
+                            tempData.Questions = Questions;
                         console.log("tempData",tempData)
                     setCaseData({...tempData})
                 }
@@ -108,7 +108,7 @@ const PatientProfileScreen = (props) => {
                     <View style={styles.MainContainer}>
                         {/* // Index of question */}
                         {
-                            caseData.CaseText != null ?
+                            caseData.CaseText == null ?
                                 <View>
                                     <FlatList
                                         showsVerticalScrollIndicator={false}

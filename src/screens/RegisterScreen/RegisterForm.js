@@ -7,12 +7,20 @@ import FontSizes from '../../assets/constants/FontSizes'
 import { validateForm, validate } from '../../Validation/Validation';
 import DatePicker from 'react-native-datepicker'
 
+import LoadingModel from '../../components/LoadingModel';
+
+import { useDispatch } from 'react-redux';
+import *as Action from '../../store/Actions/Auth';
 import InputText from '../../components/InputText';
 import RoundButton from '../../components/RoundButton';
 import { IconButton } from 'react-native-paper';
+import { User } from '../../assets/constants/Globals';
 const { height, width } = Dimensions.get('window');
 
 const RegisterForm = props => {
+    const [isLoading, setIsLoading] = useState(false);
+    const dispatch = useDispatch();
+
     const [ScreenHeight, setScreenHeight] = useState(height);
     const [ScreenWidth, setScreenWidth] = useState(width);
     const [Mobile, setMobile] = React.useState({ value: '', IsValid: '' });
@@ -20,14 +28,10 @@ const RegisterForm = props => {
     const [ComputerNumber, setComputerNumber] = React.useState({ value: '', IsValid: '' });
     const [Id, setId] = React.useState({ value: '', IsValid: '' });
     const [Name, setName] = React.useState({ value: '', IsValid: '' });
-    const [Date, setDate] = React.useState('2016-05-01');
+    const [UserName, setUserName] = React.useState({ value: '', IsValid: '' });
+    const [BirthDate, setBirthDate] = React.useState('2016-05-01');
     const [Address, setAddress] = React.useState('')
     // ---------------------------------------------------
-    const changePasswod = event => {
-
-        let result = validate('password', event);
-        setPassword({ value: event, IsValid: result.IsValid });
-    };
 
     const changeData = (event, itemName) => {
         switch (itemName) {
@@ -49,7 +53,7 @@ const RegisterForm = props => {
                 setName({ value: event, IsValid: result.IsValid });
                 break;
             }
-           
+
             case 'ComputerNumber': {
                 // let result = validate('password', event);
                 setComputerNumber({ value: event, IsValid: true });
@@ -61,20 +65,57 @@ const RegisterForm = props => {
                 break;
             }
             case 'Address': {
-                setAddress( event);
+                setAddress(event);
+                break;
+            }
+            case 'UserName':{
+                setUserName({ value: event, IsValid: true });
                 break;
             }
         }
     }
-   
+    const Submit =()=>{
+        var userData = {
+            UserName:UserName,
+            Name:Name,
+            NationalID:Id,
+            Mobile:Mobile,
+            Birthdate:BirthDate,
+
+        }
+        setIsLoading(true);
+        console.log(userData)
+        dispatch(Action.sign_up(userData, (event) => {
+            if (event.ok) {
+                setIsLoading(false);
+
+                // props.nav.navigate('DrawerNavigator')
+            }
+            else {
+                setIsLoading(false);
+                toast(event.data)
+            }
+
+        }))
+
+    }
     return (
         <ScrollView style={styles.formContainer}>
+            <LoadingModel LoadingModalVisiblty={isLoading} />
+
             {/* Register Form */}
             {/* Name */}
             <Text style={styles.title}>الاسم</Text>
             <InputText inputType='TextInput' placeholder='الاسم'
                 value={Name.value} HandleChange={(event) => changeData(event, 'Name')}
                 style={{ width: '100%' }} Isvalid={Name.IsValid}
+                secureTextEntry={false} autoCapitalize="none" autoCorrect={false}
+            ></InputText>
+            {/* UserName */}
+            <Text style={styles.title}>اسم الحساب</Text>
+            <InputText inputType='TextInput' placeholder='اسم الحساب'
+                value={UserName.value} HandleChange={(event) => changeData(event, 'UserName')}
+                style={{ width: '100%' }} Isvalid={true}
                 secureTextEntry={false} autoCapitalize="none" autoCorrect={false}
             ></InputText>
             {/* Mobile Numbrt */}
@@ -105,7 +146,7 @@ const RegisterForm = props => {
                 style={{ width: '100%' }} Isvalid={Id.IsValid}
                 autoCapitalize="none" autoCorrect={false}
             ></InputText>
-            
+
 
             {/* <Text style={styles.title}>العنوان</Text> */}
             {/* <View style={{flexDirection:'row',width:'100%'}}> */}
@@ -121,28 +162,28 @@ const RegisterForm = props => {
             {/* Date */}
             <Text style={styles.title}>تاريخ الميلاد</Text>
             <DatePicker
-        style={{width: '100%'}}
-        date={Date}
-        mode="date"
-        placeholder="اختر تاريخ"
-        format="YYYY-MM-DD"
-        minDate="1990-01-01"
-        maxDate="2020-01-01"
-        confirmBtnText="Confirm"
-        cancelBtnText="Cancel"
-        customStyles={{
-          dateIcon: {
-            display:'none'     
-          },
-          dateInput: {
-            marginLeft: 36,
-            borderWidth:0
-          },
-        }}
-        onDateChange={(date) => {setDate(date) }}
-      />
+                style={{ width: '100%' }}
+                date={BirthDate}
+                mode="date"
+                placeholder="اختر تاريخ"
+                format="YYYY-MM-DD"
+                minDate="1990-01-01"
+                maxDate="2020-01-01"
+                confirmBtnText="Confirm"
+                cancelBtnText="Cancel"
+                customStyles={{
+                    dateIcon: {
+                        display: 'none'
+                    },
+                    dateInput: {
+                        marginLeft: 36,
+                        borderWidth: 0
+                    },
+                }}
+                onDateChange={(date) => { setBirthDate(date) }}
+            />
             {/*Sign Up Button  */}
-            <RoundButton  handleClick={()=>{props.nav.navigate('DrawerNavigator')}} style={{marginTop:50}} value="تسجيل"></RoundButton>
+            <RoundButton handleClick={() => Submit()} style={{ marginTop: 50 }} value="تسجيل"></RoundButton>
 
         </ScrollView>
 

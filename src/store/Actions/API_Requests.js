@@ -4,7 +4,7 @@ import AsyncStorage from "@react-native-community/async-storage";
 import { navigate, replace, reset } from "../../navigations/NavigationService";
 import { Platform } from 'react-native';
 
-const BaseUrl = "http://192.168.1.6:8080/api";
+const BaseUrl = "http://192.168.43.9:8080/api";
 // const Globals = require('../../constants/Globals');
 
 export const getHeaders = async (isToken) => {

@@ -32,7 +32,33 @@ export const autoLogin = async () => {
   
 }
 
+export const sign_up = (userData, callback) =>{
+    return async (dispatch) => {
+        try {
 
+             Post(`/Users/PostUser`,userData, true).then(async response => {
+                if (response != undefined) {
+                    let res = await response.json();
+                    if (response.ok) {
+                        // dispatch(setData(types.USER_TOKEN, res))
+                        // await AsyncStorage.setItem("User",JSON.stringify({user:  res}))
+                        callback({ ok: true, data: res })
+                    }
+                    else {
+                        callback({ ok: false, data: res.message })
+                    }
+                }
+                else {
+                    callback({ ok: false, data: "Something went wrong, please try again!" })
+                }
+            })
+
+        } catch (err) {
+            console.log(err.message);
+            callback({ ok: false, data: "Something went wrong, please try again!" })
+        }
+    };
+}
 
 export const login = (userData, callback) => {
     return async (dispatch) => {
@@ -187,32 +213,3 @@ export const ChangePassword = (userData, callback) => {
     };
 };
 
-
-export const SignUp = (userData, callback) => {
-    return async (dispatch) => {
-        console.log("Data of User",userData);
-        try {
-             Post('/V1/customers',userData).then(async response => {
-                if (response != undefined) {
-                    let res = await response.json();
-                    console.log(res);
-                    if (response.ok) {
-                        dispatch(setData(types.GET_USER, res))
-                        AsyncStorage.setItem("USER",JSON.stringify({userData:  res}))
-                        callback({ ok: true, data: "" })
-                    }
-                    else {
-                        callback({ ok: false, data: res.message })
-                    }
-                }
-                else {
-                    callback({ ok: false, data: "Something went wrong, please try again!" })
-                }
-            })
-
-        } catch (err) {
-            console.log(err.message);
-            callback({ ok: false, data: "Something went wrong, please try again!" })
-        }
-    };
-};
