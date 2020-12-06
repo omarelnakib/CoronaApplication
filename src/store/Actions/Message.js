@@ -9,7 +9,7 @@ export const Send_Message = (message,callback) => {
     return async (dispatch) => {
         try {
 
-             Get(`/Notification/SendMessageToPatientNotification?caseid=${message.caseid}&message=${message.text}&title=${message.title}&body=${message.body}`, true).then(async response => {
+             Get(`/Notification/SendMessageToDoctorNotification?caseid=${message.caseid}&message=${message.text}&title=${message.title}&body=${message.body}`, true).then(async response => {
                 if (response != undefined) {
                     let res = await response.json();
                     if (response.ok) {

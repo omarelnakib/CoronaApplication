@@ -16,7 +16,7 @@ import { FlatList } from 'react-native-gesture-handler'
 import Globals from '../../assets/constants/Globals'
 const PatientProfileScreen = (props) => {
     const [isLoading, setIsLoading] = useState(true);
-    const [caseData, setCaseData] = useState({Questions:[],CaseID:0});
+    const [caseData, setCaseData] = useState({ Questions: [], CaseID: 0 });
     const [reportModal, setReportModal] = useState(false);
     const [imgs, setImgs] = useState([]);
     const dispatch = useDispatch();
@@ -36,21 +36,21 @@ const PatientProfileScreen = (props) => {
                     let Questions = []
                     console.log("questions", Quest)
                     Quest.forEach(element => {
-                        if(element!=""){
+                        if (element != "") {
                             var s = element.split(",");
                             var q = s[0];
                             var a = s[1];
                             Questions.push({ Question: q, Answer: a });
                         }
-                       
+
                     });
 
-                   
-                            tempData.Questions = Questions;
-                        console.log("tempData",tempData)
-                    setCaseData({...tempData})
+
+                    tempData.Questions = Questions;
+                    console.log("tempData", tempData)
+                    setCaseData({ ...tempData })
                 }
-                else{
+                else {
                     setCaseData(event.data)
                 }
                 // props.nav.navigate('DrawerNavigator')
@@ -72,8 +72,8 @@ const PatientProfileScreen = (props) => {
         props.navigation.navigate("CasesScreen");
         return true;
     }
-    const openMessages =()=>{
-        props.navigation.navigate('ChatScreen',{CaseId:caseData.CaseID})
+    const openMessages = () => {
+        props.navigation.navigate('ChatScreen', { CaseId: caseData.CaseID })
     }
     return (
         <ScrollView style={{ flex: 1, backgroundColor: Colors.light }}>
@@ -83,72 +83,34 @@ const PatientProfileScreen = (props) => {
             <View style={{ padding: 20 }}>
                 <LoadingModel LoadingModalVisiblty={isLoading} />
 
-                {/* case number & date */}
-                <View style={{ flexDirection: 'row-reverse', marginTop: 10 }}>
-                    <Text style={{ textAlign: 'right', flex: 0.5, fontSize: FontSizes.subtitle }}>{caseData.CaseID}</Text>
-                    <Text style={{ textAlign: 'left', flex: 0.5, fontSize: FontSizes.subtitle }}>{caseData.OpenDate}</Text>
-                </View>
-                {/* Status */}
-                <View style={{ flexDirection: 'row-reverse', marginTop: 30 }}>
-                    <Text style={{ textAlign: 'right', flex: 0.5, fontSize: FontSizes.subtitle }}>الحالة: {caseData.Status}</Text>
-                    {caseData.MedStaffName != null ?
-                        <Text style={{ textAlign: 'left', flex: 0.5, fontSize: FontSizes.subtitle }}>د/ محمد محمود</Text> : null
-                    }
-                </View>
-
-                {/* Report details */}
-                <TouchableOpacity onPress={() => { setReportModal(true) ;   console.log("caseData", caseData); }} style={{ marginTop: 30 }}>
-                    <Text style={{ fontSize: FontSizes.title, textDecorationLine: 'underline', color: Colors.primary }}>اظهر تفاصيل البلاغ</Text>
-                </TouchableOpacity>
-                <Modal isVisible={reportModal}
-                   onRequestClose={() => { setReportModal(false); } }
-                   animationType={"slide"}
-                   
-                   >
-                    <View style={styles.MainContainer}>
-                        {/* // Index of question */}
-                        {
-                            caseData.CaseText == null ?
-                                <View>
-                                    <FlatList
-                                        showsVerticalScrollIndicator={false}
-                                        refreshing={true}
-                                        data={caseData.Questions}
-                                        style={{ marginVertical: 10 }}
-                                        renderItem={({item, index}) => (
-                                            <View style={{ paddingVertical: 20}}>
-                                                <View style={{flexDirection: 'row-reverse', alignItems: 'center'}}>
-                                                    <Text style={styles.indexStyle}>{index + 1}</Text>
-                                                    {/* Question */}
-                                                    <Text style={styles.QuestionStyle}>{item.Question}</Text>
-                                                    </View>
-
-                                                    <View style={{}} >
-                                                        <Text style={{ fontSize: FontSizes.subtitle, textAlign: 'right' }}>  {item.Answer}</Text>
-                                                    </View>
-
-
-                                            </View>
-                                        )}
-                                    />
-
-                                </View>
-                                : <View>
-                                    <Text style={styles.QuestionStyle}>{caseData.CaseText}</Text>
-                                </View>
+                <View style={[styles.boxStyle, { padding: 20 }]}>
+                    {/* case number & date */}
+                    <View style={{ flexDirection: 'row-reverse', marginTop: 10 }}>
+                        <Text style={{ textAlign: 'right', flex: 0.5, fontSize: FontSizes.subtitle }}>رقم الحالة: {caseData.CaseID}</Text>
+                        <Text style={{ textAlign: 'left', flex: 0.5, fontSize: FontSizes.subtitle }}>{caseData.OpenDate}</Text>
+                    </View>
+                    {/* Status */}
+                    <View style={{ flexDirection: 'row-reverse', marginTop: 30 }}>
+                        <Text style={{ textAlign: 'right', flex: 0.5, fontSize: FontSizes.subtitle }}>الحالة: {caseData.Status}</Text>
+                        {caseData.MedStaffName != null ?
+                            <Text style={{ textAlign: 'left', flex: 0.5, fontSize: FontSizes.subtitle }}>د/ محمد محمود</Text> : null
                         }
                     </View>
-                </Modal>
+                </View>
+                {/* Report details */}
+                <RoundButton style={{marginTop: 30}} handleClick={() => { setReportModal(true) }} value={"اظهر تفاصيل البلاغ"}></RoundButton>
+                {/* 
+                <TouchableOpacity onPress={() => { setReportModal(true) ;   console.log("caseData", caseData); }} style={{ marginTop: 30 }}>
+                    <Text style={{ fontSize: FontSizes.title, textDecorationLine: 'underline', color: Colors.primary }}>اظهر تفاصيل البلاغ</Text>
+                </TouchableOpacity> */}
+
 
                 {/* التحاليل */}
-                <View>
-                    <View style={{ flexDirection: 'row-reverse', flexWrap: 'wrap' }}>
-
+                        <RoundButton style={{marginTop: 20 }} handleClick={() => { props.navigation.navigate('PicturesScreen') }} value={"اضافة/اظهار تحليل"}></RoundButton>
+                        {/* 
                         <TouchableOpacity onPress={() => { console.log('pressed'); props.navigation.navigate('PicturesScreen') }} style={{ marginTop: 30 }}>
                             <Text style={{ fontSize: FontSizes.title, textDecorationLine: 'underline', color: Colors.primary }}>اضافة/اظهار تحليل</Text>
-                        </TouchableOpacity>
-                    </View>
-                </View>
+                        </TouchableOpacity> */}
 
                 {/* عزل منزلي ان وجد */}
                 {/* <Text style={{ textAlign: 'right', marginTop: 30, fontSize: FontSizes.title }}>عزل منزلي</Text>
@@ -165,18 +127,56 @@ const PatientProfileScreen = (props) => {
 
                 {/* </Modal> */}
                 {/* Prescription */}
-                <Text style={{ textAlign: 'right', marginTop: 30, fontSize: FontSizes.title }}>تشخيص الطبيب</Text>
+                <Text style={{ textAlign: 'right', marginTop: 30, marginBottom: 10, fontSize: FontSizes.title }}>روشتة الطبيب</Text>
                 {
                     caseData.Prescriptions != null ?
-                        <Text style={{ borderWidth: 1, borderColor: Colors.secondary, padding: 10 }}>
+                        <Text style={[{ textAlign: 'center', padding: 10 }, styles.boxStyle]}>
                             {caseData.Prescriptions}</Text>
                         : null
                 }
 
 
             </View>
-            <RoundButton style={{ marginTop:10 }} handleClick={()=>{openMessages()}}  value={"الرسائل"}></RoundButton>
+            <RoundButton style={{ marginTop: 10 }} handleClick={() => { openMessages() }} value={"الرسائل"}></RoundButton>
+            <Modal isVisible={reportModal}
+                    onRequestClose={() => { setReportModal(false); }}
+                    animationType={"slide"}
 
+                >
+                    <View style={styles.MainContainer}>
+                        {/* // Index of question */}
+                        {
+                            caseData.CaseText == null ?
+                                <View>
+                                    <FlatList
+                                        showsVerticalScrollIndicator={false}
+                                        refreshing={true}
+                                        data={caseData.Questions}
+                                        style={{ marginVertical: 10 }}
+                                        renderItem={({ item, index }) => (
+                                            <View style={{ paddingVertical: 20 }}>
+                                                <View style={{ flexDirection: 'row-reverse', alignItems: 'center' }}>
+                                                    <Text style={styles.indexStyle}>{index + 1}</Text>
+                                                    {/* Question */}
+                                                    <Text style={styles.QuestionStyle}>{item.Question}</Text>
+                                                </View>
+
+                                                <View style={{}} >
+                                                    <Text style={{ fontSize: FontSizes.subtitle, textAlign: 'right' }}>  {item.Answer}</Text>
+                                                </View>
+
+
+                                            </View>
+                                        )}
+                                    />
+
+                                </View>
+                                : <View>
+                                    <Text style={styles.QuestionStyle}>{caseData.CaseText}</Text>
+                                </View>
+                        }
+                    </View>
+                </Modal>
         </ScrollView>
     )
 }

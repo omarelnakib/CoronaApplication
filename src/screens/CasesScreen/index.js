@@ -19,6 +19,10 @@ const CasesScreen = (props) => {
    
 
         useEffect(() => {
+           getCases();
+          }, [])
+          const getCases =()=>{
+            setIsLoading(true)
             dispatch(Action.Get_Cases(Globals.User.UserID,'user', (event) => {
               if (event.ok) {
                 setIsLoading(false);
@@ -33,11 +37,11 @@ const CasesScreen = (props) => {
               }
         
             }))
-          }, [])
+          }
     return (
         <View style={{ flex: 1, backgroundColor: Colors.light }}>
             {/* Header */}
-            <Header style={{ height: 70 }} title={"الحالات"} leftIcon="account"
+            <Header style={{ height: 70 }} title={"الحالات"} leftIcon="refresh" HandleBack={getCases}
             ></Header>
                     <LoadingModel LoadingModalVisiblty={isLoading} />
 

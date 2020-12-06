@@ -42,6 +42,13 @@ const styles = StyleSheet.create({
         marginTop:10,
         flexDirection:'row-reverse',
         justifyContent:'flex-start'
+      },
+      boxStyle:{
+        borderRadius:20,
+        shadowColor: "#000",
+          backgroundColor:Colors.light,shadowOffset: {    width: 0, height: 2,  },
+           shadowOpacity: 0.25, shadowRadius: 3.84,     
+                     elevation: 5 ,borderWidth: 1, borderColor: Colors.secondary
       }
 })
 

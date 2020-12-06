@@ -59,6 +59,11 @@ const MainHeader = props => {
                 <IconButton icon="account" size={25} color={Colors.light} onPress={props.HandleBack} style={[ Styles.iconInverse,{borderWidth:1,borderColor:Colors.light} ]} >
                 </IconButton>
     
+              )
+              :props.leftIcon == 'refresh' ? (
+                <IconButton icon="refresh" size={25} color={Colors.light} onPress={props.HandleBack} style={[ Styles.iconInverse,{borderWidth:1,borderColor:Colors.light} ]} >
+                </IconButton>
+    
               ):
             null
         }
