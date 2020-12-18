@@ -8,6 +8,7 @@ import { validateForm, validate } from '../../Validation/Validation';
 import DatePicker from 'react-native-datepicker'
 
 import LoadingModel from '../../components/LoadingModel';
+import Modal from 'react-native-modal'
 
 import { useDispatch } from 'react-redux';
 import *as Action from '../../store/Actions/Auth';
@@ -20,6 +21,7 @@ const { height, width } = Dimensions.get('window');
 const RegisterForm = props => {
     const [isLoading, setIsLoading] = useState(false);
     const dispatch = useDispatch();
+    const [reportModal, setReportModal] = useState(false);
 
     const [ScreenHeight, setScreenHeight] = useState(height);
     const [ScreenWidth, setScreenWidth] = useState(width);
@@ -90,7 +92,8 @@ const RegisterForm = props => {
             if (event.ok) {
                 setIsLoading(false);
 
-                props.nav.navigate('Login')
+                // props.nav.navigate('Login')
+                setReportModal(true)
             }
             else {
                 setIsLoading(false);
@@ -168,7 +171,7 @@ const RegisterForm = props => {
                 mode="date"
                 placeholder="اختر تاريخ"
                 format="YYYY-MM-DD"
-                minDate="1990-01-01"
+                minDate="1900-01-01"
                 maxDate="2020-01-01"
                 confirmBtnText="Confirm"
                 cancelBtnText="Cancel"
@@ -185,7 +188,12 @@ const RegisterForm = props => {
             />
             {/*Sign Up Button  */}
             <RoundButton handleClick={() => Submit()} style={{ marginTop: 50 }} value="تسجيل"></RoundButton>
-
+            <Modal isVisible={reportModal}>
+            <View style={{flex: 0.2,backgroundColor:Colors.light,alignItems:'center',justifyContent:'center',padding:20}}>
+              <Text style={{color:Colors.primary,fontSize:FontSizes.subtitle,textAlign:'center'}}>تم تسجيل الحساب بنجاح </Text>
+              <RoundButton handleClick={()=>{setReportModal(false); props.nav.navigate('Login')}} style={{marginTop:10,marginBottom:10}}  value="تابع" ></RoundButton>
+            </View>
+        </Modal>
         </ScrollView>
 
     )

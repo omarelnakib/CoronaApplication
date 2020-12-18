@@ -4,6 +4,7 @@ import { IconButton } from 'react-native-paper';
 import Colors from '../assets/constants/Colors';
 import ImagesPaths from '../assets/constants/ImagesPaths';
 import FontSizes from '../assets/constants/FontSizes';
+import Globals from '../assets/constants/Globals';
 
 const { width, height } = Dimensions.get('window');
 
@@ -114,8 +115,8 @@ const SideBar = (props) => {
                     <View style={Styles.avatarContainer}>
                         {/* <Image style={Styles.avatarImg} source={require('../assets/images/Profile.png')} /> */}
                         <View style={Styles.avatarContent}>
-                            <Text style={Styles.title}>احمد محمد</Text>
-                            <Text numberOfLines={1} style={Styles.email}>01112243840</Text>
+                            <Text style={Styles.title}>{Globals.User.Name}</Text>
+                            <Text numberOfLines={1} style={Styles.email}>{Globals.User.Mobile}</Text>
                         </View>
                     </View>
                 </View>

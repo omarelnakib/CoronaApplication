@@ -4,7 +4,7 @@ import AsyncStorage from "@react-native-community/async-storage";
 import { navigate, replace, reset } from "../../navigations/NavigationService";
 import { Platform } from 'react-native';
 
-const BaseUrl = "http://192.168.1.6:8080/api";
+const BaseUrl = "https://healthcare.cis.asu.edu.eg/healthapis/api";
 // const Globals = require('../../constants/Globals');
 
 export const getHeaders = async (isToken) => {
@@ -99,7 +99,11 @@ export const Get = async(url,isTokenRequired) => {
             console.log(`${BaseUrl}${url}`)
             const response = await fetch(`${BaseUrl}${url}`, {
                 method: "GET",
-                // headers: getHeaders(isTokenRequired)
+                //      headers:{
+                //         "Content-Type": "application/json",
+                //         "Accept": "application/json",
+                    
+                //  }
             });
 
             console.log("This is response from api", response)

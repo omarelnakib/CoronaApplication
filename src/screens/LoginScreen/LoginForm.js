@@ -29,13 +29,13 @@ const LoginForm = props => {
     const changePasswod = event => {
 
         let result = validate('password', event);
-        setPassword({ value: event, IsValid: result.IsValid });
+        setPassword({ value: event, IsValid: true});
     };
 
     const changeUserName = event => {
         console.log(event)
         let result = validate('phone', event);
-        setUserName({ value: event, IsValid: result.IsValid });
+        setUserName({ value: event, IsValid: true });
     };
 
     const SignIn = event =>{
@@ -64,6 +64,7 @@ const LoginForm = props => {
             <InputText inputType='TextInput' placeholder='اسم الحساب'
                 value={UserName.value} HandleChange={changeUserName}
                 style={{ width: '100%' }} Isvalid={UserName.IsValid}
+                
                 secureTextEntry={false} autoCapitalize="none" autoCorrect={false}
             ></InputText>
 

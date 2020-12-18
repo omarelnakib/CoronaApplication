@@ -5,6 +5,7 @@ import Colors from '../../assets/constants/Colors';
 import ImagesPaths from '../../assets/constants/ImagesPaths';
 import FontSizes from '../../assets/constants/FontSizes';
 import Header from '../../components/Header'
+import Globals from '../../assets/constants/Globals';
 
 const { width, height } = Dimensions.get('window');
 
@@ -21,7 +22,7 @@ const MenuScreen = (props) => {
                 //     ScreenName: "Home",
                 // },
                 {
-                    active: false,
+                    active: true,
                     TitleBtn: "البلاغات",
                     ScreenName: "CasesScreen",
                 },
@@ -49,7 +50,7 @@ const MenuScreen = (props) => {
             selected: false,
             items: [
                 {
-                    active: true,
+                    active: false,
                     TitleBtn: "الرعاية الطبية",
                     ScreenName: "Home",
                 },
@@ -115,8 +116,8 @@ const MenuScreen = (props) => {
                     <View style={Styles.avatarContainer}>
                         {/* <Image style={Styles.avatarImg} source={require('../assets/images/Profile.png')} /> */}
                         <View style={Styles.avatarContent}>
-                            <Text style={Styles.title}>احمد محمد</Text>
-                            <Text numberOfLines={1} style={Styles.email}>01112243840</Text>
+                            <Text style={Styles.title}>{Globals.User.Name}</Text>
+                            <Text numberOfLines={1} style={Styles.email}>{Globals.User.Mobile}</Text>
                         </View>
                     </View>
                 </View>
@@ -139,8 +140,8 @@ const MenuScreen = (props) => {
                                         {
                                             menu.items.map((submenu, index) => {
                                                 return (
-                                                    <TouchableOpacity onPress={() => selectItem(menuIndex, index)} style={[Styles.itemStyle,]}>
-                                                        <Text style={[Styles.itemTextStyle,]}>{submenu.TitleBtn}</Text>
+                                                    <TouchableOpacity onPress={() => selectItem(menuIndex, index)} disabled={!submenu.active} style={[Styles.itemStyle,]}>
+                                                        <Text style={[Styles.itemTextStyle,!submenu.active?{opacity:0.5}:{opacity:1}]}>{submenu.TitleBtn}</Text>
                                                     </TouchableOpacity>
                                                 )
 

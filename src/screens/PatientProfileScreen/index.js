@@ -93,7 +93,7 @@ const PatientProfileScreen = (props) => {
                     <View style={{ flexDirection: 'row-reverse', marginTop: 30 }}>
                         <Text style={{ textAlign: 'right', flex: 0.5, fontSize: FontSizes.subtitle }}>الحالة: {caseData.Status}</Text>
                         {caseData.MedStaffName != null ?
-                            <Text style={{ textAlign: 'left', flex: 0.5, fontSize: FontSizes.subtitle }}>د/ محمد محمود</Text> : null
+                            <Text style={{ textAlign: 'left', flex: 0.5, fontSize: FontSizes.subtitle }}>د/ {caseData.MedStaffName}</Text> : null
                         }
                     </View>
                 </View>

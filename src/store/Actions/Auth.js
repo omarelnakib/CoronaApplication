@@ -87,7 +87,7 @@ export const login = (userData, callback) => {
 
         } catch (err) {
             console.log(err.message);
-            callback({ ok: false, data: "Something went wrong, please try again!" })
+            callback({ ok: false, data:err.message })
         }
     };
 };
