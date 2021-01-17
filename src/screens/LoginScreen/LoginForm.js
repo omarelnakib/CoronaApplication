@@ -103,7 +103,8 @@ const styles = StyleSheet.create({
     title: {
         color: Colors.primary,
         fontSize: FontSizes.subtitle,
-        marginTop: 25
+        marginTop: 25,
+        alignSelf:'flex-end'
     },
     forgetPassword: {
         alignSelf: 'flex-start',

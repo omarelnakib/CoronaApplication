@@ -19,6 +19,7 @@ const Styles = StyleSheet.create({
         fontSize: FontSizes.small,
         // textAlign:'center',
         textAlignVertical: 'center',
+        alignSelf:'flex-end',
         letterSpacing: 1,
         color: Color.light,
     },
@@ -44,9 +45,9 @@ const PostItem = props => {
             <View style={{ flexDirection: 'row-reverse' }}>
                 <View style={{ flex: 0.7 }}>
                     {/* Author part */}
-                    <Text style={{ fontSize: FontSizes.small, color: Colors.dark }}>{props.author}</Text>
+                    <Text style={{ fontSize: FontSizes.small, color: Colors.dark,alignSelf:'flex-end' }}>{props.author}</Text>
                     {/* title of post */}
-                    <Text style={Styles.title}>{props.title} ... <Text style={{ fontWeight: 'bold', textDecorationLine: 'underline' }}>اقرأ المزيد</Text></Text>
+                    <Text style={Styles.title}>{props.title} ... <Text style={{ fontWeight: 'bold', textDecorationLine: 'underline' ,alignSelf:'flex-end'}}>اقرأ المزيد</Text></Text>
                 </View>
                 {/* image of post */}
                 <View style={Styles.imageContainerStyle}>

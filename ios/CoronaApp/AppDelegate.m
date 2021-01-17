@@ -20,6 +20,7 @@ static void InitializeFlipper(UIApplication *application) {
   [client addPlugin:[FlipperKitReactPlugin new]];
   [client addPlugin:[[FlipperKitNetworkPlugin alloc] initWithNetworkAdapter:[SKIOSNetworkAdapter new]]];
   [client start];
+
 }
 #endif
 

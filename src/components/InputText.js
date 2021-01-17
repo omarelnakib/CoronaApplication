@@ -69,7 +69,7 @@ const Styles = StyleSheet.create({
     height: 40,
     borderBottomWidth:2,
     borderColor: Colors.lightgray,
-    fontFamily: 'barmeno-regular',
+    //fontFamily: 'barmeno-regular',
     
   },
   InputPicker: {
@@ -87,7 +87,7 @@ const Styles = StyleSheet.create({
     marginTop: 30,
     height: 40,
     borderColor: 'transparent',
-    fontFamily: 'barmeno-regular',
+    //fontFamily: 'barmeno-regular',
   },
   SuccessInput: {
     borderColor: Colors.primary,

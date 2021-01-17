@@ -113,7 +113,7 @@ const Styles = StyleSheet.create({
     width: '100%',
   },
   title: {
-    fontFamily: 'barmeno-regular',
+    //fontFamily: 'barmeno-regular',
     fontSize: 18,
     letterSpacing: 1,
     color: Colors.light,

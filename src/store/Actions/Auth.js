@@ -1,6 +1,6 @@
 import * as types from '../ActionTypes';
 import { Post, setData,Put, Get } from "./API_Requests";
-import { AsyncStorage } from '@react-native-async-storage/async-storage';
+import  AsyncStorage  from '@react-native-async-storage/async-storage';
 import { navigate, replace, reset } from "../../navigations/NavigationService";
 import { Platform } from 'react-native'
 import Globals from '../../assets/constants/Globals';
@@ -69,6 +69,7 @@ export const login = (userData, callback) => {
                     console.log("res");
                     if (response.ok) {
                         let res = await response.json();
+                        console.log(res)
 
                         // dispatch(setData(types.USER_TOKEN, res))
                         AsyncStorage.setItem("User",JSON.stringify({User:  res}))

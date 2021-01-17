@@ -58,7 +58,7 @@ return (
             <View  style={Style.contentStyle}>
                 <Image style={{width:150,height:150,resizeMode:'contain',alignSelf:'center'}} source={postItem.img}/>
                {/* author */}
-<Text style={{fontSize:FontSizes.subtitle,marginVertical:20,color:Colors.dark}}>{postItem.author}</Text>
+<Text style={{fontSize:FontSizes.subtitle,marginVertical:20,color:Colors.dark,textAlign:'right'}}>{postItem.author}</Text>
                 <Text style={Style.titleStyle}>{postItem.title}</Text>
                 {/* if exist video with the content */}
                 {postItem.video  ?

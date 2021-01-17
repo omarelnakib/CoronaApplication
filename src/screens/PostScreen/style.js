@@ -37,7 +37,9 @@ const Style = StyleSheet.create({
     paragraphStyle:{
         color:Colors.light,
         fontSize:FontSizes.pragraph,
-        // textAlign:'center',
+        textAlign:'right',
+        alignSelf:'flex-end',
+
         marginTop:20
     },
     imageStyle: {

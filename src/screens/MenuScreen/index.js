@@ -92,7 +92,7 @@ const MenuScreen = (props) => {
     ]);
 
     const selectItem = (menuIndex, itemIndex) => {
-
+            console.log("entered",menuItems[menuIndex].items[itemIndex].ScreenName)
             props.navigation.navigate(menuItems[menuIndex].items[itemIndex].ScreenName)
         
     };
@@ -217,7 +217,7 @@ const Styles = StyleSheet.create({
         fontSize: FontSizes.title,
         fontWeight: 'bold',
         color: Colors.light,
-        textAlign: 'center'
+        textAlign: 'center',
     },
     email: {
         fontSize: FontSizes.pragraph,
@@ -246,7 +246,7 @@ const Styles = StyleSheet.create({
         fontSize: FontSizes.pragraph,
         color: Colors.secondary,
         textAlign: 'center',
-        textAlignVertical:'center',
+        textAlignVertical:'center',        
         // width:'100%',
         height:'100%',
         fontWeight: 'bold',
