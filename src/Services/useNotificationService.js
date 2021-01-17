@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { AppState } from 'react-native';
-import { AsyncStorage } from '@react-native-community/async-storage';
+import { AsyncStorage } from '@react-native-async-storage/async-storage';
 
 import { useNotifs } from './notifications';
 import { fcm } from '../Utils/fcm';

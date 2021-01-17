@@ -1,6 +1,6 @@
 import * as types from '../ActionTypes';
 import { Post, setData,Put, Get } from "./API_Requests";
-import AsyncStorage from "@react-native-community/async-storage";
+import { AsyncStorage } from '@react-native-async-storage/async-storage';
 import { navigate, replace, reset } from "../../navigations/NavigationService";
 import { Platform } from 'react-native'
 import Globals from '../../assets/constants/Globals';

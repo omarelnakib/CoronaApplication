@@ -1,6 +1,5 @@
 platform :ios, '9.0'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
-
 def add_flipper_pods!(versions = {})
   versions['Flipper'] ||= '~> 0.33.1'
   versions['DoubleConversion'] ||= '1.1.7'
@@ -84,10 +83,12 @@ target 'AsuCare' do
 
   pod 'RNFirebase', :path => '../node_modules/react-native-firebase/ios'
 
-  target 'AsuCareTests' do
-    inherit! :complete
-    # Pods for testing
-  end
+  pod 'CocoaAsyncSocket'
+
+  # target 'AsuCareTests' do
+  #   inherit! :complete
+  #   # Pods for testing
+  # end
 
   use_native_modules!
 
@@ -101,11 +102,3 @@ target 'AsuCare' do
   end
 end
 
-target 'AsuCare-tvOS' do
-  # Pods for AsuCare-tvOS
-
-  target 'AsuCare-tvOSTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-end
