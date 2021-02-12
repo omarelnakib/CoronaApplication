@@ -25,6 +25,16 @@ export default function (state = initialState.Auth , action){
                     ...state,
                     data: action.data,
                 }
+                case types.SEND_TESTS:
+                    return{
+                        ...state,
+                        data: action.data,
+                    }  
+                    case types.GET_TESTS:
+                    return{
+                        ...state,
+                        data: action.data,
+                    }
         default:
           return {...state};
     }

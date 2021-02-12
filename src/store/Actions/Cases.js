@@ -1,5 +1,5 @@
 import * as types from '../ActionTypes';
-import { Post, setData,Put, Get } from "./API_Requests";
+import { Post, setData,Put, Get, PostFormData } from "./API_Requests";
 import { navigate, replace, reset } from "../../navigations/NavigationService";
 import { Platform } from 'react-native'
 
@@ -70,6 +70,62 @@ export const Set_Case = (survey,callback) => {
         }
     };
 };
+
+export const Get_Test = (CaseId,callback) => {
+    return async (dispatch) => {
+        try {
+             Get(`/CaseTests/GetAllCaseTests?caseid=${CaseId}`, true).then(async response => {
+                if (response != undefined) {
+                    let res = await response.json();
+                    if (response.ok) {
+                        // dispatch(setData(types.USER_TOKEN, res))
+                        // await AsyncStorage.setItem("User",JSON.stringify({user:  res}))
+                        callback({ ok: true, data: res })
+                    }
+                    else {
+                        callback({ ok: false, data: res.message })
+                    }
+                }
+                else {
+                    callback({ ok: false, data: "Something went wrong, please try again!" })
+                }
+            })
+
+        } catch (err) {
+            console.log(err.message);
+            callback({ ok: false, data: "Something went wrong, please try again!" })
+        }
+    };
+};
+
+export const Send_Test = (test,CaseId,callback) => {
+    return async (dispatch) => {
+        try {
+            var testname=''
+             PostFormData(`/CaseTests/InsertCaseTest?caseid=${CaseId}&testname=${testname}`,test, true).then(async response => {
+                if (response != undefined) {
+                    let res = await response.json();
+                    if (response.ok) {
+                        // dispatch(setData(types.USER_TOKEN, res))
+                        // await AsyncStorage.setItem("User",JSON.stringify({user:  res}))
+                        callback({ ok: true, data: res })
+                    }
+                    else {
+                        callback({ ok: false, data: res.message })
+                    }
+                }
+                else {
+                    callback({ ok: false, data: "Something went wrong, please try again!" })
+                }
+            })
+
+        } catch (err) {
+            console.log(err.message);
+            callback({ ok: false, data: "Something went wrong, please try again!" })
+        }
+    };
+};
+
 
 //request type either case or user or doctor or unassigned
 export const Get_Cases = (userId,requestType,callback) => {

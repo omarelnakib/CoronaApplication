@@ -106,7 +106,8 @@ const PatientProfileScreen = (props) => {
 
 
                 {/* التحاليل */}
-                        <RoundButton style={{marginTop: 20 }} handleClick={() => { props.navigation.navigate('PicturesScreen') }} value={"اضافة/اظهار تحليل"}></RoundButton>
+                        <RoundButton style={{marginTop: 20 }} handleClick={() => {props.navigation.navigate('PicturesScreen', { CaseId: caseData.CaseID })
+                        }} value={"اضافة/اظهار تحليل"}></RoundButton>
                         {/* 
                         <TouchableOpacity onPress={() => { console.log('pressed'); props.navigation.navigate('PicturesScreen') }} style={{ marginTop: 30 }}>
                             <Text style={{ fontSize: FontSizes.title, textDecorationLine: 'underline', color: Colors.primary }}>اضافة/اظهار تحليل</Text>

@@ -139,6 +139,7 @@ export const Post = async(url,Data,isTokenRequired) => {
         const response = await fetch(`${BaseUrl}${url}`, {
             method: "POST",
             headers: {
+                Accept: 'application/json',
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(Data)
@@ -152,7 +153,26 @@ export const Post = async(url,Data,isTokenRequired) => {
         return undefined;
     }
 };
+export const PostFormData = async(url,Data,isTokenRequired) => {
+    console.log("url",url)
+    console.log("Data",Data)
+    try {
+        const response = await fetch(`${BaseUrl}${url}`, {
+            method: "POST",
+            headers: {
+                "Content-Type": 'multipart/form-data',
+            },
+            body:Data
+        });
 
+        console.log("This is response from api", response)
+        return response;
+
+    } catch (err) {
+        console.log(err.message);
+        return undefined;
+    }
+};
 export const GetBy = async(url,Data, isTokenRequired) => {
     console.log("entered get method")
         try {
