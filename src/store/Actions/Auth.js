@@ -22,10 +22,11 @@ export const autoLogin = async () => {
             if (item != undefined) {
                 item = JSON.parse(item);
                 console.log("User", item)
-                setTimeout(() => { replace("HomeStackNavigator") }, 2000)
+                Globals.User=item.User
+                setTimeout(() => { replace("DrawerNavigator") }, 500)
             }
             else {
-                setTimeout(() => { replace("AuthStackNavigator") }, 2000)
+                setTimeout(() => { replace("AuthStackNavigator") }, 500)
             }
         })
         .done();
@@ -36,7 +37,7 @@ export const sign_up = (userData, callback) =>{
     return async (dispatch) => {
         try {
 
-             Post(`/Users/PostUser`,userData, true).then(async response => {
+             Post(`/Users/PostUser`,userData, false).then(async response => {
                 if (response != undefined) {
                     let res = await response.json();
                     if (response.ok) {
@@ -63,8 +64,13 @@ export const sign_up = (userData, callback) =>{
 export const login = (userData, callback) => {
     return async (dispatch) => {
         try {
-            console.log("user data",'/users?username='+userData.email+'&password='+userData.password+'&devicetoken='+Globals.NotificationToken);
-             Get('/Users/CheckUserCredentials?username='+userData.email+'&password='+userData.password+'&devicetoken='+Globals.NotificationToken).then(async response => {
+            
+            let data = {
+                "Username":userData.email,
+                "Password":userData.password,
+                "DeviceToken":Globals.NotificationToken
+            }
+             Post('/Users/CheckUserCredentials',data,false).then(async response => {
                 if (response != undefined) {
                     console.log("res");
                     if (response.ok) {

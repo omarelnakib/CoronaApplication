@@ -23,6 +23,7 @@ import { Provider } from 'react-redux';
 // import configureStore from './src/store/StoreConfiguration';
 // import initialState from './src/store/initialState';
 import firebase from 'react-native-firebase';
+import { autoLogin } from './src/store/Actions/Auth';
 
 // const store = configureStore(initialState);
 const store = configureStore(initialState);
@@ -33,8 +34,9 @@ export default function App() {
   
   
 
-  //  useEffect(()=>{
-  //  },[])
+   useEffect(()=>{
+    autoLogin()
+   },[])
 
   return (
     // {/* <StatusBar backgroundColor={Colors.primary} barStyle={'light-content'}/> */}

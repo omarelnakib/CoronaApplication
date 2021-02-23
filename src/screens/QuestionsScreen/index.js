@@ -19,21 +19,26 @@ import Question from '../../Models/Question';
 import Globals from '../../assets/constants/Globals';
 import Modal from 'react-native-modal'
 import RoundButton from '../../components/RoundButton';
+import DropDownHeader from '../../components/DropDownHeader';
+import InputText from '../../components/InputText';
 
 const { height, width } = Dimensions.get('window');
 
 const QuestionsScreen = props => {
   const [isLoading, setIsLoading] = useState(true);
   const dispatch = useDispatch();
+  const [isQuestions, setIsQuestions] = useState(false);
+  const [isText, setIsText] = useState(false);
+  const [caseText, setCaseText] = useState('');
   const [reportModal, setReportModal] = useState(false);
-  const [caseId,setCaseId] = useState("");
+  const [caseId, setCaseId] = useState("");
   const [ScreenHeight, setScreenHeight] = useState(height);
   const [ScreenWidth, setScreenWidth] = useState(width);
   const [QuestionIndex, setQuestionsIndex] = useState(1);
   const [DataList, setDataList] = useState([]);
   const [chosenAnswers, setChosenAnswers] = useState(DataList)
   const [SurveyId, setSurveyId] = useState(0);
-   //get questions from api
+  //get questions from api
   useEffect(() => {
     dispatch(Action.Get_Survey(1, (event) => {
       if (event.ok) {
@@ -79,13 +84,13 @@ const QuestionsScreen = props => {
     return answers;
   }
 
-  const prepareAnswerSubmit = ()=>{
+  const prepareAnswerSubmit = () => {
 
-    let strAnswers ="";
-    chosenAnswers.forEach((element,index)=>{
-      strAnswers+=element.question +','+ element.answer
-      if(index!=chosenAnswers.length-1)
-      strAnswers+=';'
+    let strAnswers = "";
+    chosenAnswers.forEach((element, index) => {
+      strAnswers += element.question + ',' + element.answer
+      if (index != chosenAnswers.length - 1)
+        strAnswers += ';'
 
     })
     var data = {
@@ -106,20 +111,40 @@ const QuestionsScreen = props => {
 
     setDataList([...tempArr])
     let tempChosen = [...chosenAnswers];
-    tempChosen[itemIndex] = {question:tempArr[itemIndex].id, answer: tempArr[itemIndex].answers[Answerindex].id };
+    tempChosen[itemIndex] = { question: tempArr[itemIndex].id, answer: tempArr[itemIndex].answers[Answerindex].id };
 
     setChosenAnswers([...tempChosen]);
   }
+  const submitText = () =>{
+    var data = {
+      UserId: Globals.User.UserID,
+      caseText: caseText
+    }
+    setIsLoading(true);
+    dispatch(Action.Set_CaseText(data, (event) => {
+      if (event.ok) {
+        setReportModal(true);
+        setIsLoading(false);
+        console.log("Case", event.data)
+        setCaseId(event.data.CaseID);
+        // props.nav.navigate('DrawerNavigator')
+      }
+      else {
+        setIsLoading(false);
+        toast(event.data)
+      }
 
+    }))
+  }
   const submit = () => {
-   var data = prepareAnswerSubmit();
- 
+    var data = prepareAnswerSubmit();
+
     setIsLoading(true);
     dispatch(Action.Set_Case(data, (event) => {
       if (event.ok) {
         setReportModal(true);
         setIsLoading(false);
-        console.log("Case",event.data)
+        console.log("Case", event.data)
         setCaseId(event.data.CaseID);
         // props.nav.navigate('DrawerNavigator')
       }
@@ -132,19 +157,35 @@ const QuestionsScreen = props => {
   }
   return (
     <>
-      <View style={Style.container}>
+      <ScrollView style={Style.container}>
         <LoadingModel LoadingModalVisiblty={isLoading} />
 
         <Header style={{ height: 70 }} bodyStyle={{ width: '80%' }} title='ابلاغ عن حالة' leftIcon='menu' HandleBack={() => props.navigation.navigate('MenuScreen')}></Header>
 
-        <QuestionsForm disabled={chosenAnswers.length!=DataList.length?true:false} submit={() => submit()} data={DataList} handleClick={(item, index) => chooseAnswer(item, index)}  ></QuestionsForm>
+        <DropDownHeader headerText={"اجابة علي استبيان"} handleClick={() => { var tmp = isQuestions; setIsQuestions(!tmp) }}></DropDownHeader>
+        <View style={{ display: isQuestions == true ? 'flex' : 'none' }}>
+          <QuestionsForm disabled={chosenAnswers.length != DataList.length ? true : false} submit={() => submit()} data={DataList} handleClick={(item, index) => chooseAnswer(item, index)}  ></QuestionsForm>
+        </View>
+        <DropDownHeader headerText={"كتابة"} handleClick={() => { var tmp = isText; setIsText(!tmp) }}></DropDownHeader>
+        <View style={{ display: isText == true ? 'flex' : 'none', paddingHorizontal: 10 }}>
+          <InputText inputType='TextInput' placeholder='اكتب حالتك بالتفصيل ...'
+            value={caseText} HandleChange={(item) => { setCaseText(item) }}
+            style={{ width: '100%', height: 200, borderColor: Colors.primary, borderWidth: 1, borderRadius: 10, marginTop: 20 }}
+            Isvalid={true} multiLine={true} textStyle={{ height: 200, padding: 10 }}
+            secureTextEntry={false} autoCapitalize="none" autoCorrect={false}
+          ></InputText>
+
+          <RoundButton handleClick={() => submitText()} disabled={props.disabled} buttonStyle={props.disabled ? { opacity: 0.5 } : { opacity: 1 }} style={{ marginTop: 20 }} value="ارسال" ></RoundButton>
+
+        </View>
+
         <Modal isVisible={reportModal}>
-            <View style={{flex: 0.2,backgroundColor:Colors.light,alignItems:'center',justifyContent:'center',padding:20}}>
-              <Text style={{color:Colors.primary,fontSize:FontSizes.subtitle,textAlign:'center'}}>تم بنجاح تسجيل البلاغ برقم {caseId} و سيتم متابعة البلاغ من احدى المختصين في اسرع وقت </Text>
-              <RoundButton handleClick={()=>{setReportModal(false);props.navigation.navigate("CasesScreen")}} style={{marginTop:10,marginBottom:10}}  value="تابع" ></RoundButton>
-            </View>
+          <View style={{ flex: 0.2, backgroundColor: Colors.light, alignItems: 'center', justifyContent: 'center', padding: 20 }}>
+            <Text style={{ color: Colors.primary, fontSize: FontSizes.subtitle, textAlign: 'center' }}>تم بنجاح تسجيل البلاغ برقم {caseId} و سيتم متابعة البلاغ من احدى المختصين في اسرع وقت </Text>
+            <RoundButton handleClick={() => { setReportModal(false); props.navigation.navigate("CasesScreen") }} style={{ marginTop: 10, marginBottom: 10 }} value="تابع" ></RoundButton>
+          </View>
         </Modal>
-      </View>
+      </ScrollView>
 
     </>
   )

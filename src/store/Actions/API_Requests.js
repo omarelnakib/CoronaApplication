@@ -1,38 +1,51 @@
 import * as types from '../ActionTypes';
 // import APIConstant, { Post, Get, setData, getetHeaders, getToken } from "./APIConstant";
-import { AsyncStorage } from '@react-native-async-storage/async-storage';
+import  AsyncStorage  from '@react-native-async-storage/async-storage';
 import { navigate, replace, reset } from "../../navigations/NavigationService";
 import { Platform } from 'react-native';
 
 const BaseUrl = "https://healthcare.cis.asu.edu.eg/healthapis/api";
 // const Globals = require('../../constants/Globals');
 
-export const getHeaders = async (isToken) => {
+export const getHeaders = async (isToken,isFormData) => {
     let headers = {};
-    AsyncStorage.getItem('UserToken')
+   return AsyncStorage.getItem('User')
     .then((item) => {
         if (item != undefined) {
             item = JSON.parse(item);
-            console.log("UserToken", item.token);
+            console.log("UserToken", item);
             // return item.token;
 
-            console.log("This Header with token,", item.token);
+            console.log("This Header with token,", item.User.AuthenticationToken);
            
             if(isToken)
             {
+                if(isFormData)
+                headers = {
+                    "Content-Type": "multipart/form-data",
+                };
+
+                else
                 headers = {
                     "Content-Type": "application/json",
-                    // 'Authorization': `${item.token}`
+                    Accept: 'application/json',
                 };
-                headers.Authorization = `Bearer ${item.token}`;
+                headers.AccessToken = `${item.User.AuthenticationToken}`;
 
                 return headers;
 
             }
             else
             {
-               headers = {
-                 "Content-Type": "application/json",
+                if(isFormData)
+                headers = {
+                    "Content-Type": "multipart/form-data",
+                };
+
+                else
+                headers = {
+                    "Content-Type": "application/json",
+                    Accept: 'application/json',
                 };
 
                return headers;
@@ -41,14 +54,21 @@ export const getHeaders = async (isToken) => {
              
         }
         else {
+            if(isFormData)
+            headers = {
+                "Content-Type": "multipart/form-data",
+            };
+
+            else
             headers = {
                 "Content-Type": "application/json",
-               };
-
+                Accept: 'application/json',
+            };
+            console.log("hi",headers)
             return headers;
         }
     })
-    .done();
+    // .done();
    
     //   if (isToken) {
     //     headers.Authorization = `${token}`;
@@ -96,14 +116,16 @@ export const getHeaders = async (isToken) => {
 export const Get = async(url,isTokenRequired) => {
         try {
             // getLang().then(async (lang) => {
-            console.log(`${BaseUrl}${url}`)
             const response = await fetch(`${BaseUrl}${url}`, {
                 method: "GET",
+                headers: await getHeaders(isTokenRequired,false),
+
                 //      headers:{
                 //         "Content-Type": "application/json",
                 //         "Accept": "application/json",
                     
                 //  }
+
             });
 
             console.log("This is response from api", response)
@@ -121,7 +143,7 @@ export const GetWith = async(url,data,isTokenRequired) => {
         try {
             const response = await fetch(`${BaseUrl}${Globals.Language}${url}${data}`, {
                 method: "GET",
-                headers: await getHeaders(isTokenRequired),
+                headers: await getHeaders(isTokenRequired,false),
             });
 
             console.log("This is response from api", response)
@@ -134,19 +156,24 @@ export const GetWith = async(url,data,isTokenRequired) => {
 };
 
 export const Post = async(url,Data,isTokenRequired) => {
-    console.log("entered")
+    console.log("header",await getHeaders(isTokenRequired,false))
     try {
-        const response = await fetch(`${BaseUrl}${url}`, {
-            method: "POST",
-            headers: {
-                Accept: 'application/json',
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(Data)
-        });
-
-        console.log("This is response from api", response)
-        return response;
+       return getHeaders(isTokenRequired,false).then(async(header)=>{
+            console.log(header)
+            const response = await fetch(`${BaseUrl}${url}`, {
+                method: "POST",
+                headers: header ,
+            //    headers:  {
+            //         Accept: 'application/json',
+            //         "Content-Type": "application/json",
+            //     },
+                body: JSON.stringify(Data)
+            });
+    
+            console.log("This is response from api", response)
+            return response;
+        })
+        
 
     } catch (err) {
         console.log(err.message);
@@ -159,9 +186,7 @@ export const PostFormData = async(url,Data,isTokenRequired) => {
     try {
         const response = await fetch(`${BaseUrl}${url}`, {
             method: "POST",
-            headers: {
-                "Content-Type": 'multipart/form-data',
-            },
+            headers:await getHeaders(isTokenRequired,true),
             body:Data
         });
 

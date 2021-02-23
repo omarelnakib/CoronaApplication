@@ -13,7 +13,6 @@ const QuestionsForm = (props) => {
     <>
       <View style={styles.MainContainer}>
         {/* // Index of question */}
-        <ScrollView showsVerticalScrollIndicator={false}>
         {props.data.map((item, itemIndex) => {
           return (
             <View style={{ paddingVertical: 10 }}>
@@ -44,12 +43,9 @@ const QuestionsForm = (props) => {
         }
 
         {/* footer button */}
-        <RoundButton handleClick={()=>props.submit()} disabled={props.disabled} buttonStyle={props.disabled?{opacity:0.5}:{opacity:1}} style={{marginTop:20,marginBottom:20}}  value="تابع" ></RoundButton>
+        <RoundButton handleClick={()=>props.submit()} disabled={props.disabled} buttonStyle={props.disabled?{opacity:0.5}:{opacity:1}} style={{marginTop:20}}  value="تابع" ></RoundButton>
 
-</ScrollView>
-      </View>
-
-
+</View>
      
     </>
   )
@@ -58,9 +54,8 @@ const QuestionsForm = (props) => {
 
 const styles = StyleSheet.create({
   MainContainer: {
-    height: '100%',
     padding: 20,
-    paddingBottom:70
+    paddingBottom:20
   },
   container: {
     flexDirection: 'row-reverse',

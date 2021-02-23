@@ -47,7 +47,7 @@ export const Set_Case = (survey,callback) => {
     return async (dispatch) => {
         try {
 
-             Post(`/Case_Surveys/PostCase_Surveys?userid=${survey.UserId}&surveyid=${survey.SurveyId}&quest_answers=${survey.Answers}`, true).then(async response => {
+             Post(`/Case_Surveys/PostCase_Surveys?userid=${survey.UserId}&surveyid=${survey.SurveyId}&quest_answers=${survey.Answers}`,{}, true).then(async response => {
                 if (response != undefined) {
                     let res = await response.json();
                     if (response.ok) {
@@ -71,6 +71,33 @@ export const Set_Case = (survey,callback) => {
     };
 };
 
+export const Set_CaseText = (survey,callback) => {
+    return async (dispatch) => {
+        try {
+
+             Post(`/PatientCas/PostPatientCaseText?userid=${survey.UserId}&casetext=${survey.caseText}`,{}, true).then(async response => {
+                if (response != undefined) {
+                    let res = await response.json();
+                    if (response.ok) {
+                        // dispatch(setData(types.USER_TOKEN, res))
+                        // await AsyncStorage.setItem("User",JSON.stringify({user:  res}))
+                        callback({ ok: true, data: res })
+                    }
+                    else {
+                        callback({ ok: false, data: res.message })
+                    }
+                }
+                else {
+                    callback({ ok: false, data: "Something went wrong, please try again!" })
+                }
+            })
+
+        } catch (err) {
+            console.log(err.message);
+            callback({ ok: false, data: "Something went wrong, please try again!" })
+        }
+    };
+};
 export const Get_Test = (CaseId,callback) => {
     return async (dispatch) => {
         try {

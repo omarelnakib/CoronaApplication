@@ -12,6 +12,7 @@ import LoadingModel from '../../components/LoadingModel';
 import { useDispatch } from 'react-redux';
 import *as Action from '../../store/Actions/Cases';
 import Globals from '../../assets/constants/Globals'
+import DropDownHeader from '../../components/DropDownHeader'
 const CasesScreen = (props) => {
     const [isLoading, setIsLoading] = useState(true);
     const dispatch = useDispatch();
@@ -44,7 +45,6 @@ const CasesScreen = (props) => {
             <Header style={{ height: 70 }} title={"الحالات"} leftIcon="refresh" HandleBack={getCases}
             ></Header>
                     <LoadingModel LoadingModalVisiblty={isLoading} />
-
             <FlatList
                 showsVerticalScrollIndicator={false}
                 refreshing={true}

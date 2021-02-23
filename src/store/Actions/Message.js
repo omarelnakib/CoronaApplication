@@ -8,16 +8,19 @@ export const Send_Message = (message,callback) => {
     return async (dispatch) => {
         try {
 
+            console.log(message);
              Get(`/Notification/SendMessageToDoctorNotification?caseid=${message.caseid}&message=${message.text}&title=${message.title}&body=${message.body}`, true).then(async response => {
                 if (response != undefined) {
-                    let res = await response.json();
+                    console.log("thank you received",response)
+
+                    // let res = await response.json();
                     if (response.ok) {
                         // dispatch(setData(types.USER_TOKEN, res))
                         // await AsyncStorage.setItem("User",JSON.stringify({user:  res}))
-                        callback({ ok: true, data: res })
+                        callback({ ok: true, data: response })
                     }
                     else {
-                        callback({ ok: false, data: res.message })
+                        callback({ ok: false, data: "Something went wrong, please try again!" })
                     }
                 }
                 else {
