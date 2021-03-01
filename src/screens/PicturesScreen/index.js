@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Dimensions, ScrollView, Image, TouchableOpacity, Platform, FlatList } from 'react-native';
+import { View, Dimensions, ScrollView, TouchableOpacity, Platform, FlatList } from 'react-native';
 import Style from './style';
 import ImagesPaths from '../../assets/constants/ImagesPaths'
 import Colors from '../../assets/constants/Colors';
@@ -13,11 +13,14 @@ import RoundButton from '../../components/RoundButton';
 import LoadingModel from '../../components/LoadingModel';
 import { useDispatch } from 'react-redux';
 import *as Action from '../../store/Actions/Cases';
-
+import Image from 'react-native-image-progress';
+import ProgressBar from 'react-native-progress/Bar';
+import CUstomImageModal from '../../components/CustomImageModal';
 const PicturesScreen = props => {
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(false);
-
+  const [selectedImage,setSelectedImage] = useState();
+  const [modalVisible,setModalVisible] = useState(false);
   const [imgs, setImgs] = useState([]);
   const [retrievedImgs, setRetrievedImgs] = useState([]);
   const options = {
@@ -135,17 +138,29 @@ const PicturesScreen = props => {
           return (
             <View>
               
-              <ImageModal
+              {/* <ImageModal
                 swipeToDismiss={true}
                 resizeMode="contain"
                 imageBackgroundColor={Colors.light}
+                
                 style={{
                   width: 150,
                   height: 150,
                   margin: 10
                 }}
                 source={{uri:item.FilePath}}
+              /> */}
+              <TouchableOpacity onPress={()=>{ setSelectedImage(item.FilePath); setModalVisible(true)}}>
+              <Image
+              source={{uri:item.FilePath}}
+              style={{
+                width: 150,
+                height: 150,
+                margin: 10
+              }}
+              indicator={ProgressBar} 
               />
+              </TouchableOpacity>
             </View>
 
 
@@ -153,8 +168,8 @@ const PicturesScreen = props => {
 
         })}
       
-
       </View>
+      <CUstomImageModal visible={modalVisible} source={selectedImage} ModalClick={()=>{setModalVisible(false)}}></CUstomImageModal>
       <View style={{ flexDirection: 'row-reverse', flexWrap: 'wrap' }}>
       {/* <LoadingModel LoadingModalVisiblty={isLoading} /> */}
 
