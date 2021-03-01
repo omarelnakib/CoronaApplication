@@ -6,86 +6,88 @@ import ImagesPaths from '../../assets/constants/ImagesPaths';
 import FontSizes from '../../assets/constants/FontSizes';
 import Header from '../../components/Header'
 import Globals from '../../assets/constants/Globals';
+import { replace,reset } from '../../navigations/NavigationService';
+import  AsyncStorage  from '@react-native-async-storage/async-storage';
 
 const { width, height } = Dimensions.get('window');
 
 
 const MenuScreen = (props) => {
     const [menuItems, setMenuItems] = useState([
-        {
-            section: 'كوفيد 19',
-            selected: false,
-            items: [
-                // {
-                //     active: true,
-                //     TitleBtn: "الرئيسية",
-                //     ScreenName: "Home",
-                // },
-                {
-                    active: true,
-                    TitleBtn: "البلاغات",
-                    ScreenName: "CasesScreen",
-                },
-                {
-                    active: false,
-                    TitleBtn: "المتابعة اليومية",
-                    ScreenName: "FollowUpStackNavigator",
-                },
+        // {
+        //     section: 'كوفيد 19',
+        //     selected: false,
+        //     items: [
+        //         // {
+        //         //     active: true,
+        //         //     TitleBtn: "الرئيسية",
+        //         //     ScreenName: "Home",
+        //         // },
+        //         {
+        //             active: true,
+        //             TitleBtn: "البلاغات",
+        //             ScreenName: "CasesScreen",
+        //         },
+        //         {
+        //             active: false,
+        //             TitleBtn: "المتابعة اليومية",
+        //             ScreenName: "FollowUpStackNavigator",
+        //         },
 
-                {
-                    active: false,
-                    TitleBtn: "ارقام اطباء المتابعة",
-                    ScreenName: "DoctorsNumbersScreen",
-                },
-                {
-                    active: false,
-                    TitleBtn: "التبرعات",
-                    ScreenName: "DonationScreen",
-                }
+        //         {
+        //             active: false,
+        //             TitleBtn: "ارقام اطباء المتابعة",
+        //             ScreenName: "DoctorsNumbersScreen",
+        //         },
+        //         {
+        //             active: false,
+        //             TitleBtn: "التبرعات",
+        //             ScreenName: "DonationScreen",
+        //         }
 
-            ]
-        },
-        {
-            section: 'صحة عامة',
-            selected: false,
-            items: [
-                {
-                    active: false,
-                    TitleBtn: "الرعاية الطبية",
-                    ScreenName: "Home",
-                },
-                {
-                    active: false,
-                    TitleBtn: "إستشارة طبية",
-                    ScreenName: "QuestionsScreen",
-                },
-                {
-                    active: false,
-                    TitleBtn: "التأمين الصحي",
-                    ScreenName: "FollowUpStackNavigator",
-                },
+        //     ]
+        // },
+        // {
+        //     section: 'صحة عامة',
+        //     selected: false,
+        //     items: [
+        //         {
+        //             active: false,
+        //             TitleBtn: "الرعاية الطبية",
+        //             ScreenName: "Home",
+        //         },
+        //         {
+        //             active: false,
+        //             TitleBtn: "إستشارة طبية",
+        //             ScreenName: "QuestionsScreen",
+        //         },
+        //         {
+        //             active: false,
+        //             TitleBtn: "التأمين الصحي",
+        //             ScreenName: "FollowUpStackNavigator",
+        //         },
 
-                {
-                    active: false,
-                    TitleBtn: "حجز عيادات خارجية",
-                    ScreenName: "DoctorsNumbersScreen",
-                },
-            ]
-        },
-        {
-            section: 'إدارة الأجازات المرضية',
-            selected: false,
-            items: [
-                {
-                    active: false,
-                    TitleBtn: "تقديم طلب أجازة",
-                    ScreenName: "MedicalVacationScreen",
-                },
-            ]
-        },
+        //         {
+        //             active: false,
+        //             TitleBtn: "حجز عيادات خارجية",
+        //             ScreenName: "DoctorsNumbersScreen",
+        //         },
+        //     ]
+        // },
+        // {
+        //     section: 'إدارة الأجازات المرضية',
+        //     selected: false,
+        //     items: [
+        //         {
+        //             active: false,
+        //             TitleBtn: "تقديم طلب أجازة",
+        //             ScreenName: "MedicalVacationScreen",
+        //         },
+        //     ]
+        // },
        
         {
-            active: false,
+            active: true,
             TitleBtn: "تسجيل خروج",
             ScreenName: "AuthStackNavigator",
         }
@@ -93,8 +95,12 @@ const MenuScreen = (props) => {
 
     const selectItem = (menuIndex, itemIndex) => {
             console.log("entered",menuItems[menuIndex].items[itemIndex].ScreenName)
-            props.navigation.navigate(menuItems[menuIndex].items[itemIndex].ScreenName)
-        
+         //   props.navigation.navigate(menuItems[menuIndex].items[itemIndex].ScreenName)
+        if(ScreenName =='AuthStackNavigator')
+        {
+            AsyncStorage.removeItem("User");
+            reset('AuthStackNavigator')
+        }
     };
     return (
         <View style={Styles.container}>
@@ -107,10 +113,7 @@ const MenuScreen = (props) => {
             <View style={Styles.upperPart}>
                 {/* content of header */}
                 <View style={Styles.upperContent}>
-                <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
-                    <Image style={{ width: 70, height: 70, resizeMode: 'contain', marginHorizontal: '40%' }} source={ImagesPaths.ASULogo} />
-                    <Image style={{ width: 70, height: 70, resizeMode: 'contain', marginHorizontal: '40%'}} source={ImagesPaths.FCISLogo} />
-                </View>
+                
                     <Image style={Styles.headerImg} source={ImagesPaths.LoginLogo} />
                     {/* profile data */}
                     <View style={Styles.avatarContainer}>
@@ -150,7 +153,7 @@ const MenuScreen = (props) => {
                                         </View>
                                     </>
                                     // menus that doesn't have submenus
-                                    : <TouchableOpacity onPress={() => { props.navigation.navigate(menuItems[menuIndex].ScreenName)}} style={{ width: '100%',alignItems:'center',justifyContent:'center',paddingStart:30, flexDirection: 'row' }}>
+                                    : <TouchableOpacity onPress={() => {   AsyncStorage.removeItem("User");  reset('AuthStackNavigator')}} style={{ width: '100%',alignItems:'center',justifyContent:'center',paddingStart:30, flexDirection: 'row' }}>
                                         <Text style={[Styles.itemTextStyle, { textAlign:'center',  textAlignVertical: 'center' }]}>{menu.TitleBtn}</Text>
                                         <IconButton icon="logout" style={{}} size={25} color={Colors.secondary}  />
                                     </TouchableOpacity>
@@ -160,8 +163,13 @@ const MenuScreen = (props) => {
                         );
                     })}
 
-              
+
             </ScrollView>
+            <View style={{ flexDirection: 'row', justifyContent: 'center',width:'100%',position:'absolute',bottom:30 }}>
+                <Image style={{ width: 70, height: 70, resizeMode: 'contain',  marginHorizontal: 20,marginTop:10 }} source={ImagesPaths.MedicineLogo} />
+                    <Image style={{ width: 70, height: 70, resizeMode: 'contain', marginHorizontal: 20,marginTop:10}} source={ImagesPaths.ASULogo} />
+                    <Image style={{ width: 70, height: 70, resizeMode: 'contain',  marginHorizontal: 20,marginTop:10}} source={ImagesPaths.FCISLogo} />
+                </View>
         </View>
 
     );
@@ -181,7 +189,7 @@ const Styles = StyleSheet.create({
     },
     lowerPart: {
         flex: 0.6,
-        backgroundColor:Colors.lightgray,
+        backgroundColor:Colors.light,
         borderTopLeftRadius:50,
         borderTopRightRadius:50,
         // height: height * 0.6,
@@ -198,7 +206,8 @@ const Styles = StyleSheet.create({
     headerImg: {
         width: '100%',
         resizeMode: 'contain',
-        height: 50
+        height: 50,
+        marginTop:30
     },
     avatarContainer: {
         // width: '120%',

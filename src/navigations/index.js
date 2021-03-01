@@ -23,10 +23,45 @@ import MedicalVacationScreen from '../screens/MedicalVacationScreen';
 import CasesScreen from '../screens/CasesScreen'
 import PatientProfileScreen from '../screens/PatientProfileScreen'
 import { useNotificationService } from '../Services/useNotificationService';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Colors from '../assets/constants/Colors';
+import { IconButton } from 'react-native-paper';
 
 const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
 
 const Drawer = createDrawerNavigator();
+
+function TabsNavigator() {
+  return (
+      <Tab.Navigator screenOptions={({ route }) => ({
+          tabBarIcon: ({ focused, color, size }) => {
+            let iconName;
+
+            if (route.name === 'الرئيسية') {
+              iconName = focused
+                ? 'home'
+                :'home'
+            } else if (route.name === 'البلاغات') {
+              iconName = focused
+              ? 'heart-pulse'
+              : 'heart-pulse'
+            }   
+
+            // You can return any component that you like here!
+            return <IconButton  icon={iconName} size={25} color={color} />;
+          },
+        })}
+        tabBarOptions={{
+          activeTintColor: Colors.secondary,
+          inactiveTintColor: Colors.textGray,
+        }}>
+        <Tab.Screen name={'الرئيسية'} component={HomeStackNavigator} />
+        <Tab.Screen name={"البلاغات"} component={CasesScreen} />
+        {/* <Tab.Screen name={"المحادثات"} component={ReportsScreen} /> */}
+      </Tab.Navigator>
+  );
+}
 function DrawerNavigator() {
     return (
       <Stack.Navigator headerMode="none" >
@@ -126,13 +161,27 @@ const MainStackNavigator = () => {
         <Stack.Navigator headerMode="none" >
           
             <Stack.Screen name="AuthStackNavigator" component={AuthStackNavigator} />
+            <Stack.Screen name="TabsNavigator" component={TabsNavigator} />
 
-            <Stack.Screen name="DrawerNavigator" component={DrawerNavigator} />
+            {/* <Stack.Screen name="DrawerNavigator" component={DrawerNavigator} /> */}
+            <Stack.Screen name='MenuScreen' component={MenuScreen}/>
 
-            <Stack.Screen name="NotificationScreen" component={NotificationsScreen} />
-            <Stack.Screen name="LocationScreen" component={LocationScreen} />
-            <Stack.Screen name="VisitedPlacesScreen" component={VisitedPlacesScreen} />
-            <Stack.Screen name='ResultScreen' component={ResultScreen}/>
+            <Stack.Screen name="Home" component={HomeStackNavigator} />
+
+      <Stack.Screen name="QuestionsScreen" component={QuestionsScreen} />
+      <Stack.Screen name="CasesScreen" component={CasesScreen} />
+      <Stack.Screen name="PicturesScreen" component={PicturesScreen}/>
+      <Stack.Screen name="ChatScreen" component={ChatScreen}></Stack.Screen>
+
+      <Stack.Screen name="PatientProfileScreen" component={PatientProfileScreen} />
+      <Stack.Screen name="FollowUpStackNavigator" component={FollowUpStackNavigator} />
+      {/* <Stack.Screen name="DoctorsNumbersScreen" component={DoctorsNumbersScreen} /> */}
+      {/* <Stack.Screen name="DonationScreen" component={DonationScreen} /> */}
+      {/* <Stack.Screen name="MedicalVacationScreen" component={MedicalVacationScreen}/> */}
+            {/* <Stack.Screen name="NotificationScreen" component={NotificationsScreen} /> */}
+            {/* <Stack.Screen name="LocationScreen" component={LocationScreen} /> */}
+            {/* <Stack.Screen name="VisitedPlacesScreen" component={VisitedPlacesScreen} /> */}
+            {/* <Stack.Screen name='ResultScreen' component={ResultScreen}/> */}
             <Stack.Screen name='PostScreen' component={PostScreen}></Stack.Screen>
 
         </Stack.Navigator>

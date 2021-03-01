@@ -80,8 +80,8 @@ const [searchValue,setSearchValue] = useState('');
    <View style={ Style.container}>
      {/* Header */}
        <Header style={{ height: 70 }} 
-                leftIcon='menu'
-                rightIcon='notification'
+               leftIcon='menu'
+              //  rightIcon='notification'
                 title='القائمة الرئيسية'
                 HandleBack={() => props.navigation.navigate('MenuScreen')}
                 onPressNotification={() => props.navigation.navigate('NotificationScreen')}

@@ -47,7 +47,7 @@ const LoginForm = props => {
             {
                 setIsLoading(false);
 
-                props.nav.navigate('DrawerNavigator')
+                props.nav.navigate('TabsNavigator')
             }
             else{
               setIsLoading(false);

@@ -31,24 +31,25 @@ const Login = props => {
 
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-    <ScrollView style={{ backgroundColor: Colors.light, height: '100%' }}>
-      <KeyboardAvoidingView>
-      <View style={{ backgroundColor: Colors.light, height: '100%' }}>
-        {/* top design part */}
-        <ImageBackground source={ImagesPaths.LoginEllips} imageStyle={Style.EllipsStyle} style={Style.EllipsContainerStyle}>
-          <Image style={{ width: '40%', height: "30%", marginTop: '-5%', marginBottom: '5%', alignSelf: 'center', resizeMode: 'contain' }} source={ImagesPaths.LoginLogo} />
-          <Text style={{ textAlign: 'center', color: Colors.light, fontSize: FontSizes.header }}>صحتك تهمنا</Text>
-          <Text style={{ textAlign: 'center', color: Colors.light, fontSize: FontSizes.header }}>صحة عين شمس</Text>
-        </ImageBackground>
-        {/* Login Form */}
-        <LoginForm nav={props.navigation}></LoginForm>
-        
-        <View style={{flexDirection:'row',justifyContent:'center'}}>
-                        <Image style={{width:50,height:50,resizeMode:'contain',margin:20}} source={ImagesPaths.ASULogo}/>
-                        <Image  style={{width:50,height:50,resizeMode:'contain',margin:20}} source={ImagesPaths.FCISLogo}/>
-                    </View>
-      </View>
-      </KeyboardAvoidingView>
+      <ScrollView style={{ backgroundColor: Colors.light, height: '100%' }}>
+        <KeyboardAvoidingView>
+          <View style={{ backgroundColor: Colors.light, height: '100%' }}>
+            {/* top design part */}
+            <ImageBackground source={ImagesPaths.LoginEllips} imageStyle={Style.EllipsStyle} style={Style.EllipsContainerStyle}>
+              <Image style={{ width: '40%', height: "30%", marginTop: '-5%', marginBottom: '5%', alignSelf: 'center', resizeMode: 'contain' }} source={ImagesPaths.LoginLogo} />
+              <Text style={{ textAlign: 'center', color: Colors.light, fontSize: FontSizes.header }}>صحتك تهمنا</Text>
+              <Text style={{ textAlign: 'center', color: Colors.light, fontSize: FontSizes.header }}>صحة عين شمس</Text>
+            </ImageBackground>
+            {/* Login Form */}
+            <LoginForm nav={props.navigation}></LoginForm>
+
+            <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
+              <Image style={{ width: 50, height: 50, resizeMode: 'contain', margin: 20 }} source={ImagesPaths.MedicineLogo} />
+              <Image style={{ width: 50, height: 50, resizeMode: 'contain', margin: 20 }} source={ImagesPaths.ASULogo} />
+              <Image style={{ width: 50, height: 50, resizeMode: 'contain', margin: 20 }} source={ImagesPaths.FCISLogo} />
+            </View>
+          </View>
+        </KeyboardAvoidingView>
       </ScrollView>
     </TouchableWithoutFeedback>
   )

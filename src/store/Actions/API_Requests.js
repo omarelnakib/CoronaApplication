@@ -2,7 +2,10 @@ import * as types from '../ActionTypes';
 // import APIConstant, { Post, Get, setData, getetHeaders, getToken } from "./APIConstant";
 import  AsyncStorage  from '@react-native-async-storage/async-storage';
 import { navigate, replace, reset } from "../../navigations/NavigationService";
-import { Platform } from 'react-native';
+import {  ToastAndroid,
+    Platform,
+    AlertIOS, } from 'react-native';
+import { toast } from '../../assets/constants/Toaster';
 
 const BaseUrl = "https://healthcare.cis.asu.edu.eg/healthapis/api";
 // const Globals = require('../../constants/Globals');
@@ -129,6 +132,18 @@ export const Get = async(url,isTokenRequired) => {
             });
 
             console.log("This is response from api", response)
+            if(response.status==401){
+                // toast("انتهت صلاحية الحساب رجاءا اعادة تسجيل الدخول")
+                if (Platform.OS === 'android') {
+                    ToastAndroid.show(msg, ToastAndroid.SHORT)
+                  } else {
+                    AlertIOS.alert(msg);
+                  }
+                reset("AuthStackNavigator")
+
+            }
+        
+        
             return response;
             // }).done();
         } catch (err) {
@@ -147,6 +162,16 @@ export const GetWith = async(url,data,isTokenRequired) => {
             });
 
             console.log("This is response from api", response)
+            if(response.status==401){
+                // toast("انتهت صلاحية الحساب رجاءا اعادة تسجيل الدخول")
+                if (Platform.OS === 'android') {
+                    ToastAndroid.show(msg, ToastAndroid.SHORT)
+                  } else {
+                    AlertIOS.alert(msg);
+                  }
+                reset("AuthStackNavigator")
+
+            }
             return response;
 
         } catch (err) {
@@ -171,6 +196,16 @@ export const Post = async(url,Data,isTokenRequired) => {
             });
     
             console.log("This is response from api", response)
+            if(response.status==401){
+                // toast("انتهت صلاحية الحساب رجاءا اعادة تسجيل الدخول")
+                if (Platform.OS === 'android') {
+                    ToastAndroid.show(msg, ToastAndroid.SHORT)
+                  } else {
+                    AlertIOS.alert(msg);
+                  }
+                reset("AuthStackNavigator")
+
+            }
             return response;
         })
         
@@ -191,6 +226,16 @@ export const PostFormData = async(url,Data,isTokenRequired) => {
         });
 
         console.log("This is response from api", response)
+        if(response.status==401){
+            // toast("انتهت صلاحية الحساب رجاءا اعادة تسجيل الدخول")
+            if (Platform.OS === 'android') {
+                ToastAndroid.show(msg, ToastAndroid.SHORT)
+              } else {
+                AlertIOS.alert(msg);
+              }
+            reset("AuthStackNavigator")
+
+        }
         return response;
 
     } catch (err) {

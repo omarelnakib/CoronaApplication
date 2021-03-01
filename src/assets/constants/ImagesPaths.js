@@ -5,7 +5,7 @@ export default {
     PostBackground:require('../images/postBackground.png'),
     ASULogo:require('../images/ASULogo.png'),
     FCISLogo:require('../images/FCISLogo.png'),
-
+    MedicineLogo:require('../images/MedicineLogo.png'),
 
     //Icon Paths
     LoginLogo:require('../images/Icons/loginLogo.png')

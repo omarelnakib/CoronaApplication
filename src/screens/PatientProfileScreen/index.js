@@ -61,11 +61,11 @@ const PatientProfileScreen = (props) => {
             }
 
         }))
-        BackHandler.addEventListener('hardwareBackPress', handleBackButtonClick);
+        // BackHandler.addEventListener('hardwareBackPress', handleBackButtonClick);
 
-        return () => {
-            //   BackHandler.removeEventListener('hardwareBackPress', handleBackButtonClick);
-        };
+        // return () => {
+        //     //   BackHandler.removeEventListener('hardwareBackPress', handleBackButtonClick);
+        // };
     }, []);
     const handleBackButtonClick = () => {
         // console.log("baaack")

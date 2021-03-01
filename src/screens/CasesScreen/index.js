@@ -42,7 +42,9 @@ const CasesScreen = (props) => {
     return (
         <View style={{ flex: 1, backgroundColor: Colors.light }}>
             {/* Header */}
-            <Header style={{ height: 70 }} title={"الحالات"} leftIcon="refresh" HandleBack={getCases}
+            <Header style={{ height: 70 }} title={"البلاغات"} leftIcon="refresh" HandleBack={getCases}      
+                       rightIcon='home'
+
             ></Header>
                     <LoadingModel LoadingModalVisiblty={isLoading} />
             <FlatList

@@ -94,6 +94,8 @@ const MainHeader = props => {
               {(props.rightIcon == 'general' || props.rightIcon.includes('notification')) &&  <TouchableOpacity onPress={props.onPressNotification}><IconButton icon='bell-outline' color={Colors.light} style={Styles.iconStyle} /></TouchableOpacity> }
            
               {(props.rightIcon == 'general' || props.rightIcon.includes('search'))       &&  <TouchableOpacity onPress={props.onPressSearch}><IconButton icon='magnify' color={Colors.light} style={Styles.iconStyle} /></TouchableOpacity> }
+          
+
             </View>
         </View>}
          

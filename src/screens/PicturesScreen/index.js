@@ -74,6 +74,7 @@ const PicturesScreen = props => {
     dispatch(Action.Send_Test(data,CaseId, (event) => {
         setIsLoading(false);
         if (event.ok) {
+          props.navigation.goBack();
           }
         else {
             setIsLoading(false);
@@ -117,8 +118,9 @@ const PicturesScreen = props => {
       <Header style={{ height: 70 }} leftIcon='back' title='اضافة تحاليل'
         HandleBack={() => props.navigation.pop()}
       ></Header>
+      <ScrollView style={{marginBottom:50}}>
        <View style={{ flexDirection: 'row-reverse', flexWrap: 'wrap' }}>
-      {/* <LoadingModel LoadingModalVisiblty={isLoading} /> */}
+      <LoadingModel LoadingModalVisiblty={isLoading} />
       {/* <FlatList
                 showsVerticalScrollIndicator={false}
                 refreshing={true}
@@ -184,8 +186,9 @@ const PicturesScreen = props => {
       
 
       </View>
-      <RoundButton handleClick={()=>{sendImages()}} style={{position:'absolute',bottom:0,marginBottom:10}}  value="ارسال" ></RoundButton>
+</ScrollView>
 
+      <RoundButton handleClick={()=>{sendImages()}} style={{position:'absolute',bottom:0,marginBottom:10}}  value="ارسال" ></RoundButton>
     </View>
   )
 }

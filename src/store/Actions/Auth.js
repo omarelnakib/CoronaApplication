@@ -1,7 +1,7 @@
 import * as types from '../ActionTypes';
 import { Post, setData,Put, Get } from "./API_Requests";
 import  AsyncStorage  from '@react-native-async-storage/async-storage';
-import { navigate, replace, reset } from "../../navigations/NavigationService";
+import { navigate, replace } from "../../navigations/NavigationService";
 import { Platform } from 'react-native'
 import Globals from '../../assets/constants/Globals';
 
@@ -23,10 +23,10 @@ export const autoLogin = async () => {
                 item = JSON.parse(item);
                 console.log("User", item)
                 Globals.User=item.User
-                setTimeout(() => { replace("DrawerNavigator") }, 500)
+          replace("TabsNavigator")
             }
             else {
-                setTimeout(() => { replace("AuthStackNavigator") }, 500)
+               replace("AuthStackNavigator")
             }
         })
         .done();

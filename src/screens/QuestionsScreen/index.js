@@ -175,14 +175,14 @@ const QuestionsScreen = props => {
             secureTextEntry={false} autoCapitalize="none" autoCorrect={false}
           ></InputText>
 
-          <RoundButton handleClick={() => submitText()} disabled={props.disabled} buttonStyle={props.disabled ? { opacity: 0.5 } : { opacity: 1 }} style={{ marginTop: 20 }} value="ارسال" ></RoundButton>
+          <RoundButton handleClick={() => submitText()} disabled={caseText==""?true:false} buttonStyle={caseText=="" ? { opacity: 0.5 } : { opacity: 1 }} style={{ marginTop: 20 }} value="ارسال" ></RoundButton>
 
         </View>
 
         <Modal isVisible={reportModal}>
           <View style={{ flex: 0.2, backgroundColor: Colors.light, alignItems: 'center', justifyContent: 'center', padding: 20 }}>
             <Text style={{ color: Colors.primary, fontSize: FontSizes.subtitle, textAlign: 'center' }}>تم بنجاح تسجيل البلاغ برقم {caseId} و سيتم متابعة البلاغ من احدى المختصين في اسرع وقت </Text>
-            <RoundButton handleClick={() => { setReportModal(false); props.navigation.navigate("CasesScreen") }} style={{ marginTop: 10, marginBottom: 10 }} value="تابع" ></RoundButton>
+            <RoundButton handleClick={() => { setReportModal(false); props.navigation.replace("TabsNavigator") }} style={{ marginTop: 10, marginBottom: 10 }} value="تابع" ></RoundButton>
           </View>
         </Modal>
       </ScrollView>
