@@ -7,14 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		07908E1826152552005FAD6D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 07908E1126152552005FAD6D /* Info.plist */; };
-		07908E1926152552005FAD6D /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 07908E1226152552005FAD6D /* Base.lproj */; };
-		07908E1A26152552005FAD6D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 07908E1426152552005FAD6D /* AppDelegate.m */; };
-		07908E1B26152552005FAD6D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 07908E1526152552005FAD6D /* main.m */; };
-		07908E1C26152552005FAD6D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07908E1626152552005FAD6D /* Images.xcassets */; };
-		07908E1D26152552005FAD6D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 07908E1726152552005FAD6D /* GoogleService-Info.plist */; };
-		0EC4E2763EFB1A6D4E7C86B8 /* libPods-AsuCare-AsuCareTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 80E49E4BDA74DDB9A78A6DD1 /* libPods-AsuCare-AsuCareTests.a */; };
-		68BD959DDE9EAEB734452AEC /* libPods-AsuCare.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F1BFC4CD285F7E9BA36098A5 /* libPods-AsuCare.a */; };
+		00E356F31AD99517003FC87E /* AsuCareTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* AsuCareTests.m */; };
+		07F5C935D5C2E5DCEDFDE6DD /* libPods-AsuCare-AsuCareTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0975AD63C0115DBB9B3CBB1A /* libPods-AsuCare-AsuCareTests.a */; };
+		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
+		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		279FD249E48EB6A611FA9632 /* libPods-AsuCare.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D080531B78B77308EB3DA755 /* libPods-AsuCare.a */; };
+		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,23 +28,22 @@
 
 /* Begin PBXFileReference section */
 		00E356EE1AD99517003FC87E /* AsuCareTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AsuCareTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		07908E1126152552005FAD6D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = CoronaApp/Info.plist; sourceTree = "<group>"; };
-		07908E1226152552005FAD6D /* Base.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Base.lproj; path = CoronaApp/Base.lproj; sourceTree = "<group>"; };
-		07908E1326152552005FAD6D /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = CoronaApp/AppDelegate.h; sourceTree = "<group>"; };
-		07908E1426152552005FAD6D /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = CoronaApp/AppDelegate.m; sourceTree = "<group>"; };
-		07908E1526152552005FAD6D /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = CoronaApp/main.m; sourceTree = "<group>"; };
-		07908E1626152552005FAD6D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = CoronaApp/Images.xcassets; sourceTree = "<group>"; };
-		07908E1726152552005FAD6D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "CoronaApp/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		00E356F21AD99517003FC87E /* AsuCareTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AsuCareTests.m; sourceTree = "<group>"; };
+		0975AD63C0115DBB9B3CBB1A /* libPods-AsuCare-AsuCareTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AsuCare-AsuCareTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07F961A680F5B00A75B9A /* AsuCare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AsuCare.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = AsuCare/AppDelegate.h; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = AsuCare/AppDelegate.m; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = AsuCare/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = AsuCare/Info.plist; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = AsuCare/main.m; sourceTree = "<group>"; };
 		1815FF863A828443D734E8E6 /* Pods-AsuCare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsuCare.release.xcconfig"; path = "Target Support Files/Pods-AsuCare/Pods-AsuCare.release.xcconfig"; sourceTree = "<group>"; };
 		618E49A71BB7628ECF5C445C /* Pods-AsuCare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsuCare.debug.xcconfig"; path = "Target Support Files/Pods-AsuCare/Pods-AsuCare.debug.xcconfig"; sourceTree = "<group>"; };
 		726D0C184EA633DB3F43BB74 /* Pods-AsuCare-AsuCareTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsuCare-AsuCareTests.debug.xcconfig"; path = "Target Support Files/Pods-AsuCare-AsuCareTests/Pods-AsuCare-AsuCareTests.debug.xcconfig"; sourceTree = "<group>"; };
 		781280C0B14A16637BD70EE9 /* Pods-AsuCare-AsuCareTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsuCare-AsuCareTests.release.xcconfig"; path = "Target Support Files/Pods-AsuCare-AsuCareTests/Pods-AsuCare-AsuCareTests.release.xcconfig"; sourceTree = "<group>"; };
-		80E49E4BDA74DDB9A78A6DD1 /* libPods-AsuCare-AsuCareTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AsuCare-AsuCareTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A08A800BC09418016AD66A2F /* Pods-AsuCareTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsuCareTests.debug.xcconfig"; path = "Target Support Files/Pods-AsuCareTests/Pods-AsuCareTests.debug.xcconfig"; sourceTree = "<group>"; };
+		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = AsuCare/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D080531B78B77308EB3DA755 /* libPods-AsuCare.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AsuCare.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		F0A32D7F69501667B52ABCA2 /* Pods-AsuCareTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsuCareTests.release.xcconfig"; path = "Target Support Files/Pods-AsuCareTests/Pods-AsuCareTests.release.xcconfig"; sourceTree = "<group>"; };
-		F1BFC4CD285F7E9BA36098A5 /* libPods-AsuCare.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AsuCare.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,7 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0EC4E2763EFB1A6D4E7C86B8 /* libPods-AsuCare-AsuCareTests.a in Frameworks */,
+				07F5C935D5C2E5DCEDFDE6DD /* libPods-AsuCare-AsuCareTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,23 +59,39 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				68BD959DDE9EAEB734452AEC /* libPods-AsuCare.a in Frameworks */,
+				279FD249E48EB6A611FA9632 /* libPods-AsuCare.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00E356EF1AD99517003FC87E /* AsuCareTests */ = {
+			isa = PBXGroup;
+			children = (
+				00E356F21AD99517003FC87E /* AsuCareTests.m */,
+				00E356F01AD99517003FC87E /* Supporting Files */,
+			);
+			path = AsuCareTests;
+			sourceTree = "<group>";
+		};
+		00E356F01AD99517003FC87E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				00E356F11AD99517003FC87E /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		13B07FAE1A68108700A75B9A /* AsuCare */ = {
 			isa = PBXGroup;
 			children = (
-				07908E1726152552005FAD6D /* GoogleService-Info.plist */,
-				07908E1326152552005FAD6D /* AppDelegate.h */,
-				07908E1426152552005FAD6D /* AppDelegate.m */,
-				07908E1226152552005FAD6D /* Base.lproj */,
-				07908E1626152552005FAD6D /* Images.xcassets */,
-				07908E1126152552005FAD6D /* Info.plist */,
-				07908E1526152552005FAD6D /* main.m */,
+				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
+				13B07FB01A68108700A75B9A /* AppDelegate.m */,
+				13B07FB51A68108700A75B9A /* Images.xcassets */,
+				13B07FB61A68108700A75B9A /* Info.plist */,
+				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
+				13B07FB71A68108700A75B9A /* main.m */,
 			);
 			name = AsuCare;
 			sourceTree = "<group>";
@@ -86,8 +100,8 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				F1BFC4CD285F7E9BA36098A5 /* libPods-AsuCare.a */,
-				80E49E4BDA74DDB9A78A6DD1 /* libPods-AsuCare-AsuCareTests.a */,
+				D080531B78B77308EB3DA755 /* libPods-AsuCare.a */,
+				0975AD63C0115DBB9B3CBB1A /* libPods-AsuCare-AsuCareTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -99,9 +113,8 @@
 				1815FF863A828443D734E8E6 /* Pods-AsuCare.release.xcconfig */,
 				726D0C184EA633DB3F43BB74 /* Pods-AsuCare-AsuCareTests.debug.xcconfig */,
 				781280C0B14A16637BD70EE9 /* Pods-AsuCare-AsuCareTests.release.xcconfig */,
-				A08A800BC09418016AD66A2F /* Pods-AsuCareTests.debug.xcconfig */,
-				F0A32D7F69501667B52ABCA2 /* Pods-AsuCareTests.release.xcconfig */,
 			);
+			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -117,6 +130,7 @@
 			children = (
 				13B07FAE1A68108700A75B9A /* AsuCare */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
+				00E356EF1AD99517003FC87E /* AsuCareTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				4CD84E388EE340B862C8FB72 /* Pods */,
@@ -146,7 +160,8 @@
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				74BCB83626045AE678881503 /* [CP] Copy Pods Resources */,
+				B6CB9268306F99E9F86EBD1E /* [CP] Embed Pods Frameworks */,
+				48F1A134ECEEFA8F06CA9A0F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -168,7 +183,8 @@
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				215AE3C0DC74DF0A991F9236 /* [CP] Copy Pods Resources */,
+				701788BD43D1B08CA088E4A1 /* [CP] Embed Pods Frameworks */,
+				8DBE55EE6E7CABBBF097A5DA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -196,7 +212,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "CoronaApp" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "AsuCare" */;
 			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -227,10 +243,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07908E1C26152552005FAD6D /* Images.xcassets in Resources */,
-				07908E1926152552005FAD6D /* Base.lproj in Resources */,
-				07908E1826152552005FAD6D /* Info.plist in Resources */,
-				07908E1D26152552005FAD6D /* GoogleService-Info.plist in Resources */,
+				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
+				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,23 +264,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
-		};
-		215AE3C0DC74DF0A991F9236 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AsuCare/Pods-AsuCare-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AsuCare/Pods-AsuCare-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AsuCare/Pods-AsuCare-resources.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 		231AD7C5FE9E49D02203CF08 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -312,7 +309,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		74BCB83626045AE678881503 /* [CP] Copy Pods Resources */ = {
+		48F1A134ECEEFA8F06CA9A0F /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -327,6 +324,57 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AsuCare-AsuCareTests/Pods-AsuCare-AsuCareTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		701788BD43D1B08CA088E4A1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AsuCare/Pods-AsuCare-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AsuCare/Pods-AsuCare-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AsuCare/Pods-AsuCare-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8DBE55EE6E7CABBBF097A5DA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AsuCare/Pods-AsuCare-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AsuCare/Pods-AsuCare-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AsuCare/Pods-AsuCare-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B6CB9268306F99E9F86EBD1E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AsuCare-AsuCareTests/Pods-AsuCare-AsuCareTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AsuCare-AsuCareTests/Pods-AsuCare-AsuCareTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AsuCare-AsuCareTests/Pods-AsuCare-AsuCareTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -355,6 +403,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00E356F31AD99517003FC87E /* AsuCareTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,8 +411,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07908E1B26152552005FAD6D /* main.m in Sources */,
-				07908E1A26152552005FAD6D /* AppDelegate.m in Sources */,
+				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,7 +485,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = PQY9A4XQB6;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = AsuCare/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -463,7 +511,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = PQY9A4XQB6;
 				INFOPLIST_FILE = AsuCare/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -625,7 +672,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "CoronaApp" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "AsuCare" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
