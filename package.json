@@ -9,6 +9,7 @@
     "test": "jest",
     "lint": "eslint .",
     "postinstall": "patch-package"
+
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.13.2",
@@ -24,10 +25,10 @@
     "immutability-helper": "^3.1.1",
     "moment": "^2.29.1",
     "native-base": "^2.13.12",
-    "patch-package": "^6.2.2",
+    "patch-package": "^6.4.7",
+    "postinstall-postinstall": "^2.1.0",
     "react": "16.11.0",
     "react-native": "0.62.2",
-    "react-native-background-timer": "^2.4.1",
     "react-native-datepicker": "^1.7.2",
     "react-native-firebase": "^5.6.0",
     "react-native-gesture-handler": "^1.6.1",
