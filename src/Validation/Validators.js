@@ -6,5 +6,6 @@ export default {
     name:{reg: /^(([A-Za-z]|[\u0621-\u064A])+[,.]?[ ]?|([A-Za-z]|[\u0621-\u064A])+['-]?)+$/, error_message: 'Invalid name!'},
 
     phone:{reg:/^(01)[0-9]{9}$/, error_message: 'Invalid phone number!'},
+    username:{reg:/^[a-zA-Z0-9]{6,}$/, error_message: 'Invalid UserName'},
     id:{reg:/^[0-9]{14}$/,error_message: 'Invalid Id!'}
 }

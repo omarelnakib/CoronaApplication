@@ -23,16 +23,12 @@ const RegisterForm = props => {
     const dispatch = useDispatch();
     const [reportModal, setReportModal] = useState(false);
 
-    const [ScreenHeight, setScreenHeight] = useState(height);
-    const [ScreenWidth, setScreenWidth] = useState(width);
     const [Mobile, setMobile] = React.useState({ value: '', IsValid: '' });
     const [Passowrd, setPassword] = React.useState({ value: '', IsValid: '' });
-    const [ComputerNumber, setComputerNumber] = React.useState({ value: '', IsValid: '' });
     const [Id, setId] = React.useState({ value: '', IsValid: '' });
     const [Name, setName] = React.useState({ value: '', IsValid: '' });
     const [UserName, setUserName] = React.useState({ value: '', IsValid: '' });
     const [BirthDate, setBirthDate] = React.useState('2016-05-01');
-    const [Address, setAddress] = React.useState('')
     // ---------------------------------------------------
 
     const changeData = (event, itemName) => {
@@ -71,7 +67,8 @@ const RegisterForm = props => {
                 break;
             }
             case 'UserName':{
-                setUserName({ value: event, IsValid: true });
+                let result = validate('username', event);
+                setUserName({ value: event, IsValid: result.IsValid });
                 break;
             }
         }
@@ -103,6 +100,13 @@ const RegisterForm = props => {
         }))
 
     }
+
+    const validateFields=()=>{
+        if(UserName.IsValid=='success' && Passowrd.IsValid=='success' && Id.IsValid =='success'&& Name.IsValid=='success' && Mobile.IsValid=='success')
+        return true;
+        else
+        return false;
+    }
     return (
         <ScrollView style={styles.formContainer}>
             <LoadingModel LoadingModalVisiblty={isLoading} />
@@ -119,7 +123,7 @@ const RegisterForm = props => {
             <Text style={styles.title}>اسم الحساب</Text>
             <InputText inputType='TextInput' placeholder='اسم الحساب'
                 value={UserName.value} HandleChange={(event) => changeData(event, 'UserName')}
-                style={{ width: '100%' }} Isvalid={true}
+                style={{ width: '100%' }} Isvalid={UserName.IsValid}
                 secureTextEntry={false} autoCapitalize="none" autoCorrect={false}
             ></InputText>
             {/* Mobile Numbrt */}
@@ -187,7 +191,7 @@ const RegisterForm = props => {
                 onDateChange={(date) => { setBirthDate(date) }}
             />
             {/*Sign Up Button  */}
-            <RoundButton handleClick={() => Submit()} style={{ marginTop: 50 }} value="تسجيل"></RoundButton>
+            <RoundButton disabled={!validateFields()} buttonStyle={validateFields()==false ? { opacity: 0.5 } : { opacity: 1 }} handleClick={() => Submit()} style={{ marginTop: 50 }} value="تسجيل"></RoundButton>
             <Modal isVisible={reportModal}>
             <View style={{flex: 0.2,backgroundColor:Colors.light,alignItems:'center',justifyContent:'center',padding:20}}>
               <Text style={{color:Colors.primary,fontSize:FontSizes.subtitle,textAlign:'center'}}>تم تسجيل الحساب بنجاح </Text>

@@ -133,8 +133,8 @@ android {
         applicationId "com.fcis.asucare"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 9
-        versionName "1.71"
+        versionCode 12
+        versionName "1.74"
          multiDexEnabled true
 
     }
@@ -204,6 +204,7 @@ dependencies {
     implementation "com.google.firebase:firebase-core:17.0.1"
     implementation "com.google.firebase:firebase-messaging:19.0.0"
     implementation platform('com.google.firebase:firebase-bom:26.0.0')
+    
     implementation fileTree(dir: "libs", include: ["*.jar"])
     //noinspection GradleDynamicVersion
     implementation "com.facebook.react:react-native:+"  // From node_modules

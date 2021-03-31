@@ -12,15 +12,48 @@ import LoadingModel from '../../components/LoadingModel';
 import { useDispatch } from 'react-redux';
 import *as Action from '../../store/Actions/Message';
 import Globals from '../../assets/constants/Globals'
+import BackgroundTimer from 'react-native-background-timer';
 const ChatScreen = (props) => {
     const [messages, setMessages] = useState([]);
     const dispatch = useDispatch();
 
     const [isLoading, setIsLoading] = useState(true);
-
+    
     useEffect(() => {
-        let CaseId = props.route.params.CaseId;
         setIsLoading(true);
+        BackgroundTimer.runBackgroundTimer(() => { 
+            //code that will be called every 3 seconds 
+            getMessages();
+            
+            }, 
+            7000);
+
+          
+            return () => {
+                BackgroundTimer.stopBackgroundTimer(); //after this call all code on background stop run.
+
+            } 
+              // Remove the listener when you are done
+             // didBlurSubscription.remove();
+        // dummy messages
+        // setMessages([
+        //     {
+        //         _id: ,
+        //         text: 'Hello developer',
+        //         createdAt: new Date(),
+        //         user: {
+        //             _id: 1,
+        //             name: 'React Native',
+        //             avatar: 'https://placeimg.com/140/140/any',
+        //         },
+
+        //     },
+        // ])
+    }, [])
+
+    const getMessages = ()=>{
+        let CaseId = props.route.params.CaseId;
+
         dispatch(Action.Get_Messages(CaseId, (event) => {
             setIsLoading(false);
             if (event.ok) {
@@ -42,21 +75,7 @@ const ChatScreen = (props) => {
                 toast(event.data)
             }
         }))
-        // dummy messages
-        // setMessages([
-        //     {
-        //         _id: ,
-        //         text: 'Hello developer',
-        //         createdAt: new Date(),
-        //         user: {
-        //             _id: 1,
-        //             name: 'React Native',
-        //             avatar: 'https://placeimg.com/140/140/any',
-        //         },
-
-        //     },
-        // ])
-    }, [])
+    }
     // on press send
     const onSend = useCallback((messages = []) => {
         let CaseId = props.route.params.CaseId;
@@ -90,6 +109,7 @@ const ChatScreen = (props) => {
 
     return (
         <View style={{ flex: 1, backgroundColor: Colors.light }}>
+    
             {/* Header */}
             <Header style={{ height: 70 }}
                 leftIcon='back'

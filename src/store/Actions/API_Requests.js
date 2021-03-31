@@ -139,6 +139,7 @@ export const Get = async(url,isTokenRequired) => {
                   } else {
                     AlertIOS.alert(msg);
                   }
+                AsyncStorage.removeItem('User');
                 reset("AuthStackNavigator")
 
             }
@@ -169,6 +170,7 @@ export const GetWith = async(url,data,isTokenRequired) => {
                   } else {
                     AlertIOS.alert(msg);
                   }
+                AsyncStorage.removeItem('User');
                 reset("AuthStackNavigator")
 
             }
@@ -203,6 +205,8 @@ export const Post = async(url,Data,isTokenRequired) => {
                   } else {
                     AlertIOS.alert(msg);
                   }
+                AsyncStorage.removeItem('User');
+
                 reset("AuthStackNavigator")
 
             }
@@ -233,6 +237,8 @@ export const PostFormData = async(url,Data,isTokenRequired) => {
               } else {
                 AlertIOS.alert(msg);
               }
+              AsyncStorage.removeItem('User');
+
             reset("AuthStackNavigator")
 
         }

@@ -8,6 +8,7 @@ import Header from '../../components/Header'
 import Globals from '../../assets/constants/Globals';
 import { replace,reset } from '../../navigations/NavigationService';
 import  AsyncStorage  from '@react-native-async-storage/async-storage';
+import CookieManager from '@react-native-cookies/cookies';
 
 const { width, height } = Dimensions.get('window');
 
@@ -153,7 +154,7 @@ const MenuScreen = (props) => {
                                         </View>
                                     </>
                                     // menus that doesn't have submenus
-                                    : <TouchableOpacity onPress={() => {   AsyncStorage.removeItem("User");  reset('AuthStackNavigator')}} style={{ width: '100%',alignItems:'center',justifyContent:'center',paddingStart:30, flexDirection: 'row' }}>
+                                    : <TouchableOpacity onPress={() => {   AsyncStorage.removeItem("User");  CookieManager.clearAll();  reset('AuthStackNavigator')}} style={{ width: '100%',alignItems:'center',justifyContent:'center',paddingStart:30, flexDirection: 'row' }}>
                                         <Text style={[Styles.itemTextStyle, { textAlign:'center',  textAlignVertical: 'center' }]}>{menu.TitleBtn}</Text>
                                         <IconButton icon="logout" style={{}} size={25} color={Colors.secondary}  />
                                     </TouchableOpacity>
