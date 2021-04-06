@@ -69,7 +69,8 @@ export const login = (userData, callback) => {
                 "Username":userData.email,
                 "Password":userData.password,
                 "DeviceToken":Globals.NotificationToken
-            }
+            } 
+            console.log("user data",userData);
              Post('/Users/CheckUserCredentials',data,false).then(async response => {
                 if (response != undefined) {
                     console.log("res");
