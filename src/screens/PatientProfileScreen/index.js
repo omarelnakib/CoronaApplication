@@ -175,6 +175,8 @@ const PatientProfileScreen = (props) => {
                             </View>
                             : <View>
                                 <Text style={styles.QuestionStyle}>{caseData.CaseText}</Text>
+                                <RoundButton style={{ marginTop: 20 }} handleClick={() => { setReportModal(false);  }} value={"غلق"}></RoundButton>
+
                             </View>
                     }
                 </View>
