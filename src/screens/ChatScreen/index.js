@@ -83,9 +83,12 @@ const ChatScreen = (props) => {
 
         var message = {
             caseid: CaseId,
-            text: `%0D%0A ${Globals.User.Name}%0D%0A${messages[0].text}%0D%0A`,
+            // text: `%0D%0A ${Globals.User.Name}%0D%0A${messages[0].text}%0D%0A`,
+            // title: ` ${Globals.User.Name} ارسل رسالة في البلاغ رقم ${CaseId}`,
+            // body: `%0D%0A ${Globals.User.Name}%0D%0A${date} %0D%0A %0D%0A${messages[0].text}%0D%0A`,
+            text: `${'\n'}${Globals.User.Name}${'\n'}${messages[0].text}${'\n'}`,
             title: ` ${Globals.User.Name} ارسل رسالة في البلاغ رقم ${CaseId}`,
-            body: `%0D%0A ${Globals.User.Name}%0D%0A${date} %0D%0A %0D%0A${messages[0].text}%0D%0A`,
+            body: `${'\n'} ${Globals.User.Name}${'\n'}${date} ${'\n'} ${'\n'}${messages[0].text}${'\n'}`,
 
         }
         console.log("messages", messages[0].text)

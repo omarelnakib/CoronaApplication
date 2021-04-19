@@ -10,10 +10,6 @@
 		07306381261B3931001A0E91 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 07306380261B3931001A0E91 /* main.jsbundle */; };
 		07306385261B3DE7001A0E91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07306384261B3DE7001A0E91 /* LaunchScreen.storyboard */; };
 		0730638A261B458C001A0E91 /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 07306389261B458C001A0E91 /* assets */; };
-		0775841C2619D88B00F436BE /* FirebaseAnalytics.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 077583EE2619D88B00F436BE /* FirebaseAnalytics.xcframework */; };
-		0775841D2619D88B00F436BE /* FirebaseAnalytics.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 077583EE2619D88B00F436BE /* FirebaseAnalytics.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		0775841E2619D88B00F436BE /* GoogleAppMeasurement.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 077583EF2619D88B00F436BE /* GoogleAppMeasurement.xcframework */; };
-		0775841F2619D88B00F436BE /* GoogleAppMeasurement.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 077583EF2619D88B00F436BE /* GoogleAppMeasurement.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		077584202619D88B00F436BE /* libDoubleConversion.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 077583F02619D88B00F436BE /* libDoubleConversion.a */; };
 		077584212619D88B00F436BE /* libFBReactNativeSpec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 077583F12619D88B00F436BE /* libFBReactNativeSpec.a */; };
 		077584222619D88B00F436BE /* libFirebaseCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 077583F22619D88B00F436BE /* libFirebaseCore.a */; };
@@ -23,7 +19,6 @@
 		077584262619D88B00F436BE /* libGoogleDataTransport.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 077583F62619D88B00F436BE /* libGoogleDataTransport.a */; };
 		077584272619D88B00F436BE /* libGoogleUtilities.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 077583F72619D88B00F436BE /* libGoogleUtilities.a */; };
 		077584282619D88B00F436BE /* libnanopb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 077583F82619D88B00F436BE /* libnanopb.a */; };
-		077584292619D88B00F436BE /* libPods-AsuCare.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C8A03F174B0CEE8010DB4970 /* libPods-AsuCare.a */; };
 		0775842A2619D88B00F436BE /* libPromisesObjC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 077583F92619D88B00F436BE /* libPromisesObjC.a */; };
 		0775842B2619D88B00F436BE /* libRCT-Folly.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 077583FA2619D88B00F436BE /* libRCT-Folly.a */; };
 		0775842C2619D88B00F436BE /* libRCTTypeSafety.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 077583FB2619D88B00F436BE /* libRCTTypeSafety.a */; };
@@ -64,7 +59,7 @@
 		07908E2826153165005FAD6D /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 07908E2226153165005FAD6D /* Base.lproj */; };
 		07908E2A26153165005FAD6D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 07908E2426153165005FAD6D /* main.m */; };
 		07908E2C2615D4DB005FAD6D /* libDoubleConversion.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 07908E2B2615D4DB005FAD6D /* libDoubleConversion.a */; settings = {ATTRIBUTES = (Required, ); }; };
-		F83D2039F4E94B6C610791D5 /* libPods-AsuCare.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C8A03F174B0CEE8010DB4970 /* libPods-AsuCare.a */; };
+		2217992F8681AE26435CFF19 /* libPods-AsuCare.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 51C3725E40297F0E884059B8 /* libPods-AsuCare.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,8 +79,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				0775841F2619D88B00F436BE /* GoogleAppMeasurement.xcframework in Embed Frameworks */,
-				0775841D2619D88B00F436BE /* FirebaseAnalytics.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -143,6 +136,7 @@
 		077584182619D88B00F436BE /* libRNVectorIcons.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRNVectorIcons.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		077584192619D88B00F436BE /* libtoolbar-android.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libtoolbar-android.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0775841A2619D88B00F436BE /* libYoga.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libYoga.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		07772B24262C3FB10035E4DF /* libRNFBApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRNFBApp.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		07908E1E26153165005FAD6D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "CoronaApp/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		07908E1F26153165005FAD6D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = CoronaApp/Images.xcassets; sourceTree = "<group>"; };
 		07908E2026153165005FAD6D /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = CoronaApp/AppDelegate.m; sourceTree = "<group>"; };
@@ -152,9 +146,9 @@
 		07908E2426153165005FAD6D /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = CoronaApp/main.m; sourceTree = "<group>"; };
 		07908E2B2615D4DB005FAD6D /* libDoubleConversion.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libDoubleConversion.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07F961A680F5B00A75B9A /* AsuCare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AsuCare.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		C8A03F174B0CEE8010DB4970 /* libPods-AsuCare.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AsuCare.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		CF5B7A077860177C43D70EE6 /* Pods-AsuCare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsuCare.debug.xcconfig"; path = "Target Support Files/Pods-AsuCare/Pods-AsuCare.debug.xcconfig"; sourceTree = "<group>"; };
-		D8D921B768A356E008AB0819 /* Pods-AsuCare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsuCare.release.xcconfig"; path = "Target Support Files/Pods-AsuCare/Pods-AsuCare.release.xcconfig"; sourceTree = "<group>"; };
+		272948A6FB637AFF38EDE8BE /* Pods-AsuCare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsuCare.debug.xcconfig"; path = "Target Support Files/Pods-AsuCare/Pods-AsuCare.debug.xcconfig"; sourceTree = "<group>"; };
+		51C3725E40297F0E884059B8 /* libPods-AsuCare.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AsuCare.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACDFEBE64D291D16431062BB /* Pods-AsuCare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsuCare.release.xcconfig"; path = "Target Support Files/Pods-AsuCare/Pods-AsuCare.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -187,10 +181,8 @@
 				077584482619D88C00F436BE /* libRNScreens.a in Frameworks */,
 				077584392619D88C00F436BE /* libReact-perflogger.a in Frameworks */,
 				0775842D2619D88B00F436BE /* libReact-Core.a in Frameworks */,
-				F83D2039F4E94B6C610791D5 /* libPods-AsuCare.a in Frameworks */,
 				077584382619D88C00F436BE /* libreact-native-video.a in Frameworks */,
 				0775842E2619D88B00F436BE /* libReact-CoreModules.a in Frameworks */,
-				077584292619D88B00F436BE /* libPods-AsuCare.a in Frameworks */,
 				0775843F2619D88C00F436BE /* libReact-RCTSettings.a in Frameworks */,
 				077584322619D88B00F436BE /* libReact-jsinspector.a in Frameworks */,
 				077584282619D88B00F436BE /* libnanopb.a in Frameworks */,
@@ -204,13 +196,11 @@
 				077584242619D88B00F436BE /* libFirebaseInstallations.a in Frameworks */,
 				077584462619D88C00F436BE /* libRNGestureHandler.a in Frameworks */,
 				077584252619D88B00F436BE /* libglog.a in Frameworks */,
-				0775841E2619D88B00F436BE /* GoogleAppMeasurement.xcframework in Frameworks */,
 				0775843E2619D88C00F436BE /* libReact-RCTNetwork.a in Frameworks */,
 				077584352619D88B00F436BE /* libreact-native-image-picker.a in Frameworks */,
 				077584442619D88C00F436BE /* libRNCMaskedView.a in Frameworks */,
 				077584362619D88B00F436BE /* libreact-native-progress-view.a in Frameworks */,
 				077584342619D88B00F436BE /* libreact-native-cookies.a in Frameworks */,
-				0775841C2619D88B00F436BE /* FirebaseAnalytics.xcframework in Frameworks */,
 				077584452619D88C00F436BE /* libRNFirebase.a in Frameworks */,
 				0775843B2619D88C00F436BE /* libReact-RCTBlob.a in Frameworks */,
 				077584402619D88C00F436BE /* libReact-RCTText.a in Frameworks */,
@@ -218,6 +208,7 @@
 				077584332619D88B00F436BE /* libreact-native-background-timer.a in Frameworks */,
 				0775842F2619D88B00F436BE /* libReact-cxxreact.a in Frameworks */,
 				0775844B2619D88C00F436BE /* libYoga.a in Frameworks */,
+				2217992F8681AE26435CFF19 /* libPods-AsuCare.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,6 +234,7 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				07772B24262C3FB10035E4DF /* libRNFBApp.a */,
 				077583ED2619D88B00F436BE /* AccessibilityResources.bundle */,
 				077583EE2619D88B00F436BE /* FirebaseAnalytics.xcframework */,
 				077583EF2619D88B00F436BE /* GoogleAppMeasurement.xcframework */,
@@ -291,7 +283,7 @@
 				0775841A2619D88B00F436BE /* libYoga.a */,
 				07908E2B2615D4DB005FAD6D /* libDoubleConversion.a */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				C8A03F174B0CEE8010DB4970 /* libPods-AsuCare.a */,
+				51C3725E40297F0E884059B8 /* libPods-AsuCare.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -299,8 +291,8 @@
 		4CD84E388EE340B862C8FB72 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				CF5B7A077860177C43D70EE6 /* Pods-AsuCare.debug.xcconfig */,
-				D8D921B768A356E008AB0819 /* Pods-AsuCare.release.xcconfig */,
+				272948A6FB637AFF38EDE8BE /* Pods-AsuCare.debug.xcconfig */,
+				ACDFEBE64D291D16431062BB /* Pods-AsuCare.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -361,14 +353,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "AsuCare" */;
 			buildPhases = (
-				F81912560977689901202468 /* [CP] Check Pods Manifest.lock */,
+				B5FA2DD57DCDB42B119B82F1 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				9426DC23CFC064D99F9A9059 /* [CP] Copy Pods Resources */,
 				0775844D2619D88D00F436BE /* Embed Frameworks */,
+				D9890A7F508C2B071466986C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -453,24 +445,7 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
-		9426DC23CFC064D99F9A9059 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 12;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AsuCare/Pods-AsuCare-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AsuCare/Pods-AsuCare-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AsuCare/Pods-AsuCare-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F81912560977689901202468 /* [CP] Check Pods Manifest.lock */ = {
+		B5FA2DD57DCDB42B119B82F1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -490,6 +465,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D9890A7F508C2B071466986C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AsuCare/Pods-AsuCare-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AsuCare/Pods-AsuCare-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AsuCare/Pods-AsuCare-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -592,14 +584,15 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CF5B7A077860177C43D70EE6 /* Pods-AsuCare.debug.xcconfig */;
+			baseConfigurationReference = 272948A6FB637AFF38EDE8BE /* Pods-AsuCare.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = PQY9A4XQB6;
+				DEVELOPMENT_TEAM = D6N5FSG3J2;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/CoronaApp/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -654,7 +647,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.AsuCare;
 				PRODUCT_NAME = AsuCare;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -664,13 +657,14 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D8D921B768A356E008AB0819 /* Pods-AsuCare.release.xcconfig */;
+			baseConfigurationReference = ACDFEBE64D291D16431062BB /* Pods-AsuCare.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = PQY9A4XQB6;
+				DEVELOPMENT_TEAM = D6N5FSG3J2;
 				INFOPLIST_FILE = "$(SRCROOT)/CoronaApp/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -725,7 +719,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.AsuCare;
 				PRODUCT_NAME = AsuCare;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";

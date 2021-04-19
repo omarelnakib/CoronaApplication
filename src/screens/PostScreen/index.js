@@ -71,6 +71,7 @@ return (
                             controls={true}
                             style={Style.imageStyle}
                             resizeMode={'contain'}
+                            ignoreSilentSwitch={'ignore'}
                         />
                      </View>
                   

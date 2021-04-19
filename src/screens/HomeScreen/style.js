@@ -36,7 +36,8 @@ const Style = StyleSheet.create({
         fontSize: FontSizes.title,
         marginHorizontal: 20,
         marginTop:20,
-        marginBottom:10
+        marginBottom:10,
+        textAlign:'right'
     },
     iconStyle: {
         width: 25
