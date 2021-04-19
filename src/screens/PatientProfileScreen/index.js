@@ -98,7 +98,7 @@ const PatientProfileScreen = (props) => {
                     </View>
                 </View>
                 {/* Report details */}
-                <RoundButton style={{marginTop: 30}} handleClick={() => { setReportModal(true) }} value={"اظهر تفاصيل البلاغ"}></RoundButton>
+                <RoundButton style={{ marginTop: 30 }} handleClick={() => { setReportModal(true) }} value={"اظهر تفاصيل البلاغ"}></RoundButton>
                 {/* 
                 <TouchableOpacity onPress={() => { setReportModal(true) ;   console.log("caseData", caseData); }} style={{ marginTop: 30 }}>
                     <Text style={{ fontSize: FontSizes.title, textDecorationLine: 'underline', color: Colors.primary }}>اظهر تفاصيل البلاغ</Text>
@@ -106,9 +106,10 @@ const PatientProfileScreen = (props) => {
 
 
                 {/* التحاليل */}
-                        <RoundButton style={{marginTop: 20 }} handleClick={() => {props.navigation.navigate('PicturesScreen', { CaseId: caseData.CaseID })
-                        }} value={"اضافة/اظهار تحليل"}></RoundButton>
-                        {/* 
+                <RoundButton style={{ marginTop: 20 }} handleClick={() => {
+                    props.navigation.navigate('PicturesScreen', { CaseId: caseData.CaseID })
+                }} value={"اضافة/اظهار تحليل"}></RoundButton>
+                {/* 
                         <TouchableOpacity onPress={() => { console.log('pressed'); props.navigation.navigate('PicturesScreen') }} style={{ marginTop: 30 }}>
                             <Text style={{ fontSize: FontSizes.title, textDecorationLine: 'underline', color: Colors.primary }}>اضافة/اظهار تحليل</Text>
                         </TouchableOpacity> */}
@@ -140,44 +141,44 @@ const PatientProfileScreen = (props) => {
             </View>
             <RoundButton style={{ marginTop: 10 }} handleClick={() => { openMessages() }} value={"الرسائل"}></RoundButton>
             <Modal isVisible={reportModal}
-                    onRequestClose={() => { setReportModal(false); }}
-                    animationType={"slide"}
+                onRequestClose={() => { setReportModal(false); }}
+                animationType={"slide"}
 
-                >
-                    <View style={styles.MainContainer}>
-                        {/* // Index of question */}
-                        {
-                            caseData.CaseText == null ?
-                                <View>
-                                    <FlatList
-                                        showsVerticalScrollIndicator={false}
-                                        refreshing={true}
-                                        data={caseData.Questions}
-                                        style={{ marginVertical: 10 }}
-                                        renderItem={({ item, index }) => (
-                                            <View style={{ paddingVertical: 20 }}>
-                                                <View style={{ flexDirection: 'row-reverse', alignItems: 'center' }}>
-                                                    <Text style={styles.indexStyle}>{index + 1}</Text>
-                                                    {/* Question */}
-                                                    <Text style={styles.QuestionStyle}>{item.Question}</Text>
-                                                </View>
-
-                                                <View style={{}} >
-                                                    <Text style={{ fontSize: FontSizes.subtitle, textAlign: 'right' }}>  {item.Answer}</Text>
-                                                </View>
-
-
+            >
+                <View style={styles.MainContainer}>
+                    {/* // Index of question */}
+                    {
+                        caseData.CaseText == null ?
+                            <View>
+                                <FlatList
+                                    showsVerticalScrollIndicator={false}
+                                    refreshing={true}
+                                    data={caseData.Questions}
+                                    style={{ marginVertical: 10 }}
+                                    renderItem={({ item, index }) => (
+                                        <View style={{ paddingVertical: 20 }}>
+                                            <View style={{ flexDirection: 'row-reverse', alignItems: 'center' }}>
+                                                <Text style={styles.indexStyle}>{index + 1}</Text>
+                                                {/* Question */}
+                                                <Text style={styles.QuestionStyle}>{item.Question}</Text>
                                             </View>
-                                        )}
-                                    />
 
-                                </View>
-                                : <View>
-                                    <Text style={styles.QuestionStyle}>{caseData.CaseText}</Text>
-                                </View>
-                        }
-                    </View>
-                </Modal>
+                                            <View style={{}} >
+                                                <Text style={{ fontSize: FontSizes.subtitle, textAlign: 'right' }}>  {item.Answer}</Text>
+                                            </View>
+
+
+                                        </View>
+                                    )}
+                                />
+                                 <RoundButton style={{ marginTop: 20 }} handleClick={() => { setReportModal(false);  }} value={"غلق"}></RoundButton>
+                            </View>
+                            : <View>
+                                <Text style={styles.QuestionStyle}>{caseData.CaseText}</Text>
+                            </View>
+                    }
+                </View>
+            </Modal>
         </ScrollView>
     )
 }
