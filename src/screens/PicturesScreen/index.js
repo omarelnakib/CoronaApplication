@@ -65,14 +65,17 @@ const PicturesScreen = props => {
    var data = new FormData();
     imgs.forEach(img => {
       // data.append('file',img)
-    
+    var type = img.type? img.type.split('/').pop(): 'png';
+    var name = img.name || `upload${Date.now()}.${type}`;
       data.append('file',{
-        name: img.name,
+        name: Platform.OS==='android'?img.name: name  ,
        type: img.type,
         uri:Platform.OS==='android'
         ? img.uri
         : img.uri.replace('file://', '')
       })
+
+    console.log("dataname : ",name)
     });
     dispatch(Action.Send_Test(data,CaseId, (event) => {
         setIsLoading(false);
@@ -105,7 +108,7 @@ const PicturesScreen = props => {
 
         // You can also display the image using data:
         // const source = { uri: 'data:image/jpeg;base64,' + response.data };
-        console.log(response)
+        console.log("this response:",response)
 
         let tempImgs = [...imgs];
         tempImgs.push(source)

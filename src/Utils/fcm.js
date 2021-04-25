@@ -1,4 +1,4 @@
-import { AsyncStorage } from 'react-native';
+import { AsyncStorage, Alert } from 'react-native';
 import firebase, { RNFirebase } from 'react-native-firebase';
 import moment from 'moment';
 import Globals from '../assets/constants/Globals';
@@ -18,12 +18,16 @@ const getToken = async () => {
 
   return fcmToken;
 };
-const requestPermission = async () =>
-  await firebase.messaging().requestPermission();
+const requestPermission = async () =>{
+  var request = await firebase.messaging().requestPermission();
+  Alert.alert("requrest",request.toString());
+  return request;
+}
+  //Alert.alert("hey fcm")
 export const attemptToGetToken = async () =>
   requestPermission()
-    .then(() => getToken().then((fcmToken)=>Globals.NotificationToken =fcmToken ))
-    .catch(() => {});
+    .then(() => getToken().then((fcmToken)=>Globals.NotificationToken =fcmToken))
+    .catch(() =>{});
 
 function buildNotification(type, id) {
 
@@ -99,6 +103,7 @@ const createAndroidChannel = () => {
   ).setDescription('My apps test channel');
   firebase.notifications().android.createChannel(androidChannel);
 };
+
 
 const getInitialNotif = () => {
   firebase
