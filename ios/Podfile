@@ -7,7 +7,10 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 
 
 target 'AsuCare' do
+  pod 'RNFBMessaging', :path => '../node_modules/@react-native-firebase/messaging'
+
   config = use_native_modules!
+  
   use_react_native!(
     :path => config[:reactNativePath],
     # to enable hermes on iOS, change `false` to `true` and then install pods

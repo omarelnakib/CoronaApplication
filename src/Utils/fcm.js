@@ -1,7 +1,7 @@
 import { AsyncStorage, Alert } from 'react-native';
-import firebase, { RNFirebase } from 'react-native-firebase';
 import moment from 'moment';
 import Globals from '../assets/constants/Globals';
+import messaging from '@react-native-firebase/messaging';
 
 const CHANNEL_NAME = 'notifications';
 
@@ -18,17 +18,30 @@ const getToken = async () => {
 
   return fcmToken;
 };
-const requestPermission = async () =>{
-  var request = await firebase.messaging().requestPermission();
-  Alert.alert("requrest",request.toString());
-  return request;
-}
-  //Alert.alert("hey fcm")
-export const attemptToGetToken = async () =>
-  requestPermission()
-    .then(() => getToken().then((fcmToken)=>Globals.NotificationToken =fcmToken))
-    .catch(() =>{});
+// const requestPermission = async () =>{
+//   console.log("request hey")
 
+//   var request = await firebase.messaging().requestPermission();
+//   console.log("request",request)
+//   return request;
+// }
+export const attemptToGetToken = async () =>{
+
+  requestPermission()
+  // .then(() => getToken().then((fcmToken)=>Globals.NotificationToken =fcmToken))
+  // .catch(() =>{});
+
+}
+async function requestPermission() {
+  const authStatus = await messaging().requestPermission();
+  const enabled =
+    authStatus === messaging.AuthorizationStatus.AUTHORIZED ||
+    authStatus === messaging.AuthorizationStatus.PROVISIONAL;
+
+  if (enabled) {
+    console.log('Authorization status:', authStatus);
+  }
+}
 function buildNotification(type, id) {
 
 }
