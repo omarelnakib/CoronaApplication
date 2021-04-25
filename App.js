@@ -22,7 +22,6 @@ import initialState from './src/store/initialState';
 import { Provider } from 'react-redux';
 // import configureStore from './src/store/StoreConfiguration';
 // import initialState from './src/store/initialState';
-import firebase from 'react-native-firebase';
 import { autoLogin } from './src/store/Actions/Auth';
 
 // const store = configureStore(initialState);
