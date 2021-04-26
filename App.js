@@ -23,6 +23,7 @@ import { Provider } from 'react-redux';
 // import configureStore from './src/store/StoreConfiguration';
 // import initialState from './src/store/initialState';
 import { autoLogin } from './src/store/Actions/Auth';
+import NotificationService from './src/Services/NotificationService';
 
 // const store = configureStore(initialState);
 const store = configureStore(initialState);
@@ -34,8 +35,9 @@ export default function App() {
   
 
    useEffect(()=>{
-    autoLogin()
+    autoLogin();
    },[])
+   
 
   return (
     // {/* <StatusBar backgroundColor={Colors.primary} barStyle={'light-content'}/> */}

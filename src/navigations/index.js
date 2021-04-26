@@ -26,6 +26,7 @@ import { useNotificationService } from '../Services/useNotificationService';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Colors from '../assets/constants/Colors';
 import { IconButton } from 'react-native-paper';
+import NotificationService from '../Services/NotificationService';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -155,8 +156,8 @@ const FollowUpStackNavigator = () => {
   );
 }
 const MainStackNavigator = () => {
-  useNotificationService();
-
+  // useNotificationService();
+  NotificationService();
     return (
         <Stack.Navigator headerMode="none" >
           
