@@ -21,6 +21,8 @@ const CustomImageModal = props => {
                 <Image style={{width:200, height:200}}
                        source={{uri:props.source}}/>
             </ImageZoom>
+            <RoundButton handleClick={props.closeModal } style={{ marginTop: -80, }} value="غلق" ></RoundButton>
+
     </Modal>
     </>
   );

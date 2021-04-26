@@ -172,7 +172,7 @@ const PicturesScreen = props => {
         })}
       
       </View>
-      <CUstomImageModal visible={modalVisible} source={selectedImage} ModalClick={()=>{setModalVisible(false)}}></CUstomImageModal>
+      <CUstomImageModal visible={modalVisible} closeModal={()=>{setModalVisible(false)}} source={selectedImage} ModalClick={()=>{setModalVisible(false)}}></CUstomImageModal>
       <View style={{ flexDirection: 'row-reverse', flexWrap: 'wrap' }}>
       {/* <LoadingModel LoadingModalVisiblty={isLoading} /> */}
 
