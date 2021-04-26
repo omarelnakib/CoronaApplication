@@ -115,7 +115,7 @@ export const getHeaders = async (isToken,isFormData) => {
 //         .done();
 // }
 
-
+const msg = "انتهت صلاحية الحساب رجاءا اعادة تسجيل الدخول";
 export const Get = async(url,isTokenRequired) => {
         try {
             // getLang().then(async (lang) => {

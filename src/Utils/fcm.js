@@ -71,7 +71,7 @@ async function requestPermission() {
 //   return firebase.notifications().cancelAllNotifications();
 // }
 
-// export const createNotificationListeners = () => {
+export const createNotificationListeners = () => {
 //   const onIncoming = firebase.notifications().onNotification(notification => {
 //     console.log(
 //       'MyNotifsPipeline onIncoming',
@@ -87,27 +87,34 @@ async function requestPermission() {
 //       console.log('MyNotifsPipeline onNotificationDisplayed', notification);
 //     });
 
-//   const onOpened = firebase
-//     .notifications()
-//     .onNotificationOpened(notificationOpen => {
-//       const notif = notificationOpen.notification;
-//       // does not work when app was terminated
-//       console.log('MyNotifsPipeline onNotificationOpened', notif);
-//     });
+  // const onOpened = messaging().onNotificationOpened(notificationOpen => {
+  //     const notif = notificationOpen.notification;
+  //     // does not work when app was terminated
+  //     console.log('MyNotifsPipeline onNotificationOpened', notif);
+  //   });
 
 //   const onTokenRefresh = firebase.messaging().onTokenRefresh(token => {
 //     // TODO: handle new token. e.g. update token on server
 //   });
 
-//   const onMessage = firebase.messaging().onMessage(message => {
-//     console.log('MyNotifsPipeline onMessage', message, message.sentTime);
-//   });
-
+  const onMessage = messaging().onMessage(async message => {
+    console.log('MyNotifsPipeline onMessage', message, message.sentTime);
+  });
+ const onBackgroundMessage= messaging().setBackgroundMessageHandler(async remoteMessage => {
+    console.log('Message handled in the background!', remoteMessage);
+  });
+  
+  
 //   // optional -> subscribe device to topic
-//   firebase.messaging().subscribeToTopic('main-topic');
+// messaging()
+//   .subscribeToTopic('weather')
+//   .then(() => console.log('Subscribed to topic!'));
+  return { onIncoming,  onTokenRefresh, onMessage,onBackgroundMessage, onDisplayed };
+};
 
-//   return { onIncoming, onOpened, onTokenRefresh, onMessage, onDisplayed };
-// };
+// messaging()
+//   .unsubscribeFromTopic('weather')
+//   .then(() => console.log('Unsubscribed fom the topic!'));
 
 // const createAndroidChannel = () => {
 //   const androidChannel = new firebase.notifications.Android.Channel(
@@ -136,21 +143,23 @@ async function requestPermission() {
 
 const clearListeners = ({
   onIncoming,
-  onOpened,
+  // onOpened,
   onTokenRefresh,
   onMessage,
+  onBackgroundMessage,
   onDisplayed,
 }) => {
   onIncoming();
-  onOpened();
+  // onOpened();
   onTokenRefresh();
   onMessage();
+  onBackgroundMessage();
   onDisplayed();
 };
 
 export const fcm = {
   attemptToGetToken,
-//   createNotificationListeners,
+   createNotificationListeners,
 //   createAndroidChannel,
 //   getInitialNotif,
    clearListeners,

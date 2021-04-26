@@ -37,13 +37,13 @@ export const useNotificationService = () => {
     // attempt to get token and create listener
     return fcm.attemptToGetToken().then(() => {
       // Build a channel
-      fcm.createAndroidChannel();
+      //fcm.createAndroidChannel();
 
-      fcm.getInitialNotif();
+      // fcm.getInitialNotif();
 
-      fcm.getScheduledNotifications().then(notifications => {
-        notifs.updateNotifs(notifications);
-      });
+      // fcm.getScheduledNotifications().then(notifications => {
+      //   notifs.updateNotifs(notifications);
+      // });
 
     //   fcm.getDeliveredNotifications().then(notifications => {
     //     notifs.updateNotifs(notifications);
