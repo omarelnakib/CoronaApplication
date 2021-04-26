@@ -37,13 +37,15 @@ export default function App() {
    useEffect(()=>{
     autoLogin();
    },[])
-   
+
 
   return (
     // {/* <StatusBar backgroundColor={Colors.primary} barStyle={'light-content'}/> */}
     <Provider store={store}>
       <NavigationContainer ref={navigationRef}>
         <MainStackNavigator />
+        <NotificationService/>
+
       </NavigationContainer>
       </Provider>
 

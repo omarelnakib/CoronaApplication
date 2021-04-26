@@ -11,19 +11,23 @@ const NotificationService = () => {
   
   useEffect(()=>{
     const unsubscribe = messaging().onMessage(async remoteMessage => {
-        console.log("sup",remoteMessage);
-      setNotificationMessage({
+    var temp = {
         title: remoteMessage.notification.title,
         body: remoteMessage.notification.body,
-        ticketId:remoteMessage.data.ticketId,
-        type:remoteMessage.data.type
+    }
+        setNotificationMessage({
+        title: remoteMessage.notification.title,
+        body: remoteMessage.notification.body,
+        // type:remoteMessage.data.type
       });
+      console.log("sup", ref.current);
+
       ref.current?.show();
     });
     
     return unsubscribe;
   },[])
-  const onPressNotifications=(id,type)=>{
+  const onPressNotifications=()=>{
     // dispatch(getTicketDetails(id))
     // if (type !== 'ticket-deleted') {
     //   if (type !== 'auto-close') {
@@ -42,7 +46,7 @@ const NotificationService = () => {
         <NotificationsAlert
           title={notificationMessage.title}
           message={notificationMessage.body}
-          onPress={()=>onPressNotifications(notificationMessage?.ticketId,notificationMessage?.type)}
+          onPress={()=>onPressNotifications()}
         />
       }
     />

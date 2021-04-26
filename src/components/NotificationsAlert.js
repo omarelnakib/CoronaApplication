@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         paddingHorizontal: 16,
         backgroundColor: Colors.light,
-        height: 90,
+        height: 150,
         width: '100%',
         alignItems: "center",
     },
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
         height: 50
     },
     MessageView: {
-        marginLeft: 15
+        // marginLeft: 15
     },
     TitleLabel: {
         fontSize: 16,

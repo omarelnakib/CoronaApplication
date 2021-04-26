@@ -157,7 +157,6 @@ const FollowUpStackNavigator = () => {
 }
 const MainStackNavigator = () => {
   // useNotificationService();
-  NotificationService();
     return (
         <Stack.Navigator headerMode="none" >
           
