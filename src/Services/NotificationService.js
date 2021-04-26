@@ -3,6 +3,7 @@ import { Notification } from 'react-native-in-app-message';
 import messaging from '@react-native-firebase/messaging';
 import {useDispatch} from 'react-redux';
 import { NotificationsAlert } from '../components/NotificationsAlert';
+import { attemptToGetToken } from '../Utils/fcm';
 
 const NotificationService = () => {
   const ref=useRef();
@@ -10,6 +11,7 @@ const NotificationService = () => {
   const [notificationMessage, setNotificationMessage] = useState({});
   
   useEffect(()=>{
+    attemptToGetToken();
     const unsubscribe = messaging().onMessage(async remoteMessage => {
     var temp = {
         title: remoteMessage.notification.title,

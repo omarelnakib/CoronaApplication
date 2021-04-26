@@ -9,12 +9,12 @@ PODS:
     - React-Core (= 0.64.0)
     - React-jsi (= 0.64.0)
     - ReactCommon/turbomodule/core (= 0.64.0)
-  - Firebase/CoreOnly (7.10.0):
-    - FirebaseCore (= 7.10.0)
-  - Firebase/Messaging (7.10.0):
+  - Firebase/CoreOnly (7.8.1):
+    - FirebaseCore (= 7.8.0)
+  - Firebase/Messaging (7.8.1):
     - Firebase/CoreOnly
-    - FirebaseMessaging (~> 7.10.0)
-  - FirebaseCore (7.10.0):
+    - FirebaseMessaging (~> 7.8.0)
+  - FirebaseCore (7.8.0):
     - FirebaseCoreDiagnostics (~> 7.4)
     - GoogleUtilities/Environment (~> 7.0)
     - GoogleUtilities/Logger (~> 7.0)
@@ -33,7 +33,7 @@ PODS:
     - FirebaseInstallations (~> 7.0)
     - GoogleUtilities/Environment (~> 7.0)
     - GoogleUtilities/UserDefaults (~> 7.0)
-  - FirebaseMessaging (7.10.0):
+  - FirebaseMessaging (7.8.0):
     - FirebaseCore (~> 7.0)
     - FirebaseInstanceID (~> 7.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 7.0)
@@ -267,6 +267,8 @@ PODS:
     - React-Core
   - react-native-image-picker (2.3.1):
     - React
+  - react-native-in-app-message (1.0.32):
+    - React
   - react-native-progress-bar-android (1.0.4):
     - React
   - react-native-progress-view (1.2.3):
@@ -346,11 +348,11 @@ PODS:
     - React
   - RNCMaskedView (0.1.10):
     - React
-  - RNFBApp (11.3.3):
-    - Firebase/CoreOnly (= 7.10.0)
+  - RNFBApp (11.1.2):
+    - Firebase/CoreOnly (= 7.8.1)
     - React-Core
-  - RNFBMessaging (11.3.3):
-    - Firebase/Messaging (= 7.10.0)
+  - RNFBMessaging (11.1.2):
+    - Firebase/Messaging (= 7.8.1)
     - React-Core
     - RNFBApp
   - RNGestureHandler (1.6.1):
@@ -386,6 +388,7 @@ DEPENDENCIES:
   - react-native-background-timer (from `../node_modules/react-native-background-timer`)
   - "react-native-cookies (from `../node_modules/@react-native-cookies/cookies`)"
   - react-native-image-picker (from `../node_modules/react-native-image-picker`)
+  - react-native-in-app-message (from `../node_modules/react-native-in-app-message`)
   - "react-native-progress-bar-android (from `../node_modules/@react-native-community/progress-bar-android`)"
   - "react-native-progress-view (from `../node_modules/@react-native-community/progress-view`)"
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
@@ -464,6 +467,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@react-native-cookies/cookies"
   react-native-image-picker:
     :path: "../node_modules/react-native-image-picker"
+  react-native-in-app-message:
+    :path: "../node_modules/react-native-in-app-message"
   react-native-progress-bar-android:
     :path: "../node_modules/@react-native-community/progress-bar-android"
   react-native-progress-view:
@@ -522,12 +527,12 @@ SPEC CHECKSUMS:
   DoubleConversion: cf9b38bf0b2d048436d9a82ad2abe1404f11e7de
   FBLazyVector: 49cbe4b43e445b06bf29199b6ad2057649e4c8f5
   FBReactNativeSpec: 55ef6a0b0911e86c82a7b52d8a3b1a10d6aec7a5
-  Firebase: fffddd0bab8677d07376538365faa93ff3889b39
-  FirebaseCore: ec566d917b2195fc2610aeb148dae99f57a788f9
+  Firebase: d59ad4129167f9f0d2a4f6c1f0c462254b6002c8
+  FirebaseCore: 049029df3096e5c118917029be7da75ee16f3b1b
   FirebaseCoreDiagnostics: 68ad972f99206cef818230f3f3179d52ccfb7f8c
   FirebaseInstallations: a58d4f72ec5861840b84df489f2668d970df558a
   FirebaseInstanceID: ad5135045a498d7775903efd39762d2cdfa1be27
-  FirebaseMessaging: 76b3058cef7f339cf10db196e03bbbb2165fb5d7
+  FirebaseMessaging: 1d5cac3728c042d3d4700ecb56bbac893660a963
   glog: 73c2498ac6884b13ede40eda8228cb1eee9d9d62
   GoogleDataTransport: cd9db2180fcecd8da1b561aea31e3e56cf834aa7
   GoogleUtilities: e1d9ed4e544fc32a93e00e721400cbc3f377200d
@@ -547,6 +552,7 @@ SPEC CHECKSUMS:
   react-native-background-timer: 17ea5e06803401a379ebf1f20505b793ac44d0fe
   react-native-cookies: dd3fe2fd198f54d016fb6875cb8c2fb767170fdc
   react-native-image-picker: 6a850c41f57f0848d918c2a77aedd7aa272ffa30
+  react-native-in-app-message: 7a54e2fd7a490e5c33857bbbb260f855205433db
   react-native-progress-bar-android: be43138ab7da30d51fc038bafa98e9ed594d0c40
   react-native-progress-view: 21b1e29e70c7559c16c9e0a04c4adc19fce6ede2
   react-native-safe-area-context: e22a8ca00f758273d2408953965cb8db67da7925
@@ -565,8 +571,8 @@ SPEC CHECKSUMS:
   ReactCommon: cfe2b7fd20e0dbd2d1185cd7d8f99633fbc5ff05
   RNCAsyncStorage: 05bae7ecfab1cbd5441993f1ca098f7c3b3f8d0e
   RNCMaskedView: 5a8ec07677aa885546a0d98da336457e2bea557f
-  RNFBApp: 8b1b4308daa657b8ea87dbed517e31215f5f1456
-  RNFBMessaging: 851ec0d1a9cb22e80dcf5f5ea57775fe1f78e629
+  RNFBApp: bb830cc7f7598e46437b833adc841df345e19e2f
+  RNFBMessaging: ec695fc0b561e06afa33a731d86f7fa3ae49f4c1
   RNGestureHandler: 8f09cd560f8d533eb36da5a6c5a843af9f056b38
   RNReanimated: e03f7425cb7a38dcf1b644d680d1bfc91c3337ad
   RNScreens: c526239bbe0e957b988dacc8d75ac94ec9cb19da

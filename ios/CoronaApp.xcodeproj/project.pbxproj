@@ -271,9 +271,6 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
-			);
 			name = "[CP-User] [RNFB] Core Configuration";
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -532,6 +529,7 @@
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseMessaging\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/RNFBApp\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/RNFBMessaging\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/react-native-in-app-message\"",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -661,6 +659,7 @@
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseMessaging\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/RNFBApp\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/RNFBMessaging\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/react-native-in-app-message\"",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
