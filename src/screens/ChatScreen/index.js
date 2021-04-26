@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react'
-import { View } from 'react-native'
+import { Alert, Platform, ToastAndroid, View } from 'react-native'
 import styles from './style'
 import { GiftedChat, Send, Bubble } from 'react-native-gifted-chat'
-import { Text } from 'native-base'
 import { IconButton } from 'react-native-paper'
 import Colors from '../../assets/constants/Colors'
 import Header from '../../components/Header'
@@ -13,6 +12,8 @@ import { useDispatch } from 'react-redux';
 import *as Action from '../../store/Actions/Message';
 import Globals from '../../assets/constants/Globals'
 import BackgroundTimer from 'react-native-background-timer';
+import { tokenExpiredReset } from '../../store/Actions/API_Requests'
+
 const ChatScreen = (props) => {
     const [messages, setMessages] = useState([]);
     const dispatch = useDispatch();
@@ -70,6 +71,10 @@ const ChatScreen = (props) => {
                 console.log("mapped",messages)
                 setMessages(messages)
             }
+            else if(event.status==401){
+                setIsLoading(false);
+               tokenExpiredReset();
+            }
             else {
                 setIsLoading(false);
                 toast(event.data)
@@ -101,6 +106,9 @@ const ChatScreen = (props) => {
                 setMessages(previousMessages => GiftedChat.append(previousMessages, messages))
 
                 // props.nav.navigate('DrawerNavigator')
+            } else if(event.status==401){
+                setIsLoading(false);
+               tokenExpiredReset();
             }
             else {
                 // setIsLoading(false);

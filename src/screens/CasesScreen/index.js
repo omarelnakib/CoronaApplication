@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react'
-import { View, FlatList } from 'react-native'
+import { View, FlatList, Platform, ToastAndroid, Alert } from 'react-native'
 import styles from './style'
 import Colors from '../../assets/constants/Colors'
 import Header from '../../components/Header'
@@ -13,6 +13,9 @@ import { useDispatch } from 'react-redux';
 import *as Action from '../../store/Actions/Cases';
 import Globals from '../../assets/constants/Globals'
 import DropDownHeader from '../../components/DropDownHeader'
+import AsyncStorage from '@react-native-async-storage/async-storage'
+import { reset } from '../../navigations/NavigationService'
+import { tokenExpiredReset } from '../../store/Actions/API_Requests'
 const CasesScreen = (props) => {
   const [isLoading, setIsLoading] = useState(true);
   const dispatch = useDispatch();
@@ -33,6 +36,10 @@ const CasesScreen = (props) => {
         setCases(event.data);
         // props.nav.navigate('DrawerNavigator')
       }
+      else if(event.status==401){
+        setIsLoading(false);
+       tokenExpiredReset();
+    }
       else {
         setIsLoading(false);
         toast(event.data)

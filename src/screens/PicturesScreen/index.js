@@ -16,6 +16,8 @@ import *as Action from '../../store/Actions/Cases';
 import Image from 'react-native-image-progress';
 import ProgressBar from 'react-native-progress/Bar';
 import CUstomImageModal from '../../components/CustomImageModal';
+import { tokenExpiredReset } from '../../store/Actions/API_Requests'
+
 const PicturesScreen = props => {
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(false);
@@ -52,6 +54,10 @@ const PicturesScreen = props => {
           console.log(event.data);
           setRetrievedImgs(event.data)
           }
+          else if(event.status==401){
+            setIsLoading(false);
+           tokenExpiredReset();
+        }
         else {
             setIsLoading(false);
             toast(event.data)
@@ -82,6 +88,10 @@ const PicturesScreen = props => {
         if (event.ok) {
           props.navigation.goBack();
           }
+          else if(event.status==401){
+            setIsLoading(false);
+           tokenExpiredReset();
+        }
         else {
             setIsLoading(false);
             toast(event.data)
@@ -125,40 +135,21 @@ const PicturesScreen = props => {
         HandleBack={() => props.navigation.pop()}
       ></Header>
       <ScrollView style={{marginBottom:50}}>
-       <View style={{ flexDirection: 'row-reverse', flexWrap: 'wrap' }}>
+       <View style={{ flexDirection: 'row-reverse', flexWrap: 'wrap',width:'100%',justifyContent:'center' }}>
       <LoadingModel LoadingModalVisiblty={isLoading} />
-      {/* <FlatList
-                showsVerticalScrollIndicator={false}
-                refreshing={true}
-                data={retrievedImgs}
-                style={{marginVertical:10}}
-                renderItem={({ item, index }) => (
-                )}
-                keyExtractor={item => item._id}
-            /> */}
+     
         {retrievedImgs.map((item, index) => {
           // Image Picker
           return (
-            <View>
+            <View >
               
-              {/* <ImageModal
-                swipeToDismiss={true}
-                resizeMode="contain"
-                imageBackgroundColor={Colors.light}
-                
-                style={{
-                  width: 150,
-                  height: 150,
-                  margin: 10
-                }}
-                source={{uri:item.FilePath}}
-              /> */}
+             
               <TouchableOpacity onPress={()=>{ setSelectedImage(item.FilePath); setModalVisible(true)}}>
               <Image
               source={{uri:item.FilePath}}
               style={{
-                width: 150,
-                height: 150,
+                width: 100,
+                height: 100,
                 margin: 10
               }}
               indicator={ProgressBar} 
@@ -173,7 +164,7 @@ const PicturesScreen = props => {
       
       </View>
       <CUstomImageModal visible={modalVisible} closeModal={()=>{setModalVisible(false)}} source={selectedImage} ModalClick={()=>{setModalVisible(false)}}></CUstomImageModal>
-      <View style={{ flexDirection: 'row-reverse', flexWrap: 'wrap' }}>
+      <View style={{ flexDirection: 'row-reverse', flexWrap: 'wrap',width:'100%' }}>
       {/* <LoadingModel LoadingModalVisiblty={isLoading} /> */}
 
         {imgs.map((item, index) => {

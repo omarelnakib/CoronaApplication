@@ -307,7 +307,18 @@ export const Delete = async(url,Data, isTokenRequired) => {
         }
 };
 
+export const tokenExpiredReset  = () =>{
+        // toast("انتهت صلاحية الحساب رجاءا اعادة تسجيل الدخول")
+        if (Platform.OS === 'android') {
+            ToastAndroid.show(msg, ToastAndroid.SHORT)
+          } else {
+            AlertIOS.alert(msg);
+          }
+          AsyncStorage.removeItem('User');
 
+        reset("AuthStackNavigator")
+
+};
 export const setData = (actionType, data) => {
     return {type: actionType, data: data};
 }

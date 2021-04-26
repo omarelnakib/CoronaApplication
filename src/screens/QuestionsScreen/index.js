@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, ImageBackground, Dimensions, TouchableOpacity, Text, Keyboard, KeyboardAvoidingView, TouchableWithoutFeedback, ScrollView, Image, SafeAreaView, FlatList } from 'react-native';
+import { View, ImageBackground, Dimensions, TouchableOpacity, Text, Keyboard, KeyboardAvoidingView, TouchableWithoutFeedback, ScrollView, Image, SafeAreaView, FlatList, Platform, ToastAndroid, Alert } from 'react-native';
 import Style from './style';
 import ImagesPaths from '../../assets/constants/ImagesPaths'
 import Colors from '../../assets/constants/Colors';
@@ -21,6 +21,7 @@ import Modal from 'react-native-modal'
 import RoundButton from '../../components/RoundButton';
 import DropDownHeader from '../../components/DropDownHeader';
 import InputText from '../../components/InputText';
+import { tokenExpiredReset } from '../../store/Actions/API_Requests'
 
 const { height, width } = Dimensions.get('window');
 
@@ -62,7 +63,11 @@ const QuestionsScreen = props => {
         });
         setDataList(questions);
         // props.nav.navigate('DrawerNavigator')
-      }
+      }  
+      else if(event.status==401){
+        setIsLoading(false);
+       tokenExpiredReset();
+    }
       else {
         setIsLoading(false);
         toast(event.data)
@@ -129,6 +134,10 @@ const QuestionsScreen = props => {
         setCaseId(event.data.CaseID);
         // props.nav.navigate('DrawerNavigator')
       }
+      else if(event.status==401){
+        setIsLoading(false);
+       tokenExpiredReset();
+    }
       else {
         setIsLoading(false);
         toast(event.data)
@@ -148,6 +157,10 @@ const QuestionsScreen = props => {
         setCaseId(event.data.CaseID);
         // props.nav.navigate('DrawerNavigator')
       }
+      else if(event.status==401){
+        setIsLoading(false);
+       tokenExpiredReset();
+    }
       else {
         setIsLoading(false);
         toast(event.data)

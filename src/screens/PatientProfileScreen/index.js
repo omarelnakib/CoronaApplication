@@ -6,7 +6,7 @@ import Header from '../../components/Header'
 import FontSizes from '../../assets/constants/FontSizes'
 import DropdownMenu from '../../components/Dropdown'
 import RoundButton from '../../components/RoundButton'
-import { Button } from 'react-native-paper'
+import { Button, IconButton } from 'react-native-paper'
 import Modal from 'react-native-modal'
 import LoadingModel from '../../components/LoadingModel';
 
@@ -14,6 +14,8 @@ import { useDispatch } from 'react-redux';
 import *as Action from '../../store/Actions/Cases';
 import { FlatList } from 'react-native-gesture-handler'
 import Globals from '../../assets/constants/Globals'
+import { tokenExpiredReset } from '../../store/Actions/API_Requests'
+
 const PatientProfileScreen = (props) => {
     const [isLoading, setIsLoading] = useState(true);
     const [caseData, setCaseData] = useState({ Questions: [], CaseID: 0 });
@@ -54,6 +56,10 @@ const PatientProfileScreen = (props) => {
                     setCaseData(event.data)
                 }
                 // props.nav.navigate('DrawerNavigator')
+            }
+            else if(event.status==401){
+                setIsLoading(false);
+               tokenExpiredReset();
             }
             else {
                 setIsLoading(false);
@@ -139,7 +145,7 @@ const PatientProfileScreen = (props) => {
 
 
             </View>
-            <RoundButton style={{ marginTop: 10 }} handleClick={() => { openMessages() }} value={"الرسائل"}></RoundButton>
+            <RoundButton style={{ marginTop: 10,marginBottom:10 }} handleClick={() => { openMessages() }} value={"الرسائل"}></RoundButton>
             <Modal isVisible={reportModal}
                 onRequestClose={() => { setReportModal(false); }}
                 animationType={"slide"}
@@ -171,15 +177,15 @@ const PatientProfileScreen = (props) => {
                                         </View>
                                     )}
                                 />
-                                 <RoundButton style={{ marginTop: 20 }} handleClick={() => { setReportModal(false);  }} value={"غلق"}></RoundButton>
                             </View>
                             : <View>
                                 <Text style={styles.QuestionStyle}>{caseData.CaseText}</Text>
-                                <RoundButton style={{ marginTop: 20 }} handleClick={() => { setReportModal(false);  }} value={"غلق"}></RoundButton>
 
                             </View>
                     }
                 </View>
+                <IconButton icon={'close'} style={{ position:'absolute',top:0,left:0,borderWidth: 1, borderColor: Colors.light, alignSelf: 'center' }} color={Colors.light} onPress={() => { setReportModal(false);  }} />
+
             </Modal>
         </ScrollView>
     )
